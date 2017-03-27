@@ -3,7 +3,7 @@ var expect = chai.expect;
 
 var fibonacci = require('../problems/fibonacci');
 var palindromePermutation = require('../problems/palindrome-permutation');
-
+var palindrome = require('../problems/isPalindrome');
 
 describe('toy problems', ()=>{
   describe('fibonacci', ()=>{
@@ -29,6 +29,7 @@ describe('toy problems', ()=>{
   });
 
   describe('palindrome permutation', ()=> {
+
     it('should be a function', ()=> {
       expect(palindromePermutation).to.be.a('function');
     });
@@ -40,6 +41,27 @@ describe('toy problems', ()=>{
     });
     it('should true when argument is not a permutation of a string', ()=> {
       expect(palindromePermutation('kaak')).to.be.true;
+    });
+  });
+
+  describe('palindrome', ()=> {
+
+    it('should be a function', ()=> {
+      expect(palindrome).to.be.a('function');
+    });
+    it('should return a Boolean', ()=> {
+      expect(palindrome('bigoldcat')).to.be.a('Boolean');
+    });
+    it('should false when argument is not a permutation of a string', ()=> {
+      expect(palindrome('bigoldcat')).to.be.false;
+    });
+    it('should true when argument is not a permutation of a string', ()=> {
+      expect(palindrome('kayak')).to.be.true;
+      expect(palindrome('taco cat')).to.be.true;
+    });
+    it('should true when argument is not a permutation of a string', ()=> {
+      expect(palindrome('kaysasasaak')).to.be.false;
+      expect(palindrome('straw warts')).to.be.true;
     });
   });
 
