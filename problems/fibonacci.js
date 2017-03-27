@@ -1,3 +1,5 @@
+// find the nth instance of the fibonacci sequence
+
 
 module.exports = function fibonacci(n) {
 
