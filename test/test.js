@@ -3,7 +3,8 @@ var expect = chai.expect;
 
 var fibonacci = require('../problems/fibonacci');
 var palindromePermutation = require('../problems/palindrome-permutation');
-var palindrome = require('../problems/isPalindrome');
+var palindrome = require('../problems/is-palindrome');
+var bubbleSort = require('../problems/bubble-sort');
 
 describe('toy problems', ()=>{
   describe('fibonacci', ()=>{
@@ -63,6 +64,19 @@ describe('toy problems', ()=>{
       expect(palindrome('kaysasasaak')).to.be.false;
       expect(palindrome('straw warts')).to.be.true;
     });
+  });
+
+  describe('bubbleSort', ()=>{
+    it('should be a function', ()=> {
+      expect(bubbleSort).to.be.a('function');
+    });
+
+    it('should return an array', ()=>{
+      console.log(bubbleSort([]));
+
+      expect(bubbleSort([])).to.eql([]); 
+    });
+
   });
 
 });
