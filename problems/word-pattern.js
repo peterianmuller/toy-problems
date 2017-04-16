@@ -9,11 +9,20 @@ var wordPattern = function(word, pattern){
   if (words.length !== pattern.length) {
     return false;
   }
+
+  //iterate over the pattern
+  for (var i = 0; i < pattern.length; i++) {
+    if (!storage[pattern[i]]) {
+      storage[pattern[i]] = words[i];
+    } else if (storage[pattern[i]] !== words[i]) {
+      return false;
+    }
+  }
+  return true;
  
 }
 
 
-wordPattern("dog cat cat fish", "abba");
 // pattern = "abba", str = "dog cat cat fish" should return false.
 // pattern = "aaaa", str = "dog cat cat dog" should return false.
 // pattern = "abba", str = "dog dog dog dog" should return false.

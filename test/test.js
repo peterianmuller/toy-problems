@@ -81,6 +81,17 @@ describe('toy problems', ()=>{
     it('should be a function', ()=> {
       expect(bubbleSort).to.be.a('function');
     });
+    it('should return false when the number of words doesn\'t match the number of pattern characters', ()=> {
+      expect(wordPattern('cat dog', 'a')).to.be.false;
+    });
+    it('should return false when the words don\t match the pattern', ()=> {
+      expect(wordPattern('cat dog', 'aa')).to.be.false;
+    });
+    it('should return true when the words match the pattern', ()=> {
+      expect(wordPattern('cat cat', 'aa')).to.be.true;
+    });
+
+
   });
 
 });
