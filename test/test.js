@@ -5,6 +5,7 @@ var fibonacci = require('../problems/fibonacci');
 var palindromePermutation = require('../problems/palindrome-permutation');
 var palindrome = require('../problems/is-palindrome');
 var bubbleSort = require('../problems/bubble-sort');
+var wordPattern = require('../problems/word-pattern');
 
 describe('toy problems', ()=>{
   describe('fibonacci', ()=>{
@@ -72,11 +73,14 @@ describe('toy problems', ()=>{
     });
 
     it('should return an array', ()=>{
-      console.log(bubbleSort([]));
-
       expect(bubbleSort([])).to.eql([]); 
     });
+  });
 
+  describe('wordPattern', ()=>{
+    it('should be a function', ()=> {
+      expect(bubbleSort).to.be.a('function');
+    });
   });
 
 });
