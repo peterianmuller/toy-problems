@@ -1,7 +1,7 @@
 // find the nth instance of the fibonacci sequence
 
 
-module.exports = function fibonacci(n) {
+const fibonacci = n => {
 
     if (n === 0) {
       return 0;
@@ -14,4 +14,6 @@ module.exports = function fibonacci(n) {
   return fibonacci(n);
 
 };
+
+module.exports = fibonacci
 

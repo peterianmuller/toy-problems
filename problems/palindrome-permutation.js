@@ -1,6 +1,6 @@
 // Define a function that takes in a string and returns a Boolean if that string is a permutation of a palindrome
 
-module.exports = function palindromePermutation(str){
+palindromePermutation = str => {
   // create storage object
   var storage = {};
 
@@ -26,3 +26,5 @@ module.exports = function palindromePermutation(str){
 
   return true;
 };
+
+module.exports = palindromePermutation;

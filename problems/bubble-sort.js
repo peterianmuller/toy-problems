@@ -1,6 +1,6 @@
 
 
-module.exports = function bubbleSort(array) {
+bubbleSort = array => {
   //start at first element
   for (var i = 0; i < array.length; i++) {
     var current = array[i];
@@ -15,3 +15,5 @@ module.exports = function bubbleSort(array) {
   }
   return array;
 };
+
+module.exports = bubbleSort

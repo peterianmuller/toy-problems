@@ -88,9 +88,11 @@ describe('toy problems', ()=>{
       expect(wordPattern('cat dog', 'aa')).to.be.false;
     });
     it('should return true when the words match the pattern', ()=> {
-      expect(wordPattern('cat cat', 'aa')).to.be.true;
+      expect(wordPattern('horse horse', 'aa')).to.be.true;
     });
-
+    it('should return false when the repeat words but don\'t match the pattern', ()=> {
+      expect(wordPattern('horse horse', 'ba')).to.be.false;
+    });
 
   });
 

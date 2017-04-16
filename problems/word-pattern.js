@@ -1,6 +1,6 @@
 //inputs 
 
-var wordPattern = function(word, pattern){
+const wordPattern = (word, pattern) =>{
   // make storage object
   var storage = {};
   var words = word.split(' ');
@@ -17,7 +17,15 @@ var wordPattern = function(word, pattern){
     } else if (storage[pattern[i]] !== words[i]) {
       return false;
     }
+
+    // checking if different letters in pattern but same word in obj
+    if (pattern[i] !== pattern[i-1]) {
+      if (storage[pattern[i]] === storage[pattern[i-1]]) {
+        return false;
+      }  
+    }
   }
+
   return true;
  
 }
