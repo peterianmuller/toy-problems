@@ -12,9 +12,12 @@ const wordPattern = (word, pattern) =>{
 
   //iterate over the pattern
   for (var i = 0; i < pattern.length; i++) {
+    // if no property for pattern item
     if (!storage[pattern[i]]) {
+      //add key for pattern item and have it point to word at same index i.
       storage[pattern[i]] = words[i];
     } else if (storage[pattern[i]] !== words[i]) {
+      //if pattern item at index doesn't point to word
       return false;
     }
 
@@ -25,14 +28,17 @@ const wordPattern = (word, pattern) =>{
       }  
     }
   }
+  console.log(storage);
 
   return true;
  
 }
 
+// main idea - iterate through the pattern at the same time of the words
+// add prop to storage object storage[pattern[i]] = string[i]
+// this way we compare not only that storage[pattern[i]] exists, but that the order remains.
 
-// pattern = "abba", str = "dog cat cat fish" should return false.
-// pattern = "aaaa", str = "dog cat cat dog" should return false.
-// pattern = "abba", str = "dog dog dog dog" should return false.
+console.log(wordPattern('cat dog dog cat', 'abba'));
+
 
 module.exports = wordPattern;
