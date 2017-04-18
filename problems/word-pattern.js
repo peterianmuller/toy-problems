@@ -28,7 +28,6 @@ const wordPattern = (word, pattern) =>{
       }  
     }
   }
-  console.log(storage);
 
   return true;
  
@@ -37,8 +36,6 @@ const wordPattern = (word, pattern) =>{
 // main idea - iterate through the pattern at the same time of the words
 // add prop to storage object storage[pattern[i]] = string[i]
 // this way we compare not only that storage[pattern[i]] exists, but that the order remains.
-
-console.log(wordPattern('cat dog dog cat', 'abba'));
 
 
 module.exports = wordPattern;

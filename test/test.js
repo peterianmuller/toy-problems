@@ -6,6 +6,7 @@ var palindromePermutation = require('../problems/palindrome-permutation');
 var palindrome = require('../problems/is-palindrome');
 var bubbleSort = require('../problems/bubble-sort');
 var wordPattern = require('../problems/word-pattern');
+var fisherYates = require('../problems/fisher-yates');
 
 describe('toy problems', ()=>{
   describe('fibonacci', ()=>{
@@ -92,6 +93,13 @@ describe('toy problems', ()=>{
     });
     it('should return false when the repeat words but don\'t match the pattern', ()=> {
       expect(wordPattern('horse horse', 'ba')).to.be.false;
+    });
+
+  });
+
+  describe('fisherYates', ()=>{
+    it('should be a function', ()=>{
+      expect(fisherYates).to.be.a('function');
     });
 
   });
