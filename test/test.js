@@ -101,6 +101,12 @@ describe('toy problems', ()=>{
     it('should be a function', ()=>{
       expect(fisherYates).to.be.a('function');
     });
+    it('should return an array', ()=>{
+      expect(fisherYates([1])).to.eql([1]); 
+    });
+    it('should return a shuffled version of the original array', ()=>{
+      expect(fisherYates([1,2,3])).to.not.eql([1,2,3]); 
+    });
 
   });
 
