@@ -105,7 +105,16 @@ describe('toy problems', ()=>{
       expect(fisherYates([1])).to.eql([1]); 
     });
     it('should return a shuffled version of the original array', ()=>{
-      expect(fisherYates([1,2,3])).to.not.eql([1,2,3]); 
+      expect(fisherYates([1,2,3,4,5,6,7])).to.not.eql([1,2,3,4,5,6,7]); 
+    });
+    it('should have the same elements as original input array', ()=>{
+      let shuffled = fisherYates([1,2,3,4]);
+      let duplicateFree = [];
+      duplicateFree = shuffled.map(item => {
+        return duplicateFree.indexOf(item) === -1; 
+      });
+      expect(shuffled.length).to.eql(duplicateFree.length);
+
     });
 
   });
