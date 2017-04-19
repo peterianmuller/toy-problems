@@ -1,19 +1,25 @@
-var balancedParens = function(input) {
+var balancedBrackets = function(input) {
 
   // if input length is 1 or 0 reutrn false
-  if (input.length === 0 || input.length === 1) {
+  if (!input || input.length === 0 || input.length === 1) {
     return false;
   }
 
   // create storage object with opposite pairs
 
+  var storage = {
+    '(' : ')',
+    '[' : ']',
+    '{' : '}'
+  }
+
 
   var stack = [];
 
-  // iterate trough string and when find opening bracket push to stack
+  // iterate over string and when find opening bracket push to stack
   for (var i = 0; i < input.length; i++) {
     var current = input.charAt(i);
-    if (current === '(' || current === '[' || current === '{' ) {
+    if (storage[current]) {
       stack.push(storage[current]);
     }
     if (current === ')' || current === ']' || current === '}') {
@@ -30,3 +36,5 @@ var balancedParens = function(input) {
 
   return true;
 };
+
+module.exports = balancedBrackets;

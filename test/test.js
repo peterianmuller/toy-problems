@@ -6,6 +6,7 @@ var palindromePermutation = require('../problems/palindrome-permutation');
 var palindrome = require('../problems/is-palindrome');
 var bubbleSort = require('../problems/bubble-sort');
 var wordPattern = require('../problems/word-pattern');
+var balancedBrackets = require('../problems/balanced-brackets');
 var fisherYates = require('../problems/fisher-yates');
 
 describe('toy problems', ()=>{
@@ -72,9 +73,11 @@ describe('toy problems', ()=>{
     it('should be a function', ()=> {
       expect(bubbleSort).to.be.a('function');
     });
-
     it('should return an array', ()=>{
       expect(bubbleSort([])).to.eql([]); 
+    });
+    it('should return null when passed argument that is not an array', ()=>{
+      expect(bubbleSort('not an array')).to.eql(null); 
     });
   });
 
@@ -97,6 +100,21 @@ describe('toy problems', ()=>{
 
   });
 
+  describe('balancedBrackets', ()=>{
+    it('should be a function', ()=>{
+      expect(balancedBrackets).to.be.a('function');
+    });
+    it('should return a Boolean', ()=>{
+      expect(balancedBrackets()).to.be.a('Boolean');
+    });
+    it('should return true when there are balanced brackets', ()=>{
+      expect(balancedBrackets('()[]{}')).to.be.true;
+    });
+    it('should return false when there are unbalanced brackets', ()=>{
+      expect(balancedBrackets('((((')).to.be.false;
+    });
+  });
+
   describe('fisherYates', ()=>{
     it('should be a function', ()=>{
       expect(fisherYates).to.be.a('function');
@@ -114,7 +132,9 @@ describe('toy problems', ()=>{
         return duplicateFree.indexOf(item) === -1; 
       });
       expect(shuffled.length).to.eql(duplicateFree.length);
-
+    });
+    it('should return null if no array is passed', ()=>{
+      expect(fisherYates(undefined)).to.eql(null);
     });
 
   });

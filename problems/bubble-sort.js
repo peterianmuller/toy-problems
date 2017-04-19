@@ -1,6 +1,9 @@
 
 
 bubbleSort = array => {
+  if (!Array.isArray(array)) {
+    return null;
+  }
   //start at first element
   for (var i = 0; i < array.length; i++) {
     console.log('i is: ', i);
