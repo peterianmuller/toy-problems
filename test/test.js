@@ -30,6 +30,9 @@ describe('toy problems', ()=>{
     it('should return 5 when passed 5', ()=>{
       expect(fibonacci(5)).to.equal(5);
     });
+    it('should return null when passed a non-number input', ()=>{
+      expect(fibonacci([1,2,3])).to.eql(null);
+    });
   });
 
   describe('palindrome permutation', ()=> {
