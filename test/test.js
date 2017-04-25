@@ -8,6 +8,7 @@ var bubbleSort = require('../problems/bubble-sort');
 var wordPattern = require('../problems/word-pattern');
 var balancedBrackets = require('../problems/balanced-brackets');
 var fisherYates = require('../problems/fisher-yates');
+var rotateArray = require('../problems/rotate-array');
 
 describe('toy problems', ()=>{
   describe('fibonacci', ()=>{
@@ -140,6 +141,15 @@ describe('toy problems', ()=>{
       expect(fisherYates(undefined)).to.eql(null);
     });
 
+  });
+
+  describe('rotateArray', ()=>{
+    it('should be a function', ()=>{
+      expect(rotateArray).to.be.a('function');
+    });
+    it('should return an array', ()=>{
+      expect(rotateArray([])).to.be.a('array');
+    });
   });
 
 });
