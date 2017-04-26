@@ -171,6 +171,32 @@ describe('toy problems', ()=>{
       tree.addChild(0);
       expect(tree.children.length).to.eql(1); 
     });
+    it('should have a breath first search method', ()=>{
+      let storage = [];
+      let tree = new Tree(10);
+      tree.addChild(0);
+      tree.addChild(1);
+      tree.children[0].addChild(5);
+
+      expect(tree.BFS(function(node){
+        storage.push(node.val);
+      }));
+
+      expect(storage).to.eql([10,0,1,5]);
+
+      storage = [];
+
+      tree.addChild(9);
+      tree.children[1].addChild(9);
+
+      expect(tree.BFS(function(node){
+        storage.push(node.val);
+      }));
+
+      expect(storage).to.eql([10,0,1,9,5,9]);
+
+
+    });
 
   })
 
