@@ -150,6 +150,10 @@ describe('toy problems', ()=>{
     it('should return an array', ()=>{
       expect(rotateArray([])).to.be.a('array');
     });
+    it('should return an array', ()=>{
+      expect(rotateArray([[1,2], [3,4]])).to.be.a('array');
+      expect(rotateArray([[1,2], [3,4]])).to.eql([[3,1], [4,2]]);
+    });
   });
 
 });
