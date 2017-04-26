@@ -9,6 +9,7 @@ var wordPattern = require('../problems/word-pattern');
 var balancedBrackets = require('../problems/balanced-brackets');
 var fisherYates = require('../problems/fisher-yates');
 var rotateArray = require('../problems/rotate-array');
+var Tree = require('../problems/n-ary-tree');
 
 describe('toy problems', ()=>{
   describe('fibonacci', ()=>{
@@ -159,6 +160,19 @@ describe('toy problems', ()=>{
       expect(rotateArray([[1,2,3], [4,5,6], [7,8,9]])).to.eql([[7,4,1], [8,5,2], [9,6,3]]);
     });
   });
+
+  describe('N-ary Tree', ()=>{
+    it('should be a function', ()=>{
+      expect(Tree).to.be.a('function');
+    });
+    it('should be able to add children', ()=>{
+      let tree = new Tree(9);
+      expect(tree.children.length).to.eql(0);
+      tree.addChild(0);
+      expect(tree.children.length).to.eql(1); 
+    });
+
+  })
 
 });
 
