@@ -150,9 +150,13 @@ describe('toy problems', ()=>{
     it('should return an array', ()=>{
       expect(rotateArray([])).to.be.a('array');
     });
-    it('should return an array', ()=>{
+    it('should rotate a 2 x 2 matrix', ()=>{
       expect(rotateArray([[1,2], [3,4]])).to.be.a('array');
       expect(rotateArray([[1,2], [3,4]])).to.eql([[3,1], [4,2]]);
+    });
+    it('should contain a helper function switchCorners that switches corner elements', ()=>{
+      expect(rotateArray([[1,2,3], [4,5,6], [7,8,9]])).to.be.a('array');
+      expect(rotateArray([[1,2,3], [4,5,6], [7,8,9]])).to.eql([[7,4,1], [8,5,2], [9,6,3]]);
     });
   });
 
