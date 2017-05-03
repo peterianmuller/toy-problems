@@ -198,6 +198,18 @@ describe('toy problems', ()=>{
 
     });
 
+    it('BFS method should be able to invoke a callback function on each node in the list', ()=>{
+      let tree = new Tree(0);
+      tree.addChild(1);
+      tree.addChild(2);
+      tree.addChild(3);
+      let sum = 0;
+      tree.BFS(function(node){
+        sum += node.val;  
+      });
+      expect(sum).to.eql(6);
+    });
+
   })
 
 });
