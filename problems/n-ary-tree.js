@@ -26,8 +26,6 @@ Tree.prototype.BFS = function(cb) {
 
 Tree.prototype.DFS = function(cb) {
 
-  // create stack
-  let 
 }  
 
 module.exports = Tree;

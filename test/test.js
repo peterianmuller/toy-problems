@@ -10,6 +10,7 @@ var balancedBrackets = require('../problems/balanced-brackets');
 var fisherYates = require('../problems/fisher-yates');
 var rotateArray = require('../problems/rotate-array');
 var Tree = require('../problems/n-ary-tree');
+var twoSum = require('../problems/two-sum.js');
 
 describe('toy problems', ()=>{
   describe('fibonacci', ()=>{
@@ -211,6 +212,12 @@ describe('toy problems', ()=>{
     });
 
   })
+
+describe('twoSum', ()=>{
+  it('should be a function', ()=>{
+    expect(twoSum).to.be.a('function');
+  })
+});
 
 });
 
