@@ -216,7 +216,16 @@ describe('toy problems', ()=>{
 describe('twoSum', ()=>{
   it('should be a function', ()=>{
     expect(twoSum).to.be.a('function');
-  })
+  });
+  it('should return null if there are no elements that match the target', ()=>{
+    expect(twoSum([1,2,3], -5)).to.eql(null);
+  }); 
+  it('should return an array of indexes of the elements that match the target', ()=>{
+    expect(twoSum([-1,-5,7,10], 5)).to.eql([1,3]);
+  });
+  it('should return the indexes of the first match found', ()=>{
+    expect(twoSum([1,2,1,2,1,2], 3)).to.eql([0,1]);
+  });
 });
 
 });
