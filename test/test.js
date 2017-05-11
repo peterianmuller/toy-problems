@@ -213,19 +213,31 @@ describe('toy problems', ()=>{
 
   })
 
-describe('twoSum', ()=>{
+describe('twoSumQuadratic', ()=>{
+  let twoSumQuadratic = twoSum.twoSumQuadratic;
   it('should be a function', ()=>{
-    expect(twoSum).to.be.a('function');
+    expect(twoSumQuadratic).to.be.a('function');
   });
-  it('should return null if there are no elements that match the target', ()=>{
-    expect(twoSum([1,2,3], -5)).to.eql(null);
+  it('should return null if there are no elements add up to match the target', ()=>{
+    expect(twoSumQuadratic([1,2,3], -5)).to.eql(null);
   }); 
   it('should return an array of indexes of the elements that match the target', ()=>{
-    expect(twoSum([-1,-5,7,10], 5)).to.eql([1,3]);
+    expect(twoSumQuadratic([-1,-5,7,10], 5)).to.eql([1,3]);
   });
   it('should return the indexes of the first match found', ()=>{
-    expect(twoSum([1,2,1,2,1,2], 3)).to.eql([0,1]);
+    expect(twoSumQuadratic([1,2,1,2,1,2], 3)).to.eql([0,1]);
   });
+});
+
+describe('twoSumLinear', ()=>{
+  let twoSumLinear = twoSum.twoSumLinear;
+  it('should be a function', ()=>{
+    expect(twoSumLinear).to.be.a('function');
+  });
+  it('should return the indexes of the elements that when added up equal to the target', ()=>{
+    expect(twoSumLinear([1,2,3], 3)).to.eql([0,1]);
+  });
+
 });
 
 });
