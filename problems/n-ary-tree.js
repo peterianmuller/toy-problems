@@ -4,26 +4,30 @@ var Tree = function(val){
 }
 
 Tree.prototype.addChild = function(val) {
-  var node = new Tree(val);
+  let node = new Tree(val);
   this.children.push(node);
 }
 
 Tree.prototype.BFS = function(cb) {
 
   // create queue
-  var queue = [];
+  let queue = [];
 
   //add first node to queue
   queue.push(this);
   
-  console.log('queue is:', queue);
-
   while (queue.length > 0) {
     // shift off element from queue
-    var current = queue.shift();
+    let current = queue.shift();
     cb(current);
     queue = queue.concat(current.children);
   }
-};  
+};
+
+Tree.prototype.DFS = function(cb) {
+
+  // create stack
+  let 
+}  
 
 module.exports = Tree;
