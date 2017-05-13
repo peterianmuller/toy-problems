@@ -231,6 +231,7 @@ describe('twoSumQuadratic', ()=>{
 });
 
 describe('twoSumLinear', ()=>{
+  console.log(twoSum);
   let twoSumLinear = twoSum.twoSumLinear;
   it('should be a function', ()=>{
     expect(twoSumLinear).to.be.a('function');
@@ -242,15 +243,23 @@ describe('twoSumLinear', ()=>{
 });
 
 describe('infiniteLinkedList', ()=> {
-  it('should have a method Node that insantiates a new node object', ()=>{
-    let Node = infiniteLinkedList.node;
+  let Node = infiniteLinkedList.node;
+  //console.log(infiniteLinkedList);
+  let hasCycle = infiniteLinkedList.infiniteLinkedList;
+  console.log('hasCycle is:', hasCycle);
+  let peteNode = new Node(8);
+
+  it('should have a class Node that insantiates a new node object', ()=>{
     expect(Node).to.be.a('function');
-    
-    let peteNode = new Node(8);
     expect(peteNode.value).to.eql(8); 
   });
 
-  
+  it('should have a function infiniteLinkedList', ()=>{
+    peteNode.next = new Node(10);
+    peteNode.next.next = new Node(11);
+    expect(hasCycle(peteNode)).to.eql(false);
+    peteNode.next.next.next = peteNode;  
+  })
 });
 
 });
