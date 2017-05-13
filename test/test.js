@@ -11,6 +11,7 @@ var fisherYates = require('../problems/fisher-yates');
 var rotateArray = require('../problems/rotate-array');
 var Tree = require('../problems/n-ary-tree');
 var twoSum = require('../problems/two-sum.js');
+var infiniteLinkedList = require('../problems/infinite-linked-list.js');
 
 describe('toy problems', ()=>{
   describe('fibonacci', ()=>{
@@ -238,6 +239,18 @@ describe('twoSumLinear', ()=>{
     expect(twoSumLinear([1,2,3], 3)).to.eql([0,1]);
   });
 
+});
+
+describe('infiniteLinkedList', ()=> {
+  it('should have a method Node that insantiates a new node object', ()=>{
+    let Node = infiniteLinkedList.node;
+    expect(Node).to.be.a('function');
+    
+    let peteNode = new Node(8);
+    expect(peteNode.value).to.eql(8); 
+  });
+
+  
 });
 
 });
