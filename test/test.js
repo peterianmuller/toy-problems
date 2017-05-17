@@ -12,6 +12,7 @@ var rotateArray = require('../problems/rotate-array');
 var Tree = require('../problems/n-ary-tree');
 var twoSum = require('../problems/two-sum.js');
 var infiniteLinkedList = require('../problems/infinite-linked-list.js');
+var maxStack = require('../problems/max-stack.js');
 
 describe('toy problems', ()=>{
   describe('fibonacci', ()=>{
@@ -261,6 +262,15 @@ describe('infiniteLinkedList', ()=> {
     peteNode.next.next.next = peteNode;  
   })
 });
+
+describe('maxStack', ()=> {
+  const Stack = maxStack.stack;
+  it('should have a Stack constructor', ()=>{
+    expect(Stack).to.be.a('function');
+  });
+
+
+})
 
 });
 
