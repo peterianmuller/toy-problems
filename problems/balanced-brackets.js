@@ -8,7 +8,6 @@ var balancedBrackets = function(input) {
   }
 
   // create storage object with opposite pairs
-
   var storage = {
     '(' : ')',
     '[' : ']',
@@ -17,7 +16,6 @@ var balancedBrackets = function(input) {
 
 
   var stack = [];
-
   // iterate over string and when find opening bracket push to stack
   for (var i = 0; i < input.length; i++) {
     var current = input.charAt(i);
