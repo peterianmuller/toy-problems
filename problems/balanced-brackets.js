@@ -1,3 +1,5 @@
+'use strict'
+
 var balancedBrackets = function(input) {
 
   // if input length is 1 or 0 reutrn false

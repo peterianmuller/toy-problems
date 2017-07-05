@@ -1,6 +1,8 @@
+'use strict'
+
 // Define a function that takes in a string and returns a Boolean if that string is a permutation of a palindrome
 
-palindromePermutation = str => {
+const palindromePermutation = str => {
   // create storage object
   var storage = {};
 

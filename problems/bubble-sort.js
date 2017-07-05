@@ -1,6 +1,6 @@
+'use strict'
 
-
-bubbleSort = array => {
+const bubbleSort = array => {
   if (!Array.isArray(array)) {
     return null;
   }

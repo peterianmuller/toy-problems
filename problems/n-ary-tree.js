@@ -1,3 +1,5 @@
+'use strict'
+
 var Tree = function(val){
   this.val = val;
   this.children = [];

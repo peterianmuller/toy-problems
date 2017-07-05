@@ -1,3 +1,6 @@
+'use strict'
+
+
 // find the nth instance of the fibonacci sequence
 
 

@@ -1,3 +1,6 @@
+'use strict'
+
+
 const rotateArray = matrix => {
   if (!Array.isArray(matrix)) {
     return null;

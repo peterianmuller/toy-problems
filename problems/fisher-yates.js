@@ -1,3 +1,5 @@
+'use strict'
+
 const fisherYates = array => {
   if (!array || !Array.isArray(array)) {
     return null;

@@ -1,3 +1,5 @@
+'use strict'
+
 //inputs 
 
 const wordPattern = (word, pattern) =>{

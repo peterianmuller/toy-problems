@@ -1,3 +1,6 @@
+'use strict'
+
+
 const twoSumQuadratic = (nums, target) =>{
   for (var i = 0; i < nums.length; i++) {
     let current = nums[i];

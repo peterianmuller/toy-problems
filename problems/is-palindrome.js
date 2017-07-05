@@ -1,6 +1,7 @@
+'use strict'
 // write a function that detects if a string is a palindrome. If 'Taco cat' is a palindrome, then we can remove spaces
 
-isPalindrome = string => {
+const isPalindrome = string => {
 
   //remove all spaces
   string = string.split('').filter((item)=>{
