@@ -29,7 +29,7 @@ const infiniteLinkedList = list => {
     if (pause) {
       slow = slow.next;  
     }
-    paul = !pause;
+    pause = !pause;
     return hasCycle(fast,slow,pause);
   }
 
