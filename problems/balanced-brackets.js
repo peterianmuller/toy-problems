@@ -16,18 +16,31 @@ const balancedBrackets = input => {
 
   let stack = [];
   // iterate over string and when find opening bracket push to stack
-  for (let i = 0; i < input.length; i++) {
-    let current = input.charAt(i);
-    if (storage[current]) {
-      stack.push(storage[current]);
+
+  input.split('').forEach((item,index)=>{
+    if (storage[item]) {
+      stack.push(storage[item]);
     }
-    if (current === ')' || current === ']' || current === '}') {
+    if(item === ')' || item === ']' || item === '}') {
       let first = stack.pop();
-      if (current !== first) {
+      if (item !== first) {
         return false;
       }
     }
-  }
+  });
+
+  // for (let i = 0; i < input.length; i++) {
+  //   let current = input.charAt(i);
+  //   if (storage[current]) {
+  //     stack.push(storage[current]);
+  //   }
+  //   if (current === ')' || current === ']' || current === '}') {
+  //     let first = stack.pop();
+  //     if (current !== first) {
+  //       return false;
+  //     }
+  //   }
+  // }
 
   if (stack.length > 0) {
     return false;
@@ -37,3 +50,4 @@ const balancedBrackets = input => {
 };
 
 module.exports = balancedBrackets;
+console.log(balancedBrackets('hello world'))
