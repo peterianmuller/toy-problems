@@ -1,6 +1,6 @@
 'use strict'
 
-var balancedBrackets = function(input) {
+const balancedBrackets = input => {
 
   // if input length is 1 or 0 reutrn false
   if (!input || input.length === 0 || input.length === 1) {
@@ -8,22 +8,21 @@ var balancedBrackets = function(input) {
   }
 
   // create storage object with opposite pairs
-  var storage = {
+  let storage = {
     '(' : ')',
     '[' : ']',
     '{' : '}'
   }
 
-
-  var stack = [];
+  let stack = [];
   // iterate over string and when find opening bracket push to stack
-  for (var i = 0; i < input.length; i++) {
-    var current = input.charAt(i);
+  for (let i = 0; i < input.length; i++) {
+    let current = input.charAt(i);
     if (storage[current]) {
       stack.push(storage[current]);
     }
     if (current === ')' || current === ']' || current === '}') {
-      var first = stack.pop();
+      let first = stack.pop();
       if (current !== first) {
         return false;
       }
