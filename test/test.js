@@ -15,7 +15,7 @@ var Tree = require('../problems/n-ary-tree');
 var twoSum = require('../problems/two-sum.js');
 var infiniteLinkedList = require('../problems/infinite-linked-list.js');
 var maxStack = require('../problems/max-stack.js');
-var longestPalindrome = require('../problems/longest-palindrome');
+var longestPalindromeFuncs = require('../problems/longest-palindrome');
 
 describe('toy problems', ()=>{
   describe('fibonacci', ()=>{
@@ -276,13 +276,25 @@ describe('maxStack', () => {
 })
 
 describe('longestPalindrome', () => {
-  const reverseString = longestPalindrome.reverseString;
-  const isPalindrome = longestPalindrome.isPalindrome;
+
+  const reverseString = longestPalindromeFuncs.reverseString;
+  const isPalindrome = longestPalindromeFuncs.isPalindrome;
+  const longestPalindrome = longestPalindromeFuncs.longestPalindrome;
+
   it('should have reverseString helper function that returns a reversed string', () => {
     const backwards = 'cba'
     expect(reverseString).to.be.a('function');
     expect(reverseString('abc')).to.eql(backwards);
     expect(reverseString(4444)).to.eql(null);
+  });
+  it('should have isPalindrome helper function that returns Boolean if input is a palindrome' , () => {
+    expect(isPalindrome({})).to.eql(null);
+    expect(isPalindrome('racecar')).to.eql(true);  
+    expect(isPalindrome('racedscar')).to.eql(false);  
+  })
+  it('should return the longest palindrome in the input string', () => {
+    expect(longestPalindrome('saassasaa racecar a')).to.eql('a racecar a'); 
+    expect(longestPalindrome('ddda racecar adddsaa53534435435ssasa')).to.eql('ddda racecar addd'); 
   });
 })
 
