@@ -15,6 +15,7 @@ var Tree = require('../problems/n-ary-tree');
 var twoSum = require('../problems/two-sum.js');
 var infiniteLinkedList = require('../problems/infinite-linked-list.js');
 var maxStack = require('../problems/max-stack.js');
+var longestPalindrome = require('../problems/longest-palindrome');
 
 describe('toy problems', ()=>{
   describe('fibonacci', ()=>{
@@ -265,13 +266,24 @@ describe('infiniteLinkedList', ()=> {
   })
 });
 
-describe('maxStack', ()=> {
+describe('maxStack', () => {
   const Stack = maxStack.stack;
   it('should have a Stack constructor', ()=>{
     expect(Stack).to.be.a('function');
   });
 
 
+})
+
+describe('longestPalindrome', () => {
+  const reverseString = longestPalindrome.reverseString;
+  const isPalindrome = longestPalindrome.isPalindrome;
+  it('should have reverseString helper function that returns a reversed string', () => {
+    const backwards = 'cba'
+    expect(reverseString).to.be.a('function');
+    expect(reverseString('abc')).to.eql(backwards);
+    expect(reverseString(4444)).to.eql(null);
+  });
 })
 
 });

@@ -15,3 +15,5 @@ const fisherYates = array => {
 };
 
 module.exports = fisherYates;
+
+console.log(fisherYates([1,2,3,4,5,6]));

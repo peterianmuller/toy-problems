@@ -29,19 +29,6 @@ const balancedBrackets = input => {
     }
   });
 
-  // for (let i = 0; i < input.length; i++) {
-  //   let current = input.charAt(i);
-  //   if (storage[current]) {
-  //     stack.push(storage[current]);
-  //   }
-  //   if (current === ')' || current === ']' || current === '}') {
-  //     let first = stack.pop();
-  //     if (current !== first) {
-  //       return false;
-  //     }
-  //   }
-  // }
-
   if (stack.length > 0) {
     return false;
   }
