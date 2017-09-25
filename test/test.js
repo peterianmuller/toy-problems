@@ -290,7 +290,7 @@ describe('MaxStack', () => {
 
 describe('MinStack', () => {
   const Stack = minStackFunctions.Stack;
-
+  const MinStack = minStackFunctions.MinStack;
   it('should come with a regular Stack constructor that will be used as the min porperty of MinStack', () => {
     let peteStack = new Stack();
     expect(Stack).to.be.a('function');  
@@ -300,6 +300,29 @@ describe('MinStack', () => {
     peteStack.push(20);
     expect(peteStack.size).to.eql(2);
     expect(peteStack.storage).to.eql({'0':10, '1':20});
+    expect(peteStack.pop()).to.eql(20);
+    expect(peteStack.top()).eql(10);
+    expect(peteStack.pop()).eql(10);
+    expect(peteStack.pop()).to.eql(null);  
+  })
+
+  it('should come with a MinStack constructor that contains the same methods/functions as a Stack constructor, but also has a min property and a getMin method' , () => {
+    let peteMinStack = new MinStack();
+    expect(peteMinStack.size).to.eql(0);
+    expect(peteMinStack.storage).eql({});
+    expect(peteMinStack.min.storage).to.eql({});    
+    expect(peteMinStack.min.size).to.eql(0);    
+  })
+
+  it('MinStack should come with a pop method that add an item to it\'s storage property and also add an item to the min property if the current item is less than the current top item in the stack referenced by the min property', () => {
+      let peteMinStack = new MinStack();
+      peteMinStack.push(0);
+      expect(peteMinStack.min.top()).to.eql(0); 
+      peteMinStack.push(1); 
+      peteMinStack.push(-1);
+      expect(peteMinStack.min.top()).to.eql(-1);
+      peteMinStack.pop();
+      expect(peteMinStack.min.top()).to.eql(0); 
   })
 })
 

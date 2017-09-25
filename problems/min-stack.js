@@ -10,7 +10,7 @@ class Stack {
     this.storage = {};
   }
   top(){
-    return this.size ? this.storage[this.size] : null;
+    return this.size ? this.storage[this.size-1] : null;
   }
   push(x) {
     this.storage[this.size] = x;
@@ -27,5 +27,33 @@ class Stack {
   }
 }
 
+class MinStack {
+  constructor(){
+    this.size = 0;
+    this.storage = {};
+    this.min = new Stack();
+  }
+  push(x){
+    this.storage[this.size] = x;
+    this.size++;
+    if (!this.min.size) {
+      this.min.push(x);
+    } else if (x < this.min.top()) {
+      this.min.push(x);   
+    }    
+  }
+  pop(){
+    if (this.size) {
+      let mostRecentlyAdded = this.storage[this.size - 1];
+      delete this.storage[this.size - 1];
+      this.size--;
+      if (mostRecentlyAdded === this.min.top()) {
+        this.min.pop();
+      }
+      return mostRecentlyAdded;
+    }
+  } 
+}
 
-module.exports = {Stack: Stack}
+
+module.exports = {Stack: Stack, MinStack: MinStack};
