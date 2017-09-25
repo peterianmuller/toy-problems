@@ -16,6 +16,7 @@ var twoSum = require('../problems/two-sum.js');
 var infiniteLinkedList = require('../problems/infinite-linked-list.js');
 var maxStack = require('../problems/max-stack.js');
 var longestPalindromeFuncs = require('../problems/longest-palindrome');
+var maxStackFunctions = require('../problems/max-stack.js');
 
 describe('toy problems', ()=>{
   describe('fibonacci', ()=>{
@@ -267,9 +268,22 @@ describe('infiniteLinkedList', ()=> {
 });
 
 describe('maxStack', () => {
-  const Stack = maxStack.stack;
-  it('should have a Stack constructor', ()=>{
+  const Stack = maxStackFunctions.Stack;
+  const MaxStack = maxStackFunctions.MaxStack;
+  it('should have a Stack constructor', () => {
     expect(Stack).to.be.a('function');
+  });
+  it('should have a MaxStack constructor', () => {
+    expect(MaxStack).to.be.a('function');
+  });
+  it('MaxStack should create a new instance of a MaxStack', () => {
+    let peteMaxStack = new MaxStack();
+    expect(peteMaxStack.storage).to.eql({}); 
+    peteMaxStack.push(0);
+    peteMaxStack.push(1);
+    expect(peteMaxStack.size).to.eql(2);
+    peteMaxStack.push(10);
+    expect(peteMaxStack.getMax()).to.eql(10);
   });
 
 

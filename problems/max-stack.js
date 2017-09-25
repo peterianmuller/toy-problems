@@ -2,24 +2,68 @@
 
 class Stack {
   constructor(){
-    this.storage = []; 
-    this.length = 0; 
+    this.size = 0;
+    this.storage = {};
   }
-  peek(){
-    const last = this.storage.length - 1;
-    if (last === 0) return undefined;
-    return this.storage[last];
+  push(x){
+    this.storage[this.size] = x;
+    this.size++;
   }
-  push(val){
-    this.storage.push(val);
-    this.length++;
+  pop(){
+    if(this.size) {
+      let mostRecentlyAdded = this.storage[this.size-1];
+      delete this.storage[this.size-1];
+      this.size--;
+      return mostRecentlyAdded;
+    }
+    return null;
   }
-  pop(val){
-    if (!this.length) return null;
-    const lastElement = this.storage.pop();
-    this.length--;
-    return lastElement;
+  top() {
+    if (this.size) {
+      return this.storage[this.size-1];
+    }
+    return null;
   }
 }
 
-module.exports = {stack:Stack}
+
+
+class MaxStack {
+  constructor(){
+    this.size = 0;
+    this.storage = {};
+    this.max = new Stack();
+  }
+  push(x) {
+    this.storage[this.size] = x;
+    this.size++;
+    if (this.max.top() === undefined) {
+      this.max.push(x);  
+    } else {
+      if (this.max.top() < x) {
+        this.max.push(x);
+      }
+    }
+  }
+  pop(){
+    if (this.size) {
+      let mostRecentlyAdded = this.storage[this.size-1];
+      delete this.storage[this.size-1];
+      if(mostRecentlyAdded === this.max.top()) {
+        this.max.pop();
+      }
+      return mostRecentlyAdded;  
+    }
+  }
+  getMax(){
+    console.log(this.max.top());
+    if(this.max.top()) {
+      return this.max.top();
+    }  
+  }
+}
+
+module.exports = {Stack: Stack, MaxStack: MaxStack}
+
+
+
