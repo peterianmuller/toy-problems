@@ -319,10 +319,11 @@ describe('MinStack', () => {
       peteMinStack.push(0);
       expect(peteMinStack.min.top()).to.eql(0); 
       peteMinStack.push(1); 
+      peteMinStack.push(-1); 
       peteMinStack.push(-1);
       expect(peteMinStack.min.top()).to.eql(-1);
       peteMinStack.pop();
-      expect(peteMinStack.min.top()).to.eql(0); 
+      expect(peteMinStack.min.top()).to.eql(-1); 
   })
 })
 

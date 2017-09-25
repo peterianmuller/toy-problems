@@ -38,7 +38,7 @@ class MinStack {
     this.size++;
     if (!this.min.size) {
       this.min.push(x);
-    } else if (x < this.min.top()) {
+    } else if (x <= this.min.top()) {
       this.min.push(x);   
     }    
   }
