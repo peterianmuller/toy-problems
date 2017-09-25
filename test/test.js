@@ -14,9 +14,9 @@ var rotateArray = require('../problems/rotate-array');
 var Tree = require('../problems/n-ary-tree');
 var twoSum = require('../problems/two-sum.js');
 var infiniteLinkedList = require('../problems/infinite-linked-list.js');
-var maxStack = require('../problems/max-stack.js');
 var longestPalindromeFuncs = require('../problems/longest-palindrome');
 var maxStackFunctions = require('../problems/max-stack.js');
+var minStackFunctions = require('../problems/min-stack.js');
 
 describe('toy problems', ()=>{
   describe('fibonacci', ()=>{
@@ -267,7 +267,7 @@ describe('infiniteLinkedList', ()=> {
   })
 });
 
-describe('maxStack', () => {
+describe('MaxStack', () => {
   const Stack = maxStackFunctions.Stack;
   const MaxStack = maxStackFunctions.MaxStack;
   it('should have a Stack constructor', () => {
@@ -286,7 +286,21 @@ describe('maxStack', () => {
     expect(peteMaxStack.getMax()).to.eql(10);
   });
 
+})
 
+describe('MinStack', () => {
+  const Stack = minStackFunctions.Stack;
+
+  it('should come with a regular Stack constructor that will be used as the min porperty of MinStack', () => {
+    let peteStack = new Stack();
+    expect(Stack).to.be.a('function');  
+    expect(peteStack.size).to.eql(0);
+    expect(peteStack.storage).to.eql({});
+    peteStack.push(10);
+    peteStack.push(20);
+    expect(peteStack.size).to.eql(2);
+    expect(peteStack.storage).to.eql({'0':10, '1':20});
+  })
 })
 
 describe('longestPalindrome', () => {
