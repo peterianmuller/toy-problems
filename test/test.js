@@ -17,6 +17,7 @@ var infiniteLinkedList = require('../problems/infinite-linked-list.js');
 var longestPalindromeFuncs = require('../problems/longest-palindrome');
 var maxStackFunctions = require('../problems/max-stack.js');
 var minStackFunctions = require('../problems/min-stack.js');
+var QueueTwoStacksFunctions = require('../problems/queue-2-stacks.js');
 
 describe('toy problems', ()=>{
   describe('fibonacci', ()=>{

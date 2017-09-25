@@ -37,4 +37,3 @@ const balancedBrackets = input => {
 };
 
 module.exports = balancedBrackets;
-console.log(balancedBrackets('hello world'))
