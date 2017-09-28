@@ -43,11 +43,6 @@ class QueueTwoStacks {
       	while(this.newest.size){
       		this.oldest.push(this.newest.pop());
       	}
-
-      	// flip them back other than first element
-      	// while(this.oldest.size > 0) {
-      	// 	this.newest.push(this.oldest.pop());
-      	// }
       }
 	  	
 	  	//what if nothing left in this.oldest and we want to add the

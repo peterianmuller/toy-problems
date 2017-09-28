@@ -1,23 +1,23 @@
 'use strict';
 
-var chai = require('chai');
-var expect = chai.expect;
+let chai = require('chai');
+let expect = chai.expect;
 
-var fibonacci = require('../problems/fibonacci');
-var palindromePermutation = require('../problems/palindrome-permutation');
-var palindrome = require('../problems/is-palindrome');
-var bubbleSort = require('../problems/bubble-sort');
-var wordPattern = require('../problems/word-pattern');
-var balancedBrackets = require('../problems/balanced-brackets');
-var fisherYates = require('../problems/fisher-yates');
-var rotateArray = require('../problems/rotate-array');
-var Tree = require('../problems/n-ary-tree');
-var twoSum = require('../problems/two-sum.js');
-var infiniteLinkedList = require('../problems/infinite-linked-list.js');
-var longestPalindromeFuncs = require('../problems/longest-palindrome');
-var maxStackFunctions = require('../problems/max-stack.js');
-var minStackFunctions = require('../problems/min-stack.js');
-var QueueTwoStacksFunctions = require('../problems/queue-2-stacks.js');
+let fibonacci = require('../problems/fibonacci');
+let palindromePermutation = require('../problems/palindrome-permutation');
+let palindrome = require('../problems/is-palindrome');
+let bubbleSort = require('../problems/bubble-sort');
+let wordPattern = require('../problems/word-pattern');
+let balancedBrackets = require('../problems/balanced-brackets');
+let fisherYates = require('../problems/fisher-yates');
+let rotateArray = require('../problems/rotate-array');
+let Tree = require('../problems/n-ary-tree');
+let twoSum = require('../problems/two-sum.js');
+let infiniteLinkedList = require('../problems/infinite-linked-list.js');
+let longestPalindromeFuncs = require('../problems/longest-palindrome');
+let maxStackFunctions = require('../problems/max-stack.js');
+let minStackFunctions = require('../problems/min-stack.js');
+let QueueTwoStacksFunctions = require('../problems/queue-2-stacks.js');
 
 describe('toy problems', ()=>{
   describe('fibonacci', ()=>{
