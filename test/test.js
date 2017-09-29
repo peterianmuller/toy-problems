@@ -373,7 +373,24 @@ describe('toy problems', ()=>{
     it('should have a enqueue method that adds the first item to this.oldestItems and then subsequent items to this.newestItems', () => {
       let peteQueue = new Queue();
       peteQueue.enqueue(0);
-      //expect  
+      expect(peteQueue.oldestItems.top()).to.eql(0); 
+      peteQueue.enqueue(1);
+      expect(peteQueue.oldestItems.top()).to.eql(0); 
+      expect(peteQueue.newestItems.top()).to.eql(1);
+    });
+    it('should have a dequeue method that grabs the oldest item and returns it', () => {
+      let peteQueue = new Queue();
+      peteQueue.enqueue(0);
+      peteQueue.enqueue(1);
+      expect(peteQueue.dequeue()).to.eql(0);
+      expect(peteQueue.oldestItems.top()).to.eql(1);
+      peteQueue.enqueue(2);
+      peteQueue.enqueue(3);
+      expect(peteQueue.oldestItems.top()).to.eql(1);
+      expect(peteQueue.newestItems.top()).to.eql(3);
+      expect(peteQueue.dequeue()).to.eql(1);
+      expect(peteQueue.newestItems.top()).to.eql(null);
+      expect(peteQueue.dequeue()).to.eql(2);
     });  
   });
 

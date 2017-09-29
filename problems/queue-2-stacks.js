@@ -39,12 +39,31 @@ class QueueTwoStacks {
   enqueue(x){
   // what happens when we add a new item?
     // if nothing in oldestItems push item there
-    if (!this.oldestItems) {
+    if (!this.oldestItems.size) {
       this.oldestItems.push(x);
     } else {
       // otherwise add to newestItems
       this.newestItems.push(x);
-    }  
+    }
+    this.size--;  
+  }
+  dequeue(){
+    // check if anything in this.oldestItems
+    if (this.oldestItems.size) {
+      // if so grab item
+      let oldestItem = this.oldestItems.pop();
+      // now check if any items in this.newestItems
+      if (this.newestItems.size) {
+        // if so add them to this.oldestItems
+        while(this.newestItems.size){
+          this.oldestItems.push(this.newestItems.pop());
+        }
+      }
+      this.size--;
+      return oldestItem;
+    }
+    this.size--;
+    return null;
   }
 
 }   
