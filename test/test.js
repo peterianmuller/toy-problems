@@ -396,12 +396,20 @@ describe('toy problems', ()=>{
   });
   describe('SetOfStacks', () => {
     let Stack = SetOfStacksFunctions.Stack;
+    let SetOfStacks = SetOfStacksFunctions.SetOfStacks;
     it('should have access to a Stack class', () => {
       let peteStack = new Stack();
       peteStack.push(10);
       peteStack.push(11);
       expect(peteStack.top()).to.eql(11);
       expect(peteStack.size).to.eql(2);
+    });
+    it('should have a SetOfStacks constructor', ()=> {
+      let PeteSetOfStacks = new SetOfStacks(5);
+      expect(PeteSetOfStacks.storageArray).to.eql([]);
+      expect(PeteSetOfStacks.push(0));
+      expect(PeteSetOfStacks.storageArray.length).to.eql(1);
+      expect(PeteSetOfStacks.storageArray[0].storage).to.eql({'0':0})
     })
   });
 

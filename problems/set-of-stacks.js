@@ -27,6 +27,23 @@ class Stack {
 	}
 }
 
+class SetOfStacks {
+  constructor(limit){
+  	this.limit = limit;
+  	this.storageArray = [];
+  	this.currentStackIndex = 0;
+  }
+  push(x){
+  	// if first item ever
+    if (!this.storageArray[this.currentStackIndex]) {
+    	this.storageArray[this.currentStackIndex] = new Stack();
+    	this.storageArray[this.currentStackIndex].push(x);
+    }
+    // if already one item
+      // check size of sta
+  }
+}
+
 // SetOfStacks
   // constructor should take in a limit parameter
   // this.size initialized to 0
@@ -44,4 +61,4 @@ class Stack {
       // check if stack at currentStackIndex is empty.
         // if so use pop off stack from array
 
-module.exports = {Stack:Stack};        
+module.exports = {Stack:Stack, SetOfStacks: SetOfStacks};        
