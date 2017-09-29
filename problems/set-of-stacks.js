@@ -22,6 +22,9 @@ class Stack {
 		}
 		return null;
 	}
+	top() {
+		return this.size ? this.storage[this.size -1] : null;
+	}
 }
 
 // SetOfStacks

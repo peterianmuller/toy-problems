@@ -394,6 +394,16 @@ describe('toy problems', ()=>{
       expect(peteQueue.dequeue()).to.eql(2);
     });  
   });
+  describe('SetOfStacks', () => {
+    let Stack = SetOfStacksFunctions.Stack;
+    it('should have access to a Stack class', () => {
+      let peteStack = new Stack();
+      peteStack.push(10);
+      peteStack.push(11);
+      expect(peteStack.top()).to.eql(11);
+      expect(peteStack.size).to.eql(2);
+    })
+  });
 
 });
 
