@@ -220,136 +220,162 @@ describe('toy problems', ()=>{
 
   })
 
-describe('twoSumQuadratic', ()=>{
-  let twoSumQuadratic = twoSum.twoSumQuadratic;
-  it('should be a function', ()=>{
-    expect(twoSumQuadratic).to.be.a('function');
-  });
-  it('should return null if there are no elements add up to match the target', ()=>{
-    expect(twoSumQuadratic([1,2,3], -5)).to.eql(null);
-  }); 
-  it('should return an array of indexes of the elements that match the target', ()=>{
-    expect(twoSumQuadratic([-1,-5,7,10], 5)).to.eql([1,3]);
-  });
-  it('should return the indexes of the first match found', ()=>{
-    expect(twoSumQuadratic([1,2,1,2,1,2], 3)).to.eql([0,1]);
-  });
-});
-
-describe('twoSumLinear', ()=>{
-  console.log(twoSum);
-  let twoSumLinear = twoSum.twoSumLinear;
-  it('should be a function', ()=>{
-    expect(twoSumLinear).to.be.a('function');
-  });
-  it('should return the indexes of the elements that when added up equal to the target', ()=>{
-    expect(twoSumLinear([1,2,3], 3)).to.eql([0,1]);
+  describe('twoSumQuadratic', ()=>{
+    let twoSumQuadratic = twoSum.twoSumQuadratic;
+    it('should be a function', ()=>{
+      expect(twoSumQuadratic).to.be.a('function');
+    });
+    it('should return null if there are no elements add up to match the target', ()=>{
+      expect(twoSumQuadratic([1,2,3], -5)).to.eql(null);
+    }); 
+    it('should return an array of indexes of the elements that match the target', ()=>{
+      expect(twoSumQuadratic([-1,-5,7,10], 5)).to.eql([1,3]);
+    });
+    it('should return the indexes of the first match found', ()=>{
+      expect(twoSumQuadratic([1,2,1,2,1,2], 3)).to.eql([0,1]);
+    });
   });
 
-});
+  describe('twoSumLinear', ()=>{
+    console.log(twoSum);
+    let twoSumLinear = twoSum.twoSumLinear;
+    it('should be a function', ()=>{
+      expect(twoSumLinear).to.be.a('function');
+    });
+    it('should return the indexes of the elements that when added up equal to the target', ()=>{
+      expect(twoSumLinear([1,2,3], 3)).to.eql([0,1]);
+    });
 
-describe('infiniteLinkedList', ()=> {
-  let Node = infiniteLinkedList.node;
-  //console.log(infiniteLinkedList);
-  let hasCycle = infiniteLinkedList.infiniteLinkedList;
-  console.log('hasCycle is:', hasCycle);
-  let peteNode = new Node(8);
-
-  it('should have a class Node that insantiates a new node object', ()=>{
-    expect(Node).to.be.a('function');
-    expect(peteNode.value).to.eql(8); 
   });
 
-  it('should have a function infiniteLinkedList', ()=>{
-    peteNode.next = new Node(10);
-    peteNode.next.next = new Node(11);
-    expect(hasCycle(peteNode)).to.eql(false);
-    peteNode.next.next.next = peteNode;  
-  })
-});
+  describe('infiniteLinkedList', ()=> {
+    let Node = infiniteLinkedList.node;
+    //console.log(infiniteLinkedList);
+    let hasCycle = infiniteLinkedList.infiniteLinkedList;
+    console.log('hasCycle is:', hasCycle);
+    let peteNode = new Node(8);
 
-describe('MaxStack', () => {
-  const Stack = maxStackFunctions.Stack;
-  const MaxStack = maxStackFunctions.MaxStack;
-  it('should have a Stack constructor', () => {
-    expect(Stack).to.be.a('function');
-  });
-  it('should have a MaxStack constructor', () => {
-    expect(MaxStack).to.be.a('function');
-  });
-  it('MaxStack should create a new instance of a MaxStack', () => {
-    let peteMaxStack = new MaxStack();
-    expect(peteMaxStack.storage).to.eql({}); 
-    peteMaxStack.push(0);
-    peteMaxStack.push(1);
-    expect(peteMaxStack.size).to.eql(2);
-    peteMaxStack.push(10);
-    expect(peteMaxStack.getMax()).to.eql(10);
+    it('should have a class Node that insantiates a new node object', ()=>{
+      expect(Node).to.be.a('function');
+      expect(peteNode.value).to.eql(8); 
+    });
+
+    it('should have a function infiniteLinkedList', ()=>{
+      peteNode.next = new Node(10);
+      peteNode.next.next = new Node(11);
+      expect(hasCycle(peteNode)).to.eql(false);
+      peteNode.next.next.next = peteNode;  
+    })
   });
 
-})
+  describe('MaxStack', () => {
+    const Stack = maxStackFunctions.Stack;
+    const MaxStack = maxStackFunctions.MaxStack;
+    it('should have a Stack constructor', () => {
+      expect(Stack).to.be.a('function');
+    });
+    it('should have a MaxStack constructor', () => {
+      expect(MaxStack).to.be.a('function');
+    });
+    it('MaxStack should create a new instance of a MaxStack', () => {
+      let peteMaxStack = new MaxStack();
+      expect(peteMaxStack.storage).to.eql({}); 
+      peteMaxStack.push(0);
+      peteMaxStack.push(1);
+      expect(peteMaxStack.size).to.eql(2);
+      peteMaxStack.push(10);
+      expect(peteMaxStack.getMax()).to.eql(10);
+    });
 
-describe('MinStack', () => {
-  const Stack = minStackFunctions.Stack;
-  const MinStack = minStackFunctions.MinStack;
-  it('should come with a regular Stack constructor that will be used as the min porperty of MinStack', () => {
-    let peteStack = new Stack();
-    expect(Stack).to.be.a('function');  
-    expect(peteStack.size).to.eql(0);
-    expect(peteStack.storage).to.eql({});
-    peteStack.push(10);
-    peteStack.push(20);
-    expect(peteStack.size).to.eql(2);
-    expect(peteStack.storage).to.eql({'0':10, '1':20});
-    expect(peteStack.pop()).to.eql(20);
-    expect(peteStack.top()).eql(10);
-    expect(peteStack.pop()).eql(10);
-    expect(peteStack.pop()).to.eql(null);  
   })
 
-  it('should come with a MinStack constructor that contains the same methods/functions as a Stack constructor, but also has a min property and a getMin method' , () => {
-    let peteMinStack = new MinStack();
-    expect(peteMinStack.size).to.eql(0);
-    expect(peteMinStack.storage).eql({});
-    expect(peteMinStack.min.storage).to.eql({});    
-    expect(peteMinStack.min.size).to.eql(0);    
-  })
+  describe('MinStack', () => {
+    const Stack = minStackFunctions.Stack;
+    const MinStack = minStackFunctions.MinStack;
+    it('should come with a regular Stack constructor that will be used as the min porperty of MinStack', () => {
+      let peteStack = new Stack();
+      expect(Stack).to.be.a('function');  
+      expect(peteStack.size).to.eql(0);
+      expect(peteStack.storage).to.eql({});
+      peteStack.push(10);
+      peteStack.push(20);
+      expect(peteStack.size).to.eql(2);
+      expect(peteStack.storage).to.eql({'0':10, '1':20});
+      expect(peteStack.pop()).to.eql(20);
+      expect(peteStack.top()).eql(10);
+      expect(peteStack.pop()).eql(10);
+      expect(peteStack.pop()).to.eql(null);  
+    })
 
-  it('MinStack should come with a pop method that add an item to it\'s storage property and also add an item to the min property if the current item is less than the current top item in the stack referenced by the min property', () => {
+    it('should come with a MinStack constructor that contains the same methods/functions as a Stack constructor, but also has a min property and a getMin method' , () => {
       let peteMinStack = new MinStack();
-      peteMinStack.push(0);
-      expect(peteMinStack.min.top()).to.eql(0); 
-      peteMinStack.push(1); 
-      peteMinStack.push(-1); 
-      peteMinStack.push(-1);
-      expect(peteMinStack.min.top()).to.eql(-1);
-      peteMinStack.pop();
-      expect(peteMinStack.min.top()).to.eql(-1); 
+      expect(peteMinStack.size).to.eql(0);
+      expect(peteMinStack.storage).eql({});
+      expect(peteMinStack.min.storage).to.eql({});    
+      expect(peteMinStack.min.size).to.eql(0);    
+    })
+
+    it('MinStack should come with a pop method that add an item to it\'s storage property and also add an item to the min property if the current item is less than the current top item in the stack referenced by the min property', () => {
+        let peteMinStack = new MinStack();
+        peteMinStack.push(0);
+        expect(peteMinStack.min.top()).to.eql(0); 
+        peteMinStack.push(1); 
+        peteMinStack.push(-1); 
+        peteMinStack.push(-1);
+        expect(peteMinStack.min.top()).to.eql(-1);
+        peteMinStack.pop();
+        expect(peteMinStack.min.top()).to.eql(-1); 
+    })
   })
-})
 
-describe('longestPalindrome', () => {
+  describe('longestPalindrome', () => {
 
-  const reverseString = longestPalindromeFuncs.reverseString;
-  const isPalindrome = longestPalindromeFuncs.isPalindrome;
-  const longestPalindrome = longestPalindromeFuncs.longestPalindrome;
+    const reverseString = longestPalindromeFuncs.reverseString;
+    const isPalindrome = longestPalindromeFuncs.isPalindrome;
+    const longestPalindrome = longestPalindromeFuncs.longestPalindrome;
 
-  it('should have reverseString helper function that returns a reversed string', () => {
-    const backwards = 'cba'
-    expect(reverseString).to.be.a('function');
-    expect(reverseString('abc')).to.eql(backwards);
-    expect(reverseString(4444)).to.eql(null);
-  });
-  it('should have isPalindrome helper function that returns Boolean if input is a palindrome' , () => {
-    expect(isPalindrome({})).to.eql(null);
-    expect(isPalindrome('racecar')).to.eql(true);  
-    expect(isPalindrome('racedscar')).to.eql(false);  
+    it('should have reverseString helper function that returns a reversed string', () => {
+      const backwards = 'cba'
+      expect(reverseString).to.be.a('function');
+      expect(reverseString('abc')).to.eql(backwards);
+      expect(reverseString(4444)).to.eql(null);
+    });
+    it('should have isPalindrome helper function that returns Boolean if input is a palindrome' , () => {
+      expect(isPalindrome({})).to.eql(null);
+      expect(isPalindrome('racecar')).to.eql(true);  
+      expect(isPalindrome('racedscar')).to.eql(false);  
+    })
+    it('should return the longest palindrome in the input string', () => {
+      expect(longestPalindrome('saassasaa racecar a')).to.eql('a racecar a'); 
+      expect(longestPalindrome('ddda racecar adddsaa53534435435ssasa')).to.eql('ddda racecar addd'); 
+    });
   })
-  it('should return the longest palindrome in the input string', () => {
-    expect(longestPalindrome('saassasaa racecar a')).to.eql('a racecar a'); 
-    expect(longestPalindrome('ddda racecar adddsaa53534435435ssasa')).to.eql('ddda racecar addd'); 
+
+  describe('QueueTwoStacks', () => {
+    let Stack = QueueTwoStacksFunctions.Stack;
+    let Queue = QueueTwoStacksFunctions.QueueTwoStacks;
+    it('should have a Stack class that has push, pop, and top methods', () => {
+      let peteStack = new Stack();
+      expect(peteStack.size).to.eql(0);    
+      expect(peteStack.storage).to.eql({});
+      peteStack.push(0);
+      peteStack.push(1);
+      expect(peteStack.size).to.eql(2);    
+      expect(peteStack.storage).to.eql({'0':0, '1':1});  
+      expect(peteStack.top()).to.eql(1);  
+    });
+    it('should have a Queue class that has a size, oldestItems, and newestItems properties', () => {
+      let peteQueue = new Queue();
+      expect(peteQueue.size).to.eql(0);
+      expect(peteQueue.oldestItems).to.eql(new Stack());
+      expect(peteQueue.newestItems).to.eql(new Stack());
+    });
+    it('should have a enqueue method that adds the first item to this.oldestItems and then subsequent items to this.newestItems', () => {
+      let peteQueue = new Queue();
+      peteQueue.enqueue(0);
+      //expect  
+    });  
   });
-})
 
 });
 
