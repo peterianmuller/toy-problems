@@ -438,6 +438,33 @@ describe('toy problems', ()=>{
       expect(PeteSetOfStacks.currentStackIndex).to.eql(1);
       expect(PeteSetOfStacks.storageArray[PeteSetOfStacks.currentStackIndex].top()).to.eql(5);
 
+      PeteSetOfStacks.push(6);
+      PeteSetOfStacks.push(7);
+      PeteSetOfStacks.push(8);
+      PeteSetOfStacks.push(9);
+      PeteSetOfStacks.push(10);
+
+      expect(PeteSetOfStacks.currentStackIndex).to.eql(2);
+      expect(PeteSetOfStacks.storageArray[PeteSetOfStacks.currentStackIndex].top()).to.eql(10);
+
+    });
+    it('should have a pop method that returns the most recently added item. When the current stack is empty after removing item, it should delete the stack' ,() => {
+      let PeteSetOfStacks = new SetOfStacks(5);
+      expect(PeteSetOfStacks.pop()).to.eql(null);
+      PeteSetOfStacks.push(0);
+      PeteSetOfStacks.push(1);
+      PeteSetOfStacks.push(2);
+      PeteSetOfStacks.push(3);
+      PeteSetOfStacks.push(4);
+      PeteSetOfStacks.push(5);
+      expect(PeteSetOfStacks.storageArray[PeteSetOfStacks.currentStackIndex].top()).to.eql(5);
+      expect(PeteSetOfStacks.storageArray.length).to.eql(2);
+      expect(PeteSetOfStacks.storageArray[PeteSetOfStacks.currentStackIndex].size).to.eql(1);
+      expect(PeteSetOfStacks.pop()).to.eql(5);
+      expect(PeteSetOfStacks.currentStackIndex).to.eql(0);
+      expect(PeteSetOfStacks.storageArray[PeteSetOfStacks.currentStackIndex].top()).to.eql(4);
+
+
     });
   });
 

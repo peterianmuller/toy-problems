@@ -57,6 +57,29 @@ class SetOfStacks {
   getCurrentStackIndex(){
     return this.currentStackIndex;
   }
+  pop(){
+    // check if storageArray has length
+    if (!this.storageArray.length) {
+      return null;
+    } else {
+      // grab most recently added item
+      let currentStorageArrayIndex = this.currentStackIndex;
+      let currentStack = this.storageArray[currentStorageArrayIndex];
+      let mostRecentlyAdded = currentStack.pop();
+      
+      // check if current stack is empty
+        // if so remove it
+      if (!currentStack.size) {
+        this.storageArray.pop();
+        if (this.currentStackIndex) {
+          this.currentStackIndex--;
+        }
+      }  
+
+      return mostRecentlyAdded; 
+    }
+
+  }
 }
 
 // SetOfStacks
