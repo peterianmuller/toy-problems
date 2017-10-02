@@ -80,6 +80,17 @@ class SetOfStacks {
     }
 
   }
+  popAt(stackNumber){
+    
+    // TODO - figure out how to use pop method defined on method
+   
+    if (this.storageArray[stackNumber]) {
+      let targetStack = this.storageArray[stackNumber]
+      return targetStack.pop();    
+    }
+    return null;
+  }
+
 }
 
 // SetOfStacks
