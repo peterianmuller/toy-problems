@@ -404,13 +404,41 @@ describe('toy problems', ()=>{
       expect(peteStack.top()).to.eql(11);
       expect(peteStack.size).to.eql(2);
     });
-    it('should have a SetOfStacks constructor', ()=> {
+    it('should have a SetOfStacks constructor that has storageArray, limit, and currentStackIndex properties', ()=> {
       let PeteSetOfStacks = new SetOfStacks(5);
       expect(PeteSetOfStacks.storageArray).to.eql([]);
-      expect(PeteSetOfStacks.push(0));
+      expect(PeteSetOfStacks.limit).to.eql(5);
+      expect(PeteSetOfStacks.currentStackIndex).to.eql(0);
+    });
+    it('should have a push method that pushes data to stacks located at indexes in the storageArray property', () => {
+      let PeteSetOfStacks = new SetOfStacks(5);
+      PeteSetOfStacks.push(0);
       expect(PeteSetOfStacks.storageArray.length).to.eql(1);
-      expect(PeteSetOfStacks.storageArray[0].storage).to.eql({'0':0})
-    })
+      
+      //access currentStackIndex
+      let currentStackIndex = PeteSetOfStacks.currentStackIndex;
+      
+
+    });
+    it('push method should create a new Stack when the current stack in the storageArray has a size property equal to the limit', () => {
+      
+      let PeteSetOfStacks = new SetOfStacks(5);
+      
+      PeteSetOfStacks.push(0);
+      PeteSetOfStacks.push(1);
+      PeteSetOfStacks.push(2);
+      PeteSetOfStacks.push(3);
+      PeteSetOfStacks.push(4);
+
+      expect(PeteSetOfStacks.currentStackIndex).to.eql(0);
+      expect(PeteSetOfStacks.storageArray[PeteSetOfStacks.currentStackIndex].storage[4]).to.eql(4);
+
+      PeteSetOfStacks.push(5);
+
+      expect(PeteSetOfStacks.currentStackIndex).to.eql(1);
+      expect(PeteSetOfStacks.storageArray[PeteSetOfStacks.currentStackIndex].top()).to.eql(5);
+
+    });
   });
 
 });

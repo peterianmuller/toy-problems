@@ -38,9 +38,24 @@ class SetOfStacks {
     if (!this.storageArray[this.currentStackIndex]) {
     	this.storageArray[this.currentStackIndex] = new Stack();
     	this.storageArray[this.currentStackIndex].push(x);
-    }
+    } else {
     // if already one item
-      // check size of sta
+      // check size of stack
+      // if current stack has less items than limit add it to current stack
+      if (this.storageArray[this.currentStackIndex].size < this.limit) {
+        this.storageArray[this.currentStackIndex].push(x);
+      } else {
+        // increment currentStackIndex by 1
+        // create new stack and insert it to this.storageArray at this index
+        // push item into stack
+        this.currentStackIndex++;
+        this.storageArray[this.currentStackIndex] = new Stack();
+        this.storageArray[this.currentStackIndex].push(x);
+      }  
+    }
+  }
+  getCurrentStackIndex(){
+    return this.currentStackIndex;
   }
 }
 
