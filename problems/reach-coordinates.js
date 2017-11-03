@@ -22,5 +22,14 @@
 
 
 const reachCoordinates = (x1,x2, y1, y2) => {
-	  
+	
+	if ( x1 > x2 || y1 > y2) {
+		return false;
+	}  
+
+	if (x1 === x2 && y1 === y2) {
+	  return true;	
+	}
+
+	
 }
