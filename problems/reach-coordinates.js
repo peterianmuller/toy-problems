@@ -15,21 +15,30 @@
 // recursive cases:
 
 // try first move: x + y, y
+  // if we just return this than we are not trying the other option
 
-// try second move: x, y + x       
+// try second move: x, y + x     
+  // if we just place a second return statement than we will never reach this  
 
 
 
 
-const reachCoordinates = (x1,x2, y1, y2) => {
+// we need to leave open the possbility of a combination of first move, second move, third move, etc. 
+
+
+const reachCoordinates = (x1, y1, x2, y2) => {
+	console.log('x1: ', x1, 'y1: ', y1, 'x2: ', x2, 'y2: ', y2);
 	
-	if ( x1 > x2 || y1 > y2) {
+	if ( x1 > x2 || y1 > y2 ) {
 		return false;
 	}  
 
-	if (x1 === x2 && y1 === y2) {
+	if ( x1 === x2 && y1 === y2 ) {
 	  return true;	
 	}
 
-	
+	return reachCoordinates(x1 + y1, y1, x2, y2) || reachCoordinates(x1, x1 + y1, x2, y2);
+
 }
+
+module.exports = reachCoordinates;

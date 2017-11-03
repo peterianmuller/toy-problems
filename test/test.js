@@ -18,7 +18,8 @@ let longestPalindromeFuncs = require('../problems/longest-palindrome');
 let maxStackFunctions = require('../problems/max-stack');
 let minStackFunctions = require('../problems/min-stack');
 let QueueTwoStacksFunctions = require('../problems/queue-2-stacks');
-let SetOfStacksFunctions = require('../problems/set-of-stacks')
+let SetOfStacksFunctions = require('../problems/set-of-stacks');
+let reachCoords = require('../problems/reach-coordinates');
 
 describe('toy problems', ()=>{
   describe('fibonacci', ()=>{
@@ -478,6 +479,22 @@ describe('toy problems', ()=>{
       expect(PeteSetOfStacks.storageArray[PeteSetOfStacks.currentStackIndex -1].top()).to.eql(3);
     })
   });
+
+  describe('reachCoords', () => {
+    it('should be a function', () => {
+      expect(reachCoords).to.be.a('function');
+    });
+    xit('should return false if current coordinates are greater than target coordinates', () => {
+      expect(reachCoords(10, 10, 1, 1)).to.eql(false);
+    });
+    xit('should return true if current coordinates are the same as target coordinates', () => {
+      expect(reachCoords(1, 1, 1, 1)).to.eql(true);
+    })
+    it('should return false if recurse case leads to current coordinates that are beyond the taret coordinates', () => {
+      //expect(reachCoords(1, 2, 5, 6)).to.eql(false); 
+      expect(reachCoords(3, 1, 7, 4)).to.eql(true); 
+    });
+  })
 
 });
 
