@@ -484,14 +484,14 @@ describe('toy problems', ()=>{
     it('should be a function', () => {
       expect(reachCoords).to.be.a('function');
     });
-    xit('should return false if current coordinates are greater than target coordinates', () => {
+    it('should return false if current coordinates are greater than target coordinates', () => {
       expect(reachCoords(10, 10, 1, 1)).to.eql(false);
     });
-    xit('should return true if current coordinates are the same as target coordinates', () => {
+    it('should return true if current coordinates are the same as target coordinates', () => {
       expect(reachCoords(1, 1, 1, 1)).to.eql(true);
     })
     it('should return false if recurse case leads to current coordinates that are beyond the taret coordinates', () => {
-      //expect(reachCoords(1, 2, 5, 6)).to.eql(false); 
+      expect(reachCoords(1, 2, 5, 6)).to.eql(false); 
       expect(reachCoords(3, 1, 7, 4)).to.eql(true); 
     });
   })
