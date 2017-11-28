@@ -9,7 +9,7 @@ const isPalindrome = string => {
       return item;
     }
   }).join('');
-
+  
   // iterate from beginning and end of string
   for (var i = 0; i < string.length/2; i++) {
     var left = string.charAt(i);

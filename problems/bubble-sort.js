@@ -8,7 +8,7 @@ const bubbleSort = array => {
 
     var length = array.length;
     for (var i = (length - 1); i >= 0; i--) {
-        //Number of passes
+    //Number of passes
         for (var j = (length - i); j > 0; j--) {
             //Compare the adjacent positions
             if (array[j] < array[j - 1]) {
