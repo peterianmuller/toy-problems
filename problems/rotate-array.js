@@ -57,23 +57,9 @@ const rotateArray = matrix => {
     //console.log('matrix is:, ', matrix);
   }
 
-
-
-  // 2 x 2 matrix
-  // for (var i = 0; i < matrix.length; i++) {
-  //   for (var j = 0; j < matrix[0].length; j++) {
-  //     //save first element
-  //     if (i === 0 && j === 0) {
-
-  //     } 
-  //   }
-  // }
-
-
   return matrix;
 
 };
 
 module.exports = rotateArray;
 
-//[[1,2], [3,4]] =>  [[3,1],[4,2]];

@@ -20,6 +20,7 @@ let minStackFunctions = require('../problems/min-stack');
 let QueueTwoStacksFunctions = require('../problems/queue-2-stacks');
 let SetOfStacksFunctions = require('../problems/set-of-stacks');
 let reachCoords = require('../problems/reach-coordinates');
+let reverseInteger = require('../problems/reverse-integer');
 
 describe('toy problems', ()=>{
   describe('fibonacci', ()=>{
@@ -494,6 +495,18 @@ describe('toy problems', ()=>{
       expect(reachCoords(1, 2, 5, 6)).to.eql(false); 
       expect(reachCoords(3, 1, 7, 4)).to.eql(true); 
     });
+  })
+
+  describe('reverseInteger', () => {
+    it('should be a function', () => {
+      expect(reverseInteger).to.be.a('function');
+    });
+    it('should return null when a non-number is passed in', () => {
+      expect(reverseInteger()).to.eql(null);
+    })
+    it('should return reverse a positive integer', () => {
+      expect(reverseInteger(321)).to.eql(123);
+    })
   })
 
 });
