@@ -21,10 +21,23 @@
 
 
 module.exports = num => {
+  var limit = Math.pow(2,31);
+
+
 	if (isNaN(num)) {
 		return null;
 	}
 	var negative = num < 0 ? true : false;
-	var reversed = Number(num.toString().split('').reverse().join(''));
-	return reversed;
+	var reversed = num.toString().split('').reverse();
+	
+	if (negative) {
+		reversed.pop();
+	}
+	reversed = Number(reversed.join(''));
+
+	if (Math.abs(reversed) > limit) {
+		return 0;
+	}
+	return negative ? -reversed : reversed;
 }
+

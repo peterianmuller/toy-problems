@@ -507,6 +507,13 @@ describe('toy problems', ()=>{
     it('should return reverse a positive integer', () => {
       expect(reverseInteger(321)).to.eql(123);
     })
+    it('should return reverse a negative integer', () => {
+      expect(reverseInteger(-321)).to.eql(-123);
+    })
+    it('should return 0 for numbers that are outside of 32-bit range', () => {
+      expect(reverseInteger(61923326162378867)).to.eql(0);
+    })
+
   })
 
 });
