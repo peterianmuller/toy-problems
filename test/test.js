@@ -21,6 +21,7 @@ let QueueTwoStacksFunctions = require('../problems/queue-2-stacks');
 let SetOfStacksFunctions = require('../problems/set-of-stacks');
 let reachCoords = require('../problems/reach-coordinates');
 let reverseInteger = require('../problems/reverse-integer');
+let subset = require('../problems/subset');
 
 describe('toy problems', ()=>{
   describe('fibonacci', ()=>{
@@ -512,6 +513,25 @@ describe('toy problems', ()=>{
     })
     it('should return 0 for numbers that are outside of 32-bit range', () => {
       expect(reverseInteger(61923326162378867)).to.eql(0);
+    })
+
+  })
+
+  describe('subset', () => {
+    it('should be a function', () => {
+      expect(subset).to.be.a('function');
+    });
+    it('should a boolean', () => {
+      expect(subset()).to.be.a('boolean');
+    })
+    it('should return true if subArr\'s elements are found within mainArr' , () => {
+      expect(subset([1,2,3],[1])).to.eql(true);
+    })
+    it('should return false when all the elements in the subarray are not in the main array', () => {
+      expect(subset([1,2,3],[1,5])).to.eql(false);
+    })
+    it('should return null when the 2nd argument is longer than he first argument', () => {
+      expect(subset([1,2,3],[1,5,6,7,8,9,0])).to.eql(null);
     })
 
   })
