@@ -1,5 +1,10 @@
 //https://leetcode.com/problems/add-two-numbers/description/
 
+function ListNode(val) {
+  this.val = val;
+  this.next = null;
+};
+
 
 /**
  * Definition for singly-linked list.
@@ -24,37 +29,27 @@
  // iterate over array and for each element create new node in list
  // return list
 
-
+// addTwoNumbers([0], [7,3]) => [7, NaN]
 var addTwoNumbers = function(l1, l2) {
-  console.log(l1,l2);  
-  var sums = [], counter = 0;;
-  // iterate over LL
-  while (l1) {
-      console.log(l1.val);
-      sums.push(l1.val)
-      l1 = l1.next;
-  }
     
-  while (l2) {
-      
-    if (sums[counter] + l2.val >= 10) {
-     // find out how many times 10 goes into current sum
-     // add that number to the next place
-     console.log('should be 0', (sums[counter] + l2.val) % 10)
-     sums[counter] = (sums[counter] + l2.val) % 10;   
-     var sum = sums[counter] + l2.val;
-     //sum  = sum.toString()   
-     //sums[counter + 1] += Number(l2.val.toString().split().slice(l2.val.toString().split().length - 1, 1));   
-        
-    } else {
-    sums[counter] += l2.val;  
-    } 
-      
-    l2 = l2.next;
-    counter++;
-  }
-  
-  return sums;
-     
-    
-};
+
+}
+
+
+// test case 1
+
+var lpete = { val: 9, next: { val: 9, next: null } }; 
+
+var lpete2 = { val: 9, next: null };
+
+// test case 2
+
+var l1 = { val: 0, next: null }
+
+var l2 = { val: 7, next: 
+           { val: 3, next: null } }
+
+//console.log(addTwoNumbers(l1,l2));           
+//console.log(addTwoNumbers(lpete,lpete2));           
+console.log(addTwoNumbers(list1,list2));   // [0,0,0,1]         
+

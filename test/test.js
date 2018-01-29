@@ -22,6 +22,7 @@ let SetOfStacksFunctions = require('../problems/set-of-stacks');
 let reachCoords = require('../problems/reach-coordinates');
 let reverseInteger = require('../problems/reverse-integer');
 let subset = require('../problems/subset');
+let longestSubStringWithoutRepeatingCharacter = require('../problems/longest-substring-without-repeating-characters');
 
 describe('toy problems', ()=>{
   describe('fibonacci', ()=>{
@@ -534,6 +535,12 @@ describe('toy problems', ()=>{
       expect(subset([1,2,3],[1,5,6,7,8,9,0])).to.eql(null);
     })
 
+  })
+
+  describe('longestSubstringWithoutRepeatingCharacters', () => {
+    it('should be a function', () => {
+      expect(longestSubStringWithoutRepeatingCharacter).to.be.a('function');
+    });
   })
 
 });
