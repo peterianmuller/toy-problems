@@ -242,7 +242,6 @@ describe('toy problems', ()=>{
   });
 
   describe('twoSumLinear', ()=>{
-    console.log(twoSum);
     let twoSumLinear = twoSum.twoSumLinear;
     it('should be a function', ()=>{
       expect(twoSumLinear).to.be.a('function');
@@ -255,9 +254,7 @@ describe('toy problems', ()=>{
 
   describe('infiniteLinkedList', ()=> {
     let Node = infiniteLinkedList.node;
-    //console.log(infiniteLinkedList);
     let hasCycle = infiniteLinkedList.infiniteLinkedList;
-    console.log('hasCycle is:', hasCycle);
     let peteNode = new Node(8);
 
     it('should have a class Node that insantiates a new node object', ()=>{
@@ -526,7 +523,7 @@ describe('toy problems', ()=>{
       expect(subset()).to.be.a('boolean');
     })
     it('should return true if subArr\'s elements are found within mainArr' , () => {
-      expect(subset([1,2,3],[1])).to.eql(true);
+      expect(subset([1,2  ,3],[1])).to.eql(true);
     })
     it('should return false when all the elements in the subarray are not in the main array', () => {
       expect(subset([1,2,3],[1,5])).to.eql(false);
@@ -544,6 +541,10 @@ describe('toy problems', ()=>{
 
     it('should return the length of the longest substring without repeat characters', () => {
       expect(longestSubstringWithoutRepeatingCharacters('abc')).to.eql(3);
+    });
+
+    it('should return the length of the longest substring without repeat characters', () => {
+      expect(longestSubstringWithoutRepeatingCharacters('b')).to.eql(1);
     });
 
   })
