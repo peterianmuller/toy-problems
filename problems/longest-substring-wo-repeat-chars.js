@@ -3,10 +3,12 @@
 const longestSubstringWithoutRepeatedCharacters = s => {
 	var maxLength = 1;
 	
-	if (!s || typeof s !== 'string') {
+	if (typeof s !== 'string') {
 		return null;
+	} else if (s.length === 0) {
+		return 0;
 	} else if (s.length === 1) {
-		return maxLength;
+		return 1;
 	}
 
 	for (var i = 0; i < s.length; i++) {

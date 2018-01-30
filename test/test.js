@@ -547,6 +547,11 @@ describe('toy problems', ()=>{
       expect(longestSubstringWithoutRepeatingCharacters('b')).to.eql(1);
     });
 
+    it('should handle edge cases of empty string and non-string args', () => {
+      expect(longestSubstringWithoutRepeatingCharacters('')).to.eql(0);
+      expect(longestSubstringWithoutRepeatingCharacters()).to.eql(null);
+    });
+
   })
 
 });
