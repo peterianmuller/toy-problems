@@ -3,25 +3,24 @@
 let chai = require('chai');
 let expect = chai.expect;
 
-let fibonacci = require('../problems/fibonacci');
+let fibonacci = require('../problems/recursion/fibonacci');
 let palindromePermutation = require('../problems/string/palindrome-permutation');
 let palindrome = require('../problems/string/is-palindrome');
-let bubbleSort = require('../problems/bubble-sort');
+let bubbleSort = require('../problems/sorting/bubble-sort');
 let wordPattern = require('../problems/string/word-pattern');
 let balancedBrackets = require('../problems/string/balanced-brackets');
-let fisherYates = require('../problems/fisher-yates');
-let rotateArray = require('../problems/rotate-array');
-let Tree = require('../problems/n-ary-tree');
-let twoSum = require('../problems/two-sum');
-let infiniteLinkedList = require('../problems/infinite-linked-list');
+let fisherYates = require('../problems/algorithms/fisher-yates');
+let rotateArray = require('../problems/array/rotate-array');
+let twoSum = require('../problems/algorithms/two-sum');
+let infiniteLinkedList = require('../problems/linked-list/infinite-linked-list');
 let longestPalindromeFuncs = require('../problems/string/longest-palindrome');
-let maxStackFunctions = require('../problems/max-stack');
-let minStackFunctions = require('../problems/min-stack');
-let QueueTwoStacksFunctions = require('../problems/queue-2-stacks');
-let SetOfStacksFunctions = require('../problems/set-of-stacks');
-let reachCoords = require('../problems/reach-coordinates');
-let reverseInteger = require('../problems/reverse-integer');
-let subset = require('../problems/subset');
+let maxStackFunctions = require('../problems/stack/max-stack');
+let minStackFunctions = require('../problems/stack/min-stack');
+let QueueTwoStacksFunctions = require('../problems/stack/queue-2-stacks');
+let SetOfStacksFunctions = require('../problems/stack/set-of-stacks');
+let reachCoords = require('../problems/algorithms/reach-coordinates');
+let reverseInteger = require('../problems/integer/reverse-integer');
+let subset = require('../problems/array/subset');
 let longestSubstringWithoutRepeatingCharacters = require('../problems/string/longest-substring-wo-repeat-chars');
 
 describe('toy problems', ()=>{
@@ -173,57 +172,6 @@ describe('toy problems', ()=>{
       expect(rotateArray([[1,2,3], [4,5,6], [7,8,9]])).to.eql([[7,4,1], [8,5,2], [9,6,3]]);
     });
   });
-
-  describe('N-ary Tree', ()=>{
-    it('should be a function', ()=>{
-      expect(Tree).to.be.a('function');
-    });
-    it('should be able to add children', ()=>{
-      let tree = new Tree(9);
-      expect(tree.children.length).to.eql(0);
-      tree.addChild(0);
-      expect(tree.children.length).to.eql(1); 
-    });
-    it('should have a breath first search method', ()=>{
-      let storage = [];
-      let tree = new Tree(10);
-      tree.addChild(0);
-      tree.addChild(1);
-      tree.children[0].addChild(5);
-
-      expect(tree.BFS(function(node){
-        storage.push(node.val);
-      }));
-
-      expect(storage).to.eql([10,0,1,5]);
-
-      storage = [];
-
-      tree.addChild(9);
-      tree.children[1].addChild(9);
-
-      expect(tree.BFS(function(node){
-        storage.push(node.val);
-      }));
-
-      expect(storage).to.eql([10,0,1,9,5,9]);
-
-
-    });
-
-    it('BFS method should be able to invoke a callback function on each node in the list', ()=>{
-      let tree = new Tree(0);
-      tree.addChild(1);
-      tree.addChild(2);
-      tree.addChild(3);
-      let sum = 0;
-      tree.BFS(function(node){
-        sum += node.val;  
-      });
-      expect(sum).to.eql(6);
-    });
-
-  })
 
   describe('twoSumQuadratic', ()=>{
     let twoSumQuadratic = twoSum.twoSumQuadratic;
