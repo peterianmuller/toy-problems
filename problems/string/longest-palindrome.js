@@ -31,7 +31,6 @@ const longestPalindrome = str => {
     // create sub string at each step, check if palindrome and if substring is longer
       let substring = str.slice(i, str.length - i - j);
       //let substring = str.slice(j);
-      //console.log(substring);
       if (isPalindrome(substring) && substring.length > longestPalindrome.length) {
       // if longer re-assign longestPalin to point to substring
       	longestPalindrome = substring;

@@ -16,18 +16,19 @@ const twoSumQuadratic = (nums, target) =>{
 
 
 const twoSumLinear = (nums, target) => {
+  
   // build up an object to keep track of {index, difference}
   let storage = {};
   for (var i = 0; i < nums.length; i++) {
     let current = nums[i];
     let diff = target - current; 
+    
     //save the property name as the diff!
     storage[diff] = i;
     if (storage.hasOwnProperty(nums[i])) {
       return [storage[nums[i]], i];
     }
   }
-  console.log(storage);
   return storage;
 }
 

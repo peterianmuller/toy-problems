@@ -56,7 +56,6 @@ class MaxStack {
     }
   }
   getMax(){
-    console.log(this.max.top());
     if(this.max.top()) {
       return this.max.top();
     }  

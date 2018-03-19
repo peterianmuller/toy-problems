@@ -25,7 +25,6 @@ var isSubset = (mainArr,subArr, mainArrCopy, subArrCopy) => {
 
   if (index > -1) {
   	mainArrCopy.splice(index,1);
-  	console.log(mainArrCopy, subArrCopy);
   	return isSubset(mainArr, subArr, mainArrCopy, subArrCopy);
   } else {
   	return false;
