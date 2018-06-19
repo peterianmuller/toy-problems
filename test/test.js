@@ -23,6 +23,7 @@ let reverseInteger = require('../problems/integer/reverse-integer');
 let subset = require('../problems/array/subset');
 let permutations = require('../problems/string/permutations');
 let longestSubstringWithoutRepeatingCharacters = require('../problems/string/longest-substring-wo-repeat-chars');
+let makeArrayConsecutive = require('../problems/array/make-array-consecutive');
 
 describe('toy problems', () => {
   describe('fibonacci', () => {
@@ -485,6 +486,11 @@ describe('toy problems', () => {
     it('should handle edge cases of empty string and non-string args', () => {
       expect(longestSubstringWithoutRepeatingCharacters('')).to.eql(0);
       expect(longestSubstringWithoutRepeatingCharacters()).to.eql(null);
+    });
+  });
+  describe('makeArraySequential', () => {
+    it('should be a function', () => {
+      expect(makeArrayConsecutive).to.be.a('function');
     });
   });
 });
