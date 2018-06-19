@@ -4,16 +4,19 @@
 // 1 ≤ statues.length ≤ 10
 // 0 ≤ statues[i] ≤ 20
 
-assertEquals = (actual, expected) => {
-	if (actual !== expected) console.log(`expcted: ${expected} but got: ${actual}`);
-	else console.log(`passed`);
+const makeArrayConsecutive = arr => {
+	// dealing with arr of length 1
+
+	if (arr.length === 1) {
+		if (!arr[0]) {
+			return 0;
+		} else {
+			return arr[0] - 1;
+		}
+	}
+
+	// dealing with 2 or more lengths
+	return Math.max(...arr) - Math.min(...arr) + 1 - arr.length;
 };
-
-let case1 = [6, 2, 3, 8];
-
-// sort array
-// find min and max
-
-const makeArrayConsecutive = arr => {};
 
 module.exports = makeArrayConsecutive;

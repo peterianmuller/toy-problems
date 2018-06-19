@@ -492,5 +492,12 @@ describe('toy problems', () => {
     it('should be a function', () => {
       expect(makeArrayConsecutive).to.be.a('function');
     });
+    it('should indicate how many elements we need to add to make an array consecutive from the minimum element to the maximum element, increasing by 1', () => {
+      expect(makeArrayConsecutive([6, 2, 3, 8])).to.eql(3);
+    });
+    it('should work on arrays of length 1', () => {
+      expect(makeArrayConsecutive([8])).to.eql(7);
+      expect(makeArrayConsecutive([0])).to.eql(0);
+    });
   });
 });
