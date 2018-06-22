@@ -25,6 +25,7 @@ let permutations = require('../problems/string/permutations');
 let longestSubstringWithoutRepeatingCharacters = require('../problems/string/longest-substring-wo-repeat-chars');
 let makeArrayConsecutive = require('../problems/array/make-array-consecutive');
 let almostIncreasingSequence = require('../problems/array/almost-increasing-sequence');
+let matrixElementSum = require('../problems/array/matrix-elements-sum');
 
 describe('toy problems', () => {
   describe('fibonacci', () => {
@@ -509,6 +510,14 @@ describe('toy problems', () => {
       expect(almostIncreasingSequence([1, 3, 2, 1])).to.eql(false);
       expect(almostIncreasingSequence([1, 3, 1])).to.eql(true);
       expect(almostIncreasingSequence([1, 3, 1, 3])).to.eql(false);
+    });
+  });
+  describe('matrixElementSum', () => {
+    it('should be a function', () => {
+      expect(matrixElementSum).to.be.a('function');
+    });
+    it('should return 0 is there are no available rooms in the building', () => {
+      expect(matrixElementSum([[0, 0, 0, 0], [0, 5, 0, 0], [2, 0, 3, 3]])).to.eql(0);
     });
   });
 });
