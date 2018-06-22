@@ -24,6 +24,7 @@ let subset = require('../problems/array/subset');
 let permutations = require('../problems/string/permutations');
 let longestSubstringWithoutRepeatingCharacters = require('../problems/string/longest-substring-wo-repeat-chars');
 let makeArrayConsecutive = require('../problems/array/make-array-consecutive');
+let almostIncreasingSequence = require('../problems/array/almost-increasing-sequence');
 
 describe('toy problems', () => {
   describe('fibonacci', () => {
@@ -496,6 +497,18 @@ describe('toy problems', () => {
       expect(makeArrayConsecutive([6, 2, 3, 8])).to.eql(3);
     });
     it('should work on arrays of length 1', () => {
+      expect(makeArrayConsecutive([8])).to.eql(7);
+      expect(makeArrayConsecutive([0])).to.eql(0);
+    });
+  });
+  describe('almostIncreasingSequence', () => {
+    it('should be a function', () => {
+      expect(almostIncreasingSequence).to.be.a('function');
+    });
+    xit('should indicate how many elements we need to add to make an array consecutive from the minimum element to the maximum element, increasing by 1', () => {
+      expect(makeArrayConsecutive([6, 2, 3, 8])).to.eql(3);
+    });
+    xit('should work on arrays of length 1', () => {
       expect(makeArrayConsecutive([8])).to.eql(7);
       expect(makeArrayConsecutive([0])).to.eql(0);
     });
