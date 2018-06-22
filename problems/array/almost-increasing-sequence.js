@@ -23,9 +23,15 @@ function almostIncreasingSequence(sequence) {
 	for (let i = 0; i < sequence.length; i++) {
 		if (sequence[i] >= sequence[i + 1]) {
 			removedItems++;
+			// issue is if we remove an item but then the next item messes up the array in such a way that we would have to remove another element
+			if (sequence[i + 1] <= sequence[i - 1] && sequence[i + 2] <= sequence[i]) {
+				return false;
+			}
 		}
 	}
 	return removedItems <= 1;
 }
+
+// [1,3,1,3]
 
 module.exports = almostIncreasingSequence;

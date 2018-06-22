@@ -507,10 +507,8 @@ describe('toy problems', () => {
     });
     it('should return false if we need to remove more than one element to make an increasing sequence', () => {
       expect(almostIncreasingSequence([1, 3, 2, 1])).to.eql(false);
-    });
-    xit('should work on arrays of length 1', () => {
-      expect(almostIncreasingSequence([8])).to.eql(7);
-      expect(almostIncreasingSequence([0])).to.eql(0);
+      expect(almostIncreasingSequence([1, 3, 1])).to.eql(true);
+      expect(almostIncreasingSequence([1, 3, 1, 3])).to.eql(false);
     });
   });
 });
