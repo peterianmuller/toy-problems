@@ -516,8 +516,14 @@ describe('toy problems', () => {
     it('should be a function', () => {
       expect(matrixElementSum).to.be.a('function');
     });
+    it('should correctly handle non-2d array inputs', () => {
+      expect(matrixElementSum('ssdadsa')).to.eql('please enter a valid 2d-array');
+    });
     it('should return 0 is there are no available rooms in the building', () => {
       expect(matrixElementSum([[0, 0, 0, 0], [0, 5, 0, 0], [2, 0, 3, 3]])).to.eql(0);
+    });
+    it('should return the correct number of the prices of empty rooms in the building', () => {
+      expect(matrixElementSum([[0, 1, 1, 2], [0, 5, 0, 0], [2, 0, 3, 3]])).to.eql(9);
     });
   });
 });

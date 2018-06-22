@@ -1,4 +1,8 @@
 matrixElementSum = matrix => {
+	if (!Array.isArray(matrix) || !Array.isArray(matrix[0])) {
+		return `please enter a valid 2d-array`;
+	}
+
 	let totalPrice = 0;
 	// iterate over entirety of array
 	for (let i = 0; i < matrix.length; i++) {
