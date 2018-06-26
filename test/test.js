@@ -531,5 +531,11 @@ describe('toy problems', () => {
     it('should be a function', () => {
       expect(commonCharCount).to.be.a('function');
     });
+    it('should list how many common characters are shared between the two strings', () => {
+      expect(commonCharCount('abc', 'a')).to.eql(1);
+    });
+    it('should list how many common characters are shared between the two strings', () => {
+      expect(commonCharCount('abaac', 'a')).to.eql(1);
+    });
   });
 });
