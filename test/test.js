@@ -26,6 +26,7 @@ let longestSubstringWithoutRepeatingCharacters = require('../problems/string/lon
 let makeArrayConsecutive = require('../problems/array/make-array-consecutive');
 let almostIncreasingSequence = require('../problems/array/almost-increasing-sequence');
 let matrixElementSum = require('../problems/array/matrix-elements-sum');
+let commonCharCount = require('../problems/string/common-char-count');
 
 describe('toy problems', () => {
   describe('fibonacci', () => {
@@ -524,6 +525,11 @@ describe('toy problems', () => {
     });
     it('should return the correct number of the prices of empty rooms in the building', () => {
       expect(matrixElementSum([[0, 1, 1, 2], [0, 5, 0, 0], [2, 0, 3, 3]])).to.eql(9);
+    });
+  });
+  describe('commonCharCount', () => {
+    it('should be a function', () => {
+      expect(commonCharCount).to.be.a('function');
     });
   });
 });
