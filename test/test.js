@@ -543,5 +543,8 @@ describe('toy problems', () => {
     it('should be a function', () => {
       expect(sortKMessedArray).to.be.a('function');
     });
+    it('should sort the array into ascending order', () => {
+      expect(sortKMessedArray([1, 0, 3, 2], 1)).to.eql([0, 1, 2, 3]);
+    });
   });
 });
