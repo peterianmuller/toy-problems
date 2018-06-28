@@ -27,6 +27,7 @@ let makeArrayConsecutive = require('../problems/array/make-array-consecutive');
 let almostIncreasingSequence = require('../problems/array/almost-increasing-sequence');
 let matrixElementSum = require('../problems/array/matrix-elements-sum');
 let commonCharCount = require('../problems/string/common-char-count');
+let sortKMessedArray = require('../problems/array/sort-kmessed-arr');
 
 describe('toy problems', () => {
   describe('fibonacci', () => {
@@ -536,6 +537,11 @@ describe('toy problems', () => {
     });
     it('should list how many common characters are shared between the two strings', () => {
       expect(commonCharCount('abaac', 'a')).to.eql(1);
+    });
+  });
+  describe('sortKMessedArray', () => {
+    it('should be a function', () => {
+      expect(sortKMessedArray).to.be.a('function');
     });
   });
 });
