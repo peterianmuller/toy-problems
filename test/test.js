@@ -581,5 +581,32 @@ describe('toy problems', () => {
       let matrix2 = [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20]];
       expect(toOneDimensionalArray(matrix2).slice(11, 14)).to.eql([16, 11, 6]);
     });
+    it('should return a 1-dimensional copy of the array ith items in the order of: top row, right column, bottom row, left column', () => {
+      let matrix = [[4, 2], [5, 7]];
+      expect(toOneDimensionalArray(matrix)).to.eql([4, 2, 7, 5]);
+      let matrix2 = [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20]];
+      expect(toOneDimensionalArray(matrix2)).to.eql([
+        1,
+        2,
+        3,
+        4,
+        5,
+        10,
+        15,
+        20,
+        19,
+        18,
+        17,
+        16,
+        11,
+        6,
+        7,
+        8,
+        9,
+        14,
+        13,
+        12
+      ]);
+    });
   });
 });

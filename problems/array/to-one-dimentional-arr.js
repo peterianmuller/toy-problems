@@ -18,15 +18,19 @@ const toLinearArr = matrix => {
 		}
 		rightCol--;
 		// select bottom row
-		for (let i = rightCol; i >= leftCol; i--) {
-			copy.push(matrix[bottomRow][i]);
+		if (topRow <= bottomRow) {
+			for (let i = rightCol; i >= leftCol; i--) {
+				copy.push(matrix[bottomRow][i]);
+			}
+			bottomRow--;
 		}
-		bottomRow--;
 		// select left col from bottom to top
-		for (let i = bottomRow; i >= topRow; i--) {
-			copy.push(matrix[i][leftCol]);
+		if (leftCol <= rightCol) {
+			for (let i = bottomRow; i >= topRow; i--) {
+				copy.push(matrix[i][leftCol]);
+			}
+			leftCol++;
 		}
-		leftCol++;
 	}
 
 	return copy;
