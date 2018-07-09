@@ -28,7 +28,7 @@ let almostIncreasingSequence = require('../problems/array/almost-increasing-sequ
 let matrixElementSum = require('../problems/array/matrix-elements-sum');
 let commonCharCount = require('../problems/string/common-char-count');
 let sortKMessedArray = require('../problems/array/sort-kmessed-arr');
-let toOneDimensionalArray = require('../problems/array/2d-to-linear-array');
+let toOneDimensionalArray = require('../problems/array/to-one-dimentional-arr');
 
 describe('toy problems', () => {
   describe('fibonacci', () => {
