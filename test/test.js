@@ -552,8 +552,10 @@ describe('toy problems', () => {
     it('should be a function', () => {
       expect(toOneDimensionalArray).to.be.a('function');
     });
-    xit('should unwind the array to a 1d array', () => {
-      expect(toOneDimensionalArray([[0, 1]])).to.eql([1, 0]);
+    it('should not modify input array', () => {
+      let input = [[1, 2]];
+      toOneDimensionalArray([[1, 2]]);
+      expect(input).to.eql([[1, 2]]);
     });
   });
 });
