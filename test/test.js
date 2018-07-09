@@ -557,5 +557,13 @@ describe('toy problems', () => {
       toOneDimensionalArray([[1, 2]]);
       expect(input).to.eql([[1, 2]]);
     });
+    it('should copy the top row of the matrix from left to right first', () => {
+      let matrix = [[4, 2], [5, 7]];
+      expect(toOneDimensionalArray(matrix).slice(0, 2)).to.eql([4, 2]);
+    });
+    it('should copy the right col from top to bottom next', () => {
+      let matrix = [[4, 2], [5, 7]];
+      expect(toOneDimensionalArray(matrix).slice(1, 3)).to.eql([2, 7]);
+    });
   });
 });
