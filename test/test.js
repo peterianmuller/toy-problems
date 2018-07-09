@@ -28,6 +28,7 @@ let almostIncreasingSequence = require('../problems/array/almost-increasing-sequ
 let matrixElementSum = require('../problems/array/matrix-elements-sum');
 let commonCharCount = require('../problems/string/common-char-count');
 let sortKMessedArray = require('../problems/array/sort-kmessed-arr');
+let toOneDimensionalArray = require('../problems/array/2d-to-linear-array');
 
 describe('toy problems', () => {
   describe('fibonacci', () => {
@@ -545,6 +546,14 @@ describe('toy problems', () => {
     });
     it('should sort the array into ascending order', () => {
       expect(sortKMessedArray([1, 0, 3, 2], 1)).to.eql([0, 1, 2, 3]);
+    });
+  });
+  describe('toOneDimensionalArray', () => {
+    it('should be a function', () => {
+      expect(toOneDimensionalArray).to.be.a('function');
+    });
+    xit('should unwind the array to a 1d array', () => {
+      expect(toOneDimensionalArray([[0, 1]])).to.eql([1, 0]);
     });
   });
 });
