@@ -560,10 +560,26 @@ describe('toy problems', () => {
     it('should copy the top row of the matrix from left to right first', () => {
       let matrix = [[4, 2], [5, 7]];
       expect(toOneDimensionalArray(matrix).slice(0, 2)).to.eql([4, 2]);
+      let matrix2 = [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20]];
+      expect(toOneDimensionalArray(matrix2).slice(0, 8)).to.eql([1, 2, 3, 4, 5, 10, 15, 20]);
     });
     it('should copy the right col from top to bottom next', () => {
       let matrix = [[4, 2], [5, 7]];
       expect(toOneDimensionalArray(matrix).slice(1, 3)).to.eql([2, 7]);
+      let matrix2 = [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20]];
+      expect(toOneDimensionalArray(matrix2).slice(4, 8)).to.eql([5, 10, 15, 20]);
+    });
+    it('should copy the bottom row from left to right next', () => {
+      let matrix = [[4, 2], [5, 7]];
+      expect(toOneDimensionalArray(matrix).slice(2)).to.eql([7, 5]);
+      let matrix2 = [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20]];
+      expect(toOneDimensionalArray(matrix2).slice(7, 12)).to.eql([20, 19, 18, 17, 16]);
+    });
+    it('should copy the bottom row from left to right next', () => {
+      let matrix = [[4, 2], [5, 7]];
+      expect(toOneDimensionalArray(matrix).slice(2)).to.eql([7, 5]);
+      let matrix2 = [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20]];
+      expect(toOneDimensionalArray(matrix2).slice(11, 14)).to.eql([16, 11, 6]);
     });
   });
 });
