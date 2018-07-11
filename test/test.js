@@ -624,5 +624,12 @@ describe('toy problems', () => {
     it('should return [] if the semifinal winners have 0 goals left over', () => {
       expect(possibleWinners(1, 3, 2, 2)).to.eql([]);
     });
+    it('should return both teams that make it to finals if both semifinal winners have at least one goal in the finals', () => {
+      expect(possibleWinners(2, 2, 4, 0)).to.eql(['Belgium', 'England']);
+    });
+    it('should return the team with available goals if the other team has no available goals in the finals', () => {
+      expect(possibleWinners(1, 1, 10, 2)).to.eql(['England']);
+      expect(possibleWinners(4, 2, 1, 1)).to.eql(['Belgium']);
+    });
   });
 });

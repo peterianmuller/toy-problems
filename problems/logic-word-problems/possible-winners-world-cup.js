@@ -33,9 +33,17 @@ possibleWinners = (b, c, e, f) => {
 
 	if (!round1Results.bracket1.goalsLeftOver && !round1Results.bracket2.goalsLeftOver) {
 		return [];
+	} else if (round1Results.bracket1.goalsLeftOver && round1Results.bracket2.goalsLeftOver) {
+		winners.push(round1Results.bracket1.team);
+		winners.push(round1Results.bracket2.team);
+		return winners.sort();
+	} else if (round1Results.bracket1.goalsLeftOver) {
+		winners.push(round1Results.bracket1.team);
+	} else {
+		winners.push(round1Results.bracket2.team);
 	}
 
-	return [];
+	return winners;
 };
 
 module.exports = possibleWinners;
