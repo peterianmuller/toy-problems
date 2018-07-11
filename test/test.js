@@ -29,6 +29,7 @@ let matrixElementSum = require('../problems/array/matrix-elements-sum');
 let commonCharCount = require('../problems/string/common-char-count');
 let sortKMessedArray = require('../problems/array/sort-kmessed-arr');
 let toOneDimensionalArray = require('../problems/array/to-one-dimentional-arr');
+let possibleWinners = require('../problems/logic-word-problems/possible-winners-world-cup');
 
 describe('toy problems', () => {
   describe('fibonacci', () => {
@@ -607,6 +608,14 @@ describe('toy problems', () => {
         13,
         12
       ]);
+    });
+  });
+  describe('possibleWinners', () => {
+    it('should be a function', () => {
+      expect(possibleWinners).to.be.a('function');
+    });
+    it('should return an array', () => {
+      expect(possibleWinners(1, 3, 4, 5)).to.be.an('array');
     });
   });
 });
