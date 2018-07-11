@@ -13,21 +13,18 @@ possibleWinners = (b, c, e, f) => {
 
 	// figure out the winners of the first rounds
 
-	if (b > f) {
-		round1Results.bracket1.team = 'Belgium';
-		round1Results.bracket1.goalsLeftOver = b - f - 1;
-	} else {
-		round1Results.bracket1.team = 'France';
-		round1Results.bracket1.goalsLeftOver = f - b - 1;
-	}
+	round1 = (bracketNumber, teamName1, teamName2, team1Goals, team2Goals) => {
+		if (team1Goals > team2Goals) {
+			round1Results[`bracket${bracketNumber}`].goalsLeftOver = team1Goals - team2Goals - 1;
+			round1Results[`bracket${bracketNumber}`].team = teamName1;
+		} else {
+			round1Results[`bracket${bracketNumber}`].goalsLeftOver = team2Goals - team1Goals - 1;
+			round1Results[`bracket${bracketNumber}`].team = teamName2;
+		}
+	};
 
-	if (e > c) {
-		round1Results.bracket2.team = 'England';
-		round1Results.bracket2.goalsLeftOver = e - c - 1;
-	} else {
-		round1Results.bracket2.team = 'Croatia';
-		round1Results.bracket2.goalsLeftOver = c - e - 1;
-	}
+	round1(1, 'Belgium', 'France', b, f);
+	round1(2, 'England', 'Croatia', e, c);
 
 	// figure out combinations of winners
 
