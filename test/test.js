@@ -611,11 +611,18 @@ describe('toy problems', () => {
     });
   });
   describe('possibleWinners', () => {
+    // b, c, e, f
     it('should be a function', () => {
       expect(possibleWinners).to.be.a('function');
     });
     it('should return an array', () => {
       expect(possibleWinners(1, 3, 4, 5)).to.be.an('array');
+    });
+    it('should return [] if one of the semifinal games ends in a tie', () => {
+      expect(possibleWinners(1, 3, 3, 4)).to.eql([]);
+    });
+    it('should return [] if the semifinal winners have 0 goals left over', () => {
+      expect(possibleWinners(1, 3, 2, 2)).to.eql([]);
     });
   });
 });
