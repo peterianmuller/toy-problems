@@ -638,7 +638,10 @@ describe('toy problems', () => {
       expect(alternatingSums).to.be.a('function');
     });
     it('should return an array', () => {
-      expect(possibleWinners(1, 3, 4, 5)).to.be.an('array');
+      expect(alternatingSums([1, 2, 3])).to.be.an('array');
+    });
+    it('should return an array of the correct weights for each category', () => {
+      expect(alternatingSums([50, 60, 60, 45, 70])).to.eql([180, 105]);
     });
   });
 });
