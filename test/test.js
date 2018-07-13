@@ -30,6 +30,7 @@ let commonCharCount = require('../problems/string/common-char-count');
 let sortKMessedArray = require('../problems/array/sort-kmessed-arr');
 let toOneDimensionalArray = require('../problems/array/to-one-dimentional-arr');
 let possibleWinners = require('../problems/logic-word-problems/possible-winners-world-cup');
+let alternatingSums = require('../problems/array/alternating-sums');
 
 describe('toy problems', () => {
   describe('fibonacci', () => {
@@ -630,6 +631,14 @@ describe('toy problems', () => {
     it('should return the team with available goals if the other team has no available goals in the finals', () => {
       expect(possibleWinners(1, 1, 10, 2)).to.eql(['England']);
       expect(possibleWinners(4, 2, 1, 1)).to.eql(['Belgium']);
+    });
+  });
+  describe('alternatingSums', () => {
+    it('should be a function', () => {
+      expect(alternatingSums).to.be.a('function');
+    });
+    it('should return an array', () => {
+      expect(possibleWinners(1, 3, 4, 5)).to.be.an('array');
     });
   });
 });
