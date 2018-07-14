@@ -31,6 +31,7 @@ let sortKMessedArray = require('../problems/array/sort-kmessed-arr');
 let toOneDimensionalArray = require('../problems/array/to-one-dimentional-arr');
 let possibleWinners = require('../problems/logic-word-problems/possible-winners-world-cup');
 let alternatingSums = require('../problems/array/alternating-sums');
+let isIPv4Address = require('../problems/string/is-IPv4-address');
 
 describe('toy problems', () => {
   describe('fibonacci', () => {
@@ -642,6 +643,18 @@ describe('toy problems', () => {
     });
     it('should return an array of the correct weights for each category', () => {
       expect(alternatingSums([50, 60, 60, 45, 70])).to.eql([180, 105]);
+    });
+  });
+  describe('isIPv4Address', () => {
+    it('should be a function', () => {
+      expect(isIPv4Address).to.be.a('function');
+    });
+    it('should return a boolean', () => {
+      expect(isIPv4Address('172.16.254.1')).to.be.a('Boolean');
+    });
+    it('should check whether a valid IPv4 address has ben passed in', () => {
+      expect(isIPv4Address('172.16.254.1')).to.eql(true);
+      expect(isIPv4Address('1732.16.254.1')).to.eql(false);
     });
   });
 });
