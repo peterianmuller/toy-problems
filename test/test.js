@@ -662,5 +662,15 @@ describe('toy problems', () => {
     it('should be a function', () => {
       expect(avoidObstacles).to.be.a('function');
     });
+    it("shouldn't mutate the input array", () => {
+      let input = [0, 1, 2, 3];
+      avoidObstacles(input);
+      expect(input).to.eql([0, 1, 2, 3]);
+    });
+    it("shouldn't mutate the input array", () => {
+      let input = [0, 1, 2, 3];
+      avoidObstacles(input);
+      expect(input).to.eql([0, 1, 2, 3]);
+    });
   });
 });
