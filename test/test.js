@@ -32,6 +32,7 @@ let toOneDimensionalArray = require('../problems/array/to-one-dimentional-arr');
 let possibleWinners = require('../problems/logic-word-problems/possible-winners-world-cup');
 let alternatingSums = require('../problems/array/alternating-sums');
 let isIPv4Address = require('../problems/string/is-IPv4-address');
+let avoidObstacles = require('../problems/array/avoid-obstacles');
 
 describe('toy problems', () => {
   describe('fibonacci', () => {
@@ -655,6 +656,11 @@ describe('toy problems', () => {
     it('should check whether a valid IPv4 address has ben passed in', () => {
       expect(isIPv4Address('172.16.254.1')).to.eql(true);
       expect(isIPv4Address('1732.16.254.1')).to.eql(false);
+    });
+  });
+  describe('avoidObstacles', () => {
+    it('should be a function', () => {
+      expect(avoidObstacles).to.be.a('function');
     });
   });
 });
