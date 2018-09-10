@@ -33,6 +33,7 @@ let possibleWinners = require('../problems/logic-word-problems/possible-winners-
 let alternatingSums = require('../problems/array/alternating-sums');
 let isIPv4Address = require('../problems/string/is-IPv4-address');
 let avoidObstacles = require('../problems/array/avoid-obstacles');
+let isIsogram = require('../problems/string/isogram');
 
 describe('toy problems', () => {
   describe('fibonacci', () => {
