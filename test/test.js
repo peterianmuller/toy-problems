@@ -674,4 +674,9 @@ describe('toy problems', () => {
       expect(input).to.eql([0, 1, 2, 3]);
     });
   });
+  describe('isogram', () => {
+    it('should be a function', () => {
+      expect(isogram).to.be.a('function');
+    });
+  });
 });
