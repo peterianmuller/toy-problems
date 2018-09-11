@@ -678,5 +678,14 @@ describe('toy problems', () => {
     it('should be a function', () => {
       expect(isogram).to.be.a('function');
     });
+    it('should return true for an empty string', () => {
+      expect(isogram('')).to.eql(true);
+    });
+    it('should return true for a string that has only unique characters, regardless of case', () => {
+      expect(isogram('asfghjk')).to.eql(true);
+      expect(isogram('asfGhjK')).to.eql(true);
+      expect(isogram('asfGhjKk')).to.eql(false);
+      expect(isogram('aA')).to.eql(false);
+    });
   });
 });
