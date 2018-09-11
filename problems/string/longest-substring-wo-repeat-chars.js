@@ -1,8 +1,6 @@
-'use strict'
-
-const longestSubstringWithoutRepeatedCharacters = s => {
+longestSubstringWithoutRepeatedCharacters = s => {
 	var maxLength = 1;
-	
+
 	if (typeof s !== 'string') {
 		return null;
 	} else if (s.length === 0) {
@@ -13,19 +11,17 @@ const longestSubstringWithoutRepeatedCharacters = s => {
 
 	for (var i = 0; i < s.length; i++) {
 		var length = 1;
-		for(var j = i + 1; j <= s.length; j++) {
-			var myString = s.slice(i,j);
+		for (var j = i + 1; j <= s.length; j++) {
+			var myString = s.slice(i, j);
 			if (myString.indexOf(s.charAt(j)) === -1) {
-			  length++;	
+				length++;
 			} else {
 				break;
 			}
 		}
-	maxLength = maxLength < length ? length : maxLength;
+		maxLength = maxLength < length ? length : maxLength;
 	}
 	return maxLength;
-
-}
-
+};
 
 module.exports = longestSubstringWithoutRepeatedCharacters;

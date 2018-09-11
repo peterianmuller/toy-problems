@@ -1,8 +1,4 @@
-'use strict'
-
-//inputs 
-
-const wordPattern = (word, pattern) =>{
+wordPattern = (word, pattern) => {
   // make storage object
   var storage = {};
   var words = word.split(' ');
@@ -24,20 +20,18 @@ const wordPattern = (word, pattern) =>{
     }
 
     // checking if different letters in pattern but same word in obj
-    if (pattern[i] !== pattern[i-1]) {
-      if (storage[pattern[i]] === storage[pattern[i-1]]) {
+    if (pattern[i] !== pattern[i - 1]) {
+      if (storage[pattern[i]] === storage[pattern[i - 1]]) {
         return false;
-      }  
+      }
     }
   }
 
   return true;
- 
-}
+};
 
 // main idea - iterate through the pattern at the same time of the words
 // add prop to storage object storage[pattern[i]] = string[i]
 // this way we compare not only that storage[pattern[i]] exists, but that the order remains.
-
 
 module.exports = wordPattern;

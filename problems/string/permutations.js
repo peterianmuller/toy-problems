@@ -1,7 +1,7 @@
 // I -> string
 // O -> array of all permutations of string
 
-const permutations = function(str) {
+permutations = str => {
 	var allPerms = [];
 
 	(function permutation(str, prefix) {

@@ -1,6 +1,6 @@
 // https://codefights.com/arcade/intro/level-3/JKKuHJknZNj4YGL32
 
-const commonCharCount = (s1, s2) => {
+commonCharCount = (s1, s2) => {
 	let s2Arr = s2.split('');
 	let commonCharCount = {};
 	let total = 0;
