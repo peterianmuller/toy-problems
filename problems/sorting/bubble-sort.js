@@ -1,15 +1,12 @@
-'use strict'
-
-const bubbleSort = array => {
-
-  if (!Array.isArray(array)) {
-    return null;
-  }
+bubbleSort = array => {
+    if (!Array.isArray(array)) {
+        return null;
+    }
 
     var length = array.length;
-    for (var i = (length - 1); i >= 0; i--) {
-    //Number of passes
-        for (var j = (length - i); j > 0; j--) {
+    for (var i = length - 1; i >= 0; i--) {
+        //Number of passes
+        for (var j = length - i; j > 0; j--) {
             //Compare the adjacent positions
             if (array[j] < array[j - 1]) {
                 //Swap the numbers
@@ -20,8 +17,6 @@ const bubbleSort = array => {
         }
     }
     return array;
-
 };
 
-module.exports = bubbleSort
-
+module.exports = bubbleSort;

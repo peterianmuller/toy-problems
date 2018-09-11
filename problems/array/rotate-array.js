@@ -1,7 +1,4 @@
-'use strict'
-
-
-const rotateArray = matrix => {
+rotateArray = matrix => {
   if (!Array.isArray(matrix)) {
     return null;
   } else if (matrix.length === 0) {
@@ -11,7 +8,7 @@ const rotateArray = matrix => {
   if (matrix[0].length === 2) {
     let topLeft = matrix[0][0];
     let topRight = matrix[0][1];
-    let bottomLeft = matrix[1][0]
+    let bottomLeft = matrix[1][0];
     let bottomRight = matrix[1][1];
 
     matrix[0][0] = bottomLeft;
@@ -21,12 +18,12 @@ const rotateArray = matrix => {
   }
 
   if (matrix[0].length === 3) {
-    let switchCorners = matrix => {
+    switchCorners = matrix => {
       let terminalIndex = matrix.length - 1;
 
-      let topLeft = matrix[0][0]
+      let topLeft = matrix[0][0];
       let topRight = matrix[0][terminalIndex];
-      let bottomLeft = matrix[terminalIndex][0]
+      let bottomLeft = matrix[terminalIndex][0];
       let bottomRight = matrix[terminalIndex][terminalIndex];
 
       //console.log(topLeft, topRight, bottomLeft, bottomRight);
@@ -35,14 +32,14 @@ const rotateArray = matrix => {
       matrix[0][terminalIndex] = topLeft;
       matrix[terminalIndex][0] = bottomRight;
       matrix[terminalIndex][terminalIndex] = topRight;
-    }
+    };
 
-    let switchNonCorners = matrix => {
+    switchNonCorners = matrix => {
       let terminalIndex = matrix.length - 1;
 
       let topMiddle = matrix[0][1];
       let rightMiddle = matrix[1][terminalIndex];
-      let leftMiddle = matrix[1][0]
+      let leftMiddle = matrix[1][0];
       let bottomMiddle = matrix[terminalIndex][1];
 
       //console.log(topMiddle, rightMiddle, leftMiddle, bottomMiddle);
@@ -51,15 +48,13 @@ const rotateArray = matrix => {
       matrix[1][terminalIndex] = topMiddle;
       matrix[1][0] = bottomMiddle;
       matrix[terminalIndex][1] = rightMiddle;
-    }
+    };
     switchCorners(matrix);
     switchNonCorners(matrix);
     //console.log('matrix is:, ', matrix);
   }
 
   return matrix;
-
 };
 
 module.exports = rotateArray;
-

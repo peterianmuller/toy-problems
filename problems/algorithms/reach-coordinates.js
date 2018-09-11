@@ -7,37 +7,31 @@
 // base cases:
 
 // check if current coordinates out of range
-  // if so return false
+// if so return false
 
 // check if current coordinates are the same as target coordinates
-  // if so return true
+// if so return true
 
 // recursive cases:
 
 // try first move: x + y, y
-  // if we just return this than we are not trying the other option
+// if we just return this than we are not trying the other option
 
-// try second move: x, y + x     
-  // if we just place a second return statement than we will never reach this  
+// try second move: x, y + x
+// if we just place a second return statement than we will never reach this
 
+// we need to leave open the possbility of a combination of first move, second move, third move, etc.
 
-
-
-// we need to leave open the possbility of a combination of first move, second move, third move, etc. 
-
-
-const reachCoordinates = (x1, y1, x2, y2) => {
-	
-	if ( x1 > x2 || y1 > y2 ) {
+reachCoordinates = (x1, y1, x2, y2) => {
+	if (x1 > x2 || y1 > y2) {
 		return false;
-	}  
+	}
 
-	if ( x1 === x2 && y1 === y2 ) {
-	  return true;	
+	if (x1 === x2 && y1 === y2) {
+		return true;
 	}
 
 	return reachCoordinates(x1 + y1, y1, x2, y2) || reachCoordinates(x1, x1 + y1, x2, y2);
-
-}
+};
 
 module.exports = reachCoordinates;

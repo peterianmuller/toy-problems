@@ -1,6 +1,4 @@
-'use strict';
-
-const twoSumQuadratic = (nums, target) => {
+twoSumQuadratic = (nums, target) => {
   for (var i = 0; i < nums.length; i++) {
     let current = nums[i];
     for (var j = i + 1; j < nums.length; j++) {
@@ -13,7 +11,7 @@ const twoSumQuadratic = (nums, target) => {
   return null;
 };
 
-const twoSumLinear = (nums, target) => {
+twoSumLinear = (nums, target) => {
   // build up an object to keep track of {index, difference}
   let storage = {};
   for (var i = 0; i < nums.length; i++) {

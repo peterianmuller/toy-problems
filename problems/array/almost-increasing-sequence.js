@@ -18,7 +18,7 @@
 
 // You can remove 3 from the array to get the strictly increasing sequence [1, 2]. Alternately, you can remove 2 to get the strictly increasing sequence [1, 3].
 
-function almostIncreasingSequence(sequence) {
+almostIncreasingSequence = sequence => {
 	let removedItems = 0;
 	for (let i = 0; i < sequence.length; i++) {
 		if (sequence[i] >= sequence[i + 1]) {
@@ -30,7 +30,7 @@ function almostIncreasingSequence(sequence) {
 		}
 	}
 	return removedItems <= 1;
-}
+};
 
 // [1,3,1,3]
 

@@ -1,35 +1,30 @@
-
 // [1,2,3,4], [2,3]
-  // iterate over mainArr and see if  
+// iterate over mainArr and see if
 
-
-
-
-var isSubset = (mainArr,subArr, mainArrCopy, subArrCopy) => {
+isSubset = (mainArr, subArr, mainArrCopy, subArrCopy) => {
   if (!mainArr || !subArr) {
-  	return false;
+    return false;
   }
   if (mainArr.length < subArr.length) {
-  	return null;
+    return null;
   }
 
-  var mainArrCopy = mainArrCopy || mainArr.slice();	
-  var subArrCopy = subArrCopy || subArr.slice();	
+  var mainArrCopy = mainArrCopy || mainArr.slice();
+  var subArrCopy = subArrCopy || subArr.slice();
 
   if (subArrCopy.length === 0) {
-  	return true;
+    return true;
   }
 
   var item = subArrCopy.pop();
   var index = mainArrCopy.indexOf(item);
 
   if (index > -1) {
-  	mainArrCopy.splice(index,1);
-  	return isSubset(mainArr, subArr, mainArrCopy, subArrCopy);
+    mainArrCopy.splice(index, 1);
+    return isSubset(mainArr, subArr, mainArrCopy, subArrCopy);
   } else {
-  	return false;
+    return false;
   }
-
-}
+};
 
 module.exports = isSubset;

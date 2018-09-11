@@ -4,7 +4,7 @@
 // 1 ≤ statues.length ≤ 10
 // 0 ≤ statues[i] ≤ 20
 
-const makeArrayConsecutive = arr => {
+makeArrayConsecutive = arr => {
 	// dealing with arr of length 1
 
 	if (arr.length === 1) {

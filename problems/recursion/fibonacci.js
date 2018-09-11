@@ -1,8 +1,6 @@
-'use strict';
-
 // find the nth instance of the fibonacci sequence
 
-const fibonacci = n => {
+fibonacci = n => {
   if (typeof n !== 'number') {
     return null;
   }
