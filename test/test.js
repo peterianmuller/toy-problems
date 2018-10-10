@@ -34,6 +34,7 @@ let alternatingSums = require('../problems/array/alternating-sums');
 let isIPv4Address = require('../problems/string/is-IPv4-address');
 let avoidObstacles = require('../problems/array/avoid-obstacles');
 let isIsogram = require('../problems/string/isogram');
+let getShortestUniqueSubstring = require('../problems/array/get-shortest-unique-substring');
 
 describe('toy problems', () => {
   describe('fibonacci', () => {
@@ -686,6 +687,11 @@ describe('toy problems', () => {
       expect(isogram('asfGhjK')).to.eql(true);
       expect(isogram('asfGhjKk')).to.eql(false);
       expect(isogram('aA')).to.eql(false);
+    });
+  });
+  describe('getShortestUniqueSubstring', () => {
+    it('should be a function', () => {
+      expect(getShortestUniqueSubstring).to.be.a('function');
     });
   });
 });
