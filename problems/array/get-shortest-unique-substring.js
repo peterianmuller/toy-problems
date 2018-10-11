@@ -1,7 +1,25 @@
 // I: arr of unique chars, a string str
 // O: string shortest substring of str that contains all characters in arr
 
-getShortestUniqueSubstring = (arr, str) => {};
+getShortestUniqueSubstring = (arr, str) => {
+	let arrCopy = arr.slice();
+	let allSubstrings = {};
+	let currentSubstring = '';
+	for (let i = 0; i < str.length; i++) {
+		for (let j = i; j < str.length; j++) {
+			if (arrCopy.indexOf(str[j]) > -1) {
+				arrCopy.splice(arrCopy.indexOf(str[j]), 1);
+			}
+			currentSubstring += str[j];
+			if (!arrCopy.length) {
+				allSubstrings[currentSubstring] = true;
+				currentSubstring = '';
+				j = str.length - 1;
+			}
+		}
+		return Object.keys(allSubstrings).length ? Object.keys(allSubstrings).sort((a, b) => a.length - b.length)[0] : '';
+	}
+};
 
 // declare arrCopy set to a copy of the array
 // declare allSubstrings set to an object
