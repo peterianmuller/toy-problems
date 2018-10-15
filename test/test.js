@@ -20,6 +20,7 @@ let QueueTwoStacksFunctions = require('../problems/stack/queue-2-stacks');
 let SetOfStacksFunctions = require('../problems/stack/set-of-stacks');
 let reachCoords = require('../problems/algorithms/reach-coordinates');
 let reverseInteger = require('../problems/integer/reverse-integer');
+let sameDigits = require('../problems/integer/same-digits');
 let subset = require('../problems/array/subset');
 let permutations = require('../problems/string/permutations');
 let longestSubstringWithoutRepeatingCharacters = require('../problems/string/longest-substring-wo-repeat-chars');
@@ -453,6 +454,12 @@ describe('toy problems', () => {
     });
     it('should return 0 for numbers that are outside of 32-bit range', () => {
       expect(reverseInteger(61923326162378867)).to.eql(0);
+    });
+  });
+
+  describe('sameDigits', () => {
+    it('should be a function', () => {
+      expect(sameDigits).to.be.a('function');
     });
   });
 
