@@ -461,6 +461,15 @@ describe('toy problems', () => {
     it('should be a function', () => {
       expect(sameDigits).to.be.a('function');
     });
+    it('should return a boolean', () => {
+      expect(sameDigits()).to.be.a('boolean');
+    });
+    it('should return false if second integer contains digits not found first integer ', () => {
+      expect(sameDigits(321, 3214)).to.eql(false);
+    });
+    it('should return false if second integer contains the ame digits but a dfferent frequency from the first integer', () => {
+      expect(sameDigits(321, 3221)).to.eql(false);
+    });
   });
 
   describe('subset', () => {
