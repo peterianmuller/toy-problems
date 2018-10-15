@@ -1,56 +1,27 @@
-// reverseString
-
-reverseString = str => {
-  if (typeof str !== 'string') {
-    return null;
+const longestPalindrome = str => {
+  if (str.length <= 1) {
+    return str;
   }
-  return str
-    .split('')
-    .reverse()
-    .join('');
-};
-
-// isPalindrome
-
-isPalindrome = str => {
-  if (typeof str !== 'string') {
-    return null;
-  }
-  return str === reverseString(str);
-};
-
-//longestPalindrome
-
-longestPalindrome = str => {
-  // decalre longestPalindrome variable
-  let longestPalindrome = '';
-
-  // iterate from l to r
+  let longest = str.slice(0, 1);
   for (let i = 0; i < str.length; i++) {
-    //take one char away at a time from the left
-    for (var j = i; j < str.length; j++) {
-      // create sub string at each step, check if palindrome and if substring is longer
-      let substring = str.slice(i, str.length - i - j);
-      //let substring = str.slice(j);
-      if (isPalindrome(substring) && substring.length > longestPalindrome.length) {
-        // if longer re-assign longestPalin to point to substring
-        longestPalindrome = substring;
-      }
+    let temp = expand(str, i, i);
+    if (temp.length > longest.length) {
+      longest = temp;
+    }
+    // need to check if current center is two characters
+    temp = expand(str, i, i + 1);
+    if (temp.length > longest.length) {
+      longest = temp;
     }
   }
-
-  // iterate from r to l, taking one char from r away at a time
-  for (let i = 0; i < str.length; i++) {
-    // iterate from r to l, taking one char from r away at a time
-    for (j = i; j < str.length; j++) {
-      let substring = str.slice(-j);
-      if (isPalindrome(substring) && substring.length > longestPalindrome.length) {
-        longestPalindrome = substring;
-      }
-    }
-  }
-
-  return longestPalindrome;
+  return longest;
 };
 
-module.exports = { reverseString: reverseString, isPalindrome: isPalindrome, longestPalindrome: longestPalindrome };
+const expand = (string, start, end) => {
+  while (start >= 0 && end <= string.length - 1 && string[start] === string[end]) {
+    start--;
+    end++;
+  }
+  return string.slice(start + 1, end);
+};
+module.exports = { expand: expand, longestPalindrome: longestPalindrome };

@@ -286,24 +286,17 @@ describe('toy problems', () => {
   });
 
   describe('longestPalindrome', () => {
-    const reverseString = longestPalindromeFuncs.reverseString;
-    const isPalindrome = longestPalindromeFuncs.isPalindrome;
+    const expand = longestPalindromeFuncs.expand;
     const longestPalindrome = longestPalindromeFuncs.longestPalindrome;
 
-    it('should have reverseString helper function that returns a reversed string', () => {
-      const backwards = 'cba';
-      expect(reverseString).to.be.a('function');
-      expect(reverseString('abc')).to.eql(backwards);
-      expect(reverseString(4444)).to.eql(null);
+    it('should have expand helper function that returns a reversed string', () => {
+      expect(expand).to.be.a('function');
     });
-    it('should have isPalindrome helper function that returns Boolean if input is a palindrome', () => {
-      expect(isPalindrome({})).to.eql(null);
-      expect(isPalindrome('racecar')).to.eql(true);
-      expect(isPalindrome('racedscar')).to.eql(false);
-    });
+
     it('should return the longest palindrome in the input string', () => {
       expect(longestPalindrome('saassasaa racecar a')).to.eql('a racecar a');
       expect(longestPalindrome('ddda racecar adddsaa53534435435ssasa')).to.eql('ddda racecar addd');
+      expect(longestPalindrome('cbbd')).to.eql('bb');
     });
   });
 
