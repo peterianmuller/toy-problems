@@ -30,7 +30,7 @@ same = (arr1, arr2) => {
 		freqCounter2[num] = ++freqCounter2[num] || 1;
 	});
 	for (var key in freqCounter1) {
-		if (!freqCounter2.hasOwnProperty(key * key)) return false;
+		if (!(key * key) in freqCounter2) return false;
 		else if (freqCounter2[key * key] !== freqCounter1[key]) {
 			return false;
 		}

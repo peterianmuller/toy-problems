@@ -36,7 +36,7 @@ let isIPv4Address = require('../problems/string/is-IPv4-address');
 let avoidObstacles = require('../problems/array/avoid-obstacles');
 let isIsogram = require('../problems/string/isogram');
 let getShortestUniqueSubstring = require('../problems/array/get-shortest-unique-substring');
-let same = require('../problems/array/same.js');
+let compareArrayOfNumsAndArrayOfSquares = require('../problems/array/compare-array-of-nums-and-array-of-squares.js');
 describe('toy problems', () => {
   describe('fibonacci', () => {
     it('should be a function', () => {
@@ -703,9 +703,18 @@ describe('toy problems', () => {
       expect(getShortestUniqueSubstring).to.be.a('function');
     });
   });
-  describe('same', () => {
+  describe('compareArrayOfNumsAndArrayOfSquares', () => {
     it('should be a function', () => {
-      expect(same).to.be.a('function');
+      expect(compareArrayOfNumsAndArrayOfSquares).to.be.a('function');
+    });
+    it('should return true if second array has elements of first array squares', () => {
+      expect(compareArrayOfNumsAndArrayOfSquares([1, 2], [4, 1])).to.eql(true);
+    });
+    it("should return false if second array doesn't have elements of first array squares", () => {
+      expect(compareArrayOfNumsAndArrayOfSquares([1, 2], [6, 1])).to.eql(false);
+    });
+    it('should return false if arrays are of unequal length', () => {
+      expect(compareArrayOfNumsAndArrayOfSquares([1, 2, 5], [6, 1])).to.eql(false);
     });
   });
 });
