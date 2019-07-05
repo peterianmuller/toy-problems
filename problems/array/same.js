@@ -38,7 +38,4 @@ same = (arr1, arr2) => {
 	return true;
 };
 
-var before = Date.now();
-same(new Array(10000).fill(1), new Array(10000).fill(2));
-var after = Date.now();
-console.log(after - before);
+module.exports = same;

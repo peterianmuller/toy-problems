@@ -36,7 +36,7 @@ let isIPv4Address = require('../problems/string/is-IPv4-address');
 let avoidObstacles = require('../problems/array/avoid-obstacles');
 let isIsogram = require('../problems/string/isogram');
 let getShortestUniqueSubstring = require('../problems/array/get-shortest-unique-substring');
-
+let same = require('../problems/array/same.js');
 describe('toy problems', () => {
   describe('fibonacci', () => {
     it('should be a function', () => {
@@ -701,6 +701,11 @@ describe('toy problems', () => {
   describe('getShortestUniqueSubstring', () => {
     it('should be a function', () => {
       expect(getShortestUniqueSubstring).to.be.a('function');
+    });
+  });
+  describe('same', () => {
+    it('should be a function', () => {
+      expect(same).to.be.a('function');
     });
   });
 });
