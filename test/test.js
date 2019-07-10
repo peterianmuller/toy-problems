@@ -19,6 +19,7 @@ let minStackFunctions = require('../problems/stack/min-stack');
 let QueueTwoStacksFunctions = require('../problems/stack/queue-2-stacks');
 let SetOfStacksFunctions = require('../problems/stack/set-of-stacks');
 let reachCoords = require('../problems/algorithms/reach-coordinates');
+let areThereDuplicateArgs = require('../problems/algorithms/duplicate-args');
 let reverseInteger = require('../problems/integer/reverse-integer');
 let sameDigits = require('../problems/integer/same-digits');
 let subset = require('../problems/array/subset');
@@ -701,6 +702,11 @@ describe('toy problems', () => {
   describe('getShortestUniqueSubstring', () => {
     it('should be a function', () => {
       expect(getShortestUniqueSubstring).to.be.a('function');
+    });
+  });
+  describe('areThereDuplicateArgs', () => {
+    it('should be a function', () => {
+      expect(areThereDuplicateArgs).to.be.a('function');
     });
   });
   describe('compareArrayOfNumsAndArrayOfSquares', () => {
