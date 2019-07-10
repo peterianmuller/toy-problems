@@ -708,6 +708,9 @@ describe('toy problems', () => {
     it('should be a function', () => {
       expect(areThereDuplicateArgs).to.be.a('function');
     });
+    it('should return true if there are duplictaes arguments passed', () => {
+      expect(areThereDuplicateArgs(1, 1)).to.eql(true);
+    });
   });
   describe('compareArrayOfNumsAndArrayOfSquares', () => {
     it('should be a function', () => {
