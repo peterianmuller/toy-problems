@@ -35,6 +35,7 @@ let possibleWinners = require('../problems/logic-word-problems/possible-winners-
 let alternatingSums = require('../problems/array/alternating-sums');
 let isIPv4Address = require('../problems/string/is-IPv4-address');
 let avoidObstacles = require('../problems/array/avoid-obstacles');
+let maxSubarraySum = require('../problems/array/max-subarray-sum');
 let isIsogram = require('../problems/string/isogram');
 let getShortestUniqueSubstring = require('../problems/array/get-shortest-unique-substring');
 let compareArrayOfNumsAndArrayOfSquares = require('../problems/array/compare-array-of-nums-and-array-of-squares.js');
@@ -702,6 +703,11 @@ describe('toy problems', () => {
   describe('getShortestUniqueSubstring', () => {
     it('should be a function', () => {
       expect(getShortestUniqueSubstring).to.be.a('function');
+    });
+  });
+  describe('maxSubarraySum', () => {
+    it('should be a function', () => {
+      expect(maxSubarraySum).to.be.a('function');
     });
   });
   describe('areThereDuplicateArgs', () => {
