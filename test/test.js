@@ -709,6 +709,12 @@ describe('toy problems', () => {
     it('should be a function', () => {
       expect(maxSubarraySum).to.be.a('function');
     });
+    it('should return null if length of array is less than range argument', () => {
+      expect(maxSubarraySum([1], 5)).to.eql(null);
+    });
+    it('should return a number is the expected arguments aare passed in', () => {
+      expect(maxSubarraySum([1], 1)).to.be.a('number');
+    });
   });
   describe('areThereDuplicateArgs', () => {
     it('should be a function', () => {
