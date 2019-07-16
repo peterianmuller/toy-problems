@@ -715,6 +715,9 @@ describe('toy problems', () => {
     it('should return a number is the expected arguments aare passed in', () => {
       expect(maxSubarraySum([1], 1)).to.be.a('number');
     });
+    it('should return a number is the expected arguments aare passed in', () => {
+      expect(maxSubarraySum([6, 2, 3, 4, 5, 6], 3)).to.eql(15);
+    });
   });
   describe('areThereDuplicateArgs', () => {
     it('should be a function', () => {
