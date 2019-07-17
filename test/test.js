@@ -39,6 +39,7 @@ let maxSubarraySum = require('../problems/array/max-subarray-sum');
 let isIsogram = require('../problems/string/isogram');
 let getShortestUniqueSubstring = require('../problems/array/get-shortest-unique-substring');
 let compareArrayOfNumsAndArrayOfSquares = require('../problems/array/compare-array-of-nums-and-array-of-squares.js');
+let minSubArrLength = require('../problems/array/min-subarray-length.js');
 describe('toy problems', () => {
   describe('fibonacci', () => {
     it('should be a function', () => {
@@ -717,6 +718,11 @@ describe('toy problems', () => {
     });
     it('should return a number is the expected arguments aare passed in', () => {
       expect(maxSubarraySum([6, 2, 3, 4, 5, 6], 3)).to.eql(15);
+    });
+  });
+  describe('minSubArrLength', () => {
+    it('should be a function', () => {
+      expect(areThereDuminSubArrLength).to.be.a('function');
     });
   });
   describe('areThereDuplicateArgs', () => {
