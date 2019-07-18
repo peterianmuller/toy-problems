@@ -18,11 +18,9 @@ module.exports = (arr, n) => {
 	for (let i = 0; i < n; i++) {
 		tempSum += arr[i];
 	}
-	console.log(`tempSum: ${tempSum}`);
 	maxSum = tempSum;
 	for (let i = n; i < arr.length; i++) {
 		tempSum = tempSum + arr[i] - arr[i - n];
-		console.log(`tempSum: ${tempSum}`);
 		maxSum = Math.max(tempSum, maxSum);
 	}
 	return maxSum;

@@ -19,12 +19,36 @@
 // subtract element at start from windowSum
 // increment start
 
-module.exports = (arr, targetSum) => {
+// console.log(`windowLength is: ${windowLength}`);
+// console.log(`windowSum is: ${windowSum}`);
+// console.log(`end is: ${end}`);
+// console.log(`start is: ${start}`);
+
+// need to figure out how to deal with out of bounds end
+
+module.exports = (arr, target) => {
 	let start = 0,
 		end = 1,
 		shortest = Infinity,
 		windowSum = 0;
 	if (arr.length === 1) {
-		return arr[0] < targetSum ? 0 : 1;
+		return arr[0] < target ? 0 : 1;
 	}
+	windowSum = arr[start] + arr[end];
+	while (start < arr.length) {
+		if (isNaN(windowSum)) break;
+		if (windowSum < target) {
+			end++;
+			windowSum += arr[end];
+		} else {
+			let windowLength = end - start + 1;
+			if (windowLength < shortest) {
+				shortest = windowLength;
+			}
+			windowSum -= arr[start];
+			start++;
+		}
+	}
+	return shortest === Infinity ? 0 : shortest;
 };
+

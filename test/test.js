@@ -727,6 +727,12 @@ describe('toy problems', () => {
     it('should return 1 or 0 for one element arrays', () => {
       expect(minSubArrLength([1], 1)).to.eql(1);
     });
+    it('should return the length of shortest subarray whose elements provide a sum equal to or are greater than the target', () => {
+      expect(minSubArrLength([2, 3, 5], 4)).to.eql(1);
+      expect(minSubArrLength([2, 2, 4, 3], 7)).to.eql(2);
+      expect(minSubArrLength([2, 1, 6, 5, 4], 9)).to.eql(2);
+      expect(minSubArrLength([1, 4, 16, 22, 5], 39)).to.eql(3);
+    });
   });
   describe('areThereDuplicateArgs', () => {
     it('should be a function', () => {
