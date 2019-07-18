@@ -19,4 +19,12 @@
 // subtract element at start from windowSum
 // increment start
 
-module.exports = (arr, targetSum) => {};
+module.exports = (arr, targetSum) => {
+	let start = 0,
+		end = 1,
+		shortest = Infinity,
+		windowSum = 0;
+	if (arr.length === 1) {
+		return arr[0] < targetSum ? 0 : 1;
+	}
+};

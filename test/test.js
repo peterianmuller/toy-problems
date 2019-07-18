@@ -722,7 +722,10 @@ describe('toy problems', () => {
   });
   describe('minSubArrLength', () => {
     it('should be a function', () => {
-      expect(areThereDuminSubArrLength).to.be.a('function');
+      expect(minSubArrLength).to.be.a('function');
+    });
+    it('should return 1 or 0 for one element arrays', () => {
+      expect(minSubArrLength([1], 1)).to.eql(1);
     });
   });
   describe('areThereDuplicateArgs', () => {
