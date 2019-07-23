@@ -733,6 +733,9 @@ describe('toy problems', () => {
       expect(minSubArrLength([2, 1, 6, 5, 4], 9)).to.eql(2);
       expect(minSubArrLength([1, 4, 16, 22, 5], 39)).to.eql(3);
     });
+    it('should return 0 when there the sum of all the element in the array are less than thetarget', () => {
+      expect(minSubArrLength([2, 3, 5], 14)).to.eql(0);
+    });
   });
   describe('areThereDuplicateArgs', () => {
     it('should be a function', () => {
