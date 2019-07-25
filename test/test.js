@@ -40,6 +40,7 @@ let isIsogram = require('../problems/string/isogram');
 let getShortestUniqueSubstring = require('../problems/array/get-shortest-unique-substring');
 let compareArrayOfNumsAndArrayOfSquares = require('../problems/array/compare-array-of-nums-and-array-of-squares.js');
 let minSubArrLength = require('../problems/array/min-subarray-length.js');
+let smallestIntNotInArr = require('../problems/array/smallest-int-not-in-arr.js');
 describe('toy problems', () => {
   describe('fibonacci', () => {
     it('should be a function', () => {
@@ -743,6 +744,18 @@ describe('toy problems', () => {
     });
     it('should return true if there are duplictaes arguments passed', () => {
       expect(areThereDuplicateArgs(1, 1)).to.eql(true);
+    });
+  });
+  describe('smallestIntNotInArr', () => {
+    it('should be a function', () => {
+      expect(smallestIntNotInArr).to.be.a('function');
+    });
+    it('should find the smallest integer not in the array', () => {
+      expect(smallestIntNotInArr([1, 2, 3])).to.eql(0);
+      expect(smallestIntNotInArr([0, 1, 2, 3])).to.eql(4);
+    });
+    it('should return null if array contains negative numbers', () => {
+      expect(smallestIntNotInArr([-1, 2, 3])).to.eql(null);
     });
   });
   describe('compareArrayOfNumsAndArrayOfSquares', () => {

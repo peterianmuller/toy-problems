@@ -10,8 +10,8 @@
 
 module.exports = arr => {
 	let sortedArr = arr.sort((a, b) => a - b);
-	console.log(sortedArr);
-	for (var i = 0; i < sortedArr.legnth) {
+	if (sortedArr[0] < 0) return null;
+	for (var i = 0; i < sortedArr.length; i++) {
 		if (sortedArr[i] !== i) {
 			return i;
 		}
