@@ -23,7 +23,22 @@ function BinarySearchTree() {
   // create prop
 }
 
-BinarySearchTree.prototype.findLargestSmallerKey = function(num) {};
+BinarySearchTree.prototype.findLargestSmallerKey = function(num) {
+  if (!this.root) return null;
+  let result = -1;
+  recrusiveHelper = node => {
+    if (node.key < num) {
+      result = Math.max(largest, node.key);
+      if (node.right) {
+        recrusiveHelper(node.right);
+      }
+    } else if (node.left) {
+      recrusiveHelper(node.left);
+    }
+  };
+  recrusiveHelper(this.root);
+  return result;
+};
 
 // Creates a new node by a key and inserts it to the BST
 BinarySearchTree.prototype.insert = function(key) {

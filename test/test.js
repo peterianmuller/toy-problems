@@ -785,5 +785,15 @@ describe('toy problems', () => {
     it('should come with a BST constructor that has a method findLargestSmallerKey', () => {
       expect(bst.findLargestSmallerKey).to.be.a('function');
     });
+    it('should have method findLargestSmallerKey that return null if tree is empty', () => {
+      expect(bst.findLargestSmallerKey()).to.eql(null);
+    });
+    it('should have method findLargestSmallerKey that return -1 if all node values are larger than num', () => {
+      let bst = new BstSmallerThanN.BinarySearchTree();
+      bst.insert(10);
+      bst.insert(15);
+      bst.insert(20);
+      expect(bst.findLargestSmallerKey(5)).to.eql(-1);
+    });
   });
 });
