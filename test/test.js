@@ -795,5 +795,14 @@ describe('toy problems', () => {
       bst.insert(20);
       expect(bst.findLargestSmallerKey(5)).to.eql(-1);
     });
+    it('should have method findLargestSmallerKey that returns the largest number smaller than n', () => {
+      let bst = new BstSmallerThanN.BinarySearchTree();
+      bst.insert(90);
+      bst.insert(10);
+      bst.insert(15);
+      bst.insert(20);
+      bst.insert(24);
+      expect(bst.findLargestSmallerKey(100)).to.eql(90);
+    });
   });
 });

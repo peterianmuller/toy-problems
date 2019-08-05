@@ -28,7 +28,7 @@ BinarySearchTree.prototype.findLargestSmallerKey = function(num) {
   let result = -1;
   recrusiveHelper = node => {
     if (node.key < num) {
-      result = Math.max(largest, node.key);
+      result = Math.max(result, node.key);
       if (node.right) {
         recrusiveHelper(node.right);
       }
