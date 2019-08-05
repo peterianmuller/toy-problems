@@ -775,11 +775,15 @@ describe('toy problems', () => {
     });
   });
   describe('BstSmallerThanN', () => {
+    let bst = new BstSmallerThanN.BinarySearchTree();
     it('should come with a Node constructor', () => {
       expect(BstSmallerThanN.Node).to.be.a('function');
     });
     it('should come with a BST constructor', () => {
       expect(BstSmallerThanN.BinarySearchTree).to.be.a('function');
+    });
+    it('should come with a BST constructor that has a method findLargestSmallerKey', () => {
+      expect(bst.findLargestSmallerKey).to.be.a('function');
     });
   });
 });
