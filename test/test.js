@@ -41,6 +41,7 @@ let getShortestUniqueSubstring = require('../problems/array/get-shortest-unique-
 let compareArrayOfNumsAndArrayOfSquares = require('../problems/array/compare-array-of-nums-and-array-of-squares.js');
 let minSubArrLength = require('../problems/array/min-subarray-length.js');
 let smallestIntNotInArr = require('../problems/array/smallest-int-not-in-arr.js');
+let sentenceReverse = require('../problems/array/sentence-reverse.js');
 let BstSmallerThanN = require('../problems/tree/largest-smaller-than-n-bst.js');
 
 describe('toy problems', () => {
@@ -772,6 +773,12 @@ describe('toy problems', () => {
     });
     it('should return false if arrays are of unequal length', () => {
       expect(compareArrayOfNumsAndArrayOfSquares([1, 2, 5], [6, 1])).to.eql(false);
+    });
+  });
+
+  describe('sentenceReverse', () => {
+    it('should be a function', () => {
+      expect(sentenceReverse).to.be.a('function');
     });
   });
   describe('BstSmallerThanN', () => {
