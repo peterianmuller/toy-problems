@@ -780,6 +780,18 @@ describe('toy problems', () => {
     it('should be a function', () => {
       expect(sentenceReverse).to.be.a('function');
     });
+    it('should reverse the order of the words in the array', () => {
+      // prettier-ignore
+      let input = 
+        [ 'p', 'e', 'r', 'f', 'e', 'c', 't', '  ',
+                'm', 'a', 'k', 'e', 's', '  ',
+                'p', 'r', 'a', 'c', 't', 'i', 'c', 'e' ];
+      // prettier-ignore
+      expect(input).to.eql(
+        [ 'p', 'r', 'a', 'c', 't', 'i', 'c', 'e', '  ',
+          'm', 'a', 'k', 'e', 's', '  ',
+          'p', 'e', 'r', 'f', 'e', 'c', 't' ]);
+    });
   });
   describe('BstSmallerThanN', () => {
     let bst = new BstSmallerThanN.BinarySearchTree();
