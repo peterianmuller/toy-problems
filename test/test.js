@@ -269,7 +269,10 @@ describe("toy problems", () => {
     let Node = SinglyLinkedListConstructor.Node;
     let SinglyLinkedList = SinglyLinkedListConstructor.SinglyLinkedList;
     let testNode = new Node(6);
-    let list = new SinglyLinkedList();
+    let list;
+    beforeEach(function() {
+      list = new SinglyLinkedList();
+    });
     it("should have a class Node that insantiates a new node object", () => {
       expect(Node).to.be.a("function");
     });
@@ -299,11 +302,41 @@ describe("toy problems", () => {
       expect(list.length).to.equal(1);
     });
     it("push should not affect head but update tail when list is not empty", () => {
+      list.push(10);
       list.push(20);
       list.push(30);
       expect(list.tail.val).to.equal(30);
       expect(list.head.val).to.equal(10);
       expect(list.length).to.equal(3);
+    });
+    it("a Singly Linked List instance should have a pop method ", () => {
+      expect(list.pop).to.be.a("function");
+    });
+    it("pop should return false when list is empty", () => {
+      expect(list.pop()).to.equal(false);
+    });
+    it("pop should remove both head and tail when list has a length of 1", () => {
+      list.push(1);
+      expect(list.tail.val).to.equal(1);
+      expect(list.pop().val).to.equal(1);
+      expect(list.tail).to.equal(null);
+      expect(list.head).to.equal(null);
+    });
+    it("pop should keep head but update tail when list is logner than 1 node", () => {
+      list.push(0);
+      list.push(1);
+      list.push(2);
+      expect(list.head.val).to.equal(0);
+      expect(list.pop().val).to.equal(2);
+      expect(list.head.val).to.equal(0);
+      expect(list.length).to.equal(2);
+    });
+    it("pop should replace tail and head when multiple nodes are popped off list", () => {
+      list.push(0);
+      list.push(1);
+      list.push(2);
+      expect(list.pop().val).to.equal(2);
+      console.log(list.length);
     });
   });
 
