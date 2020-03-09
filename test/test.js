@@ -336,7 +336,93 @@ describe("toy problems", () => {
       list.push(1);
       list.push(2);
       expect(list.pop().val).to.equal(2);
-      console.log(list.length);
+    });
+    it("a Singly Linked List instance should have a shift method ", () => {
+      expect(list.shift).to.be.a("function");
+    });
+    it("shift should return false when list is empty", () => {
+      expect(list.pop()).to.equal(false);
+    });
+    it("shift should return the list when there is 1 item in list", () => {
+      list.push(5);
+      expect(list.pop()).to.be.a("object");
+      expect(list.head).to.eql(null);
+      expect(list.tail).to.eql(null);
+    });
+    it("shift should update the head property but not the tail when the list is longer than one node", () => {
+      list.push(5);
+      list.push(10);
+      expect(list.head.val).to.equal(5);
+      list.shift();
+      console.log(list);
+      expect(list.head.val).to.equal(10);
+    });
+    it("shift should point both head and tail to null when we shift off all nodes", () => {
+      list.push(5);
+      list.push(10);
+      list.shift();
+      list.shift();
+      list.shift();
+      expect(list.head).to.equal(null);
+      expect(list.tail).to.equal(null);
+    });
+    it("a Singly Linked List instance should have an unshift method ", () => {
+      expect(list.unshift).to.be.a("function");
+    });
+    it("unshift should update head, tail, and length when list is empty", () => {
+      list.unshift(4);
+      expect(list.length).to.eql(1);
+      expect(list.head.val).to.equal(4);
+      expect(list.tail.val).to.equal(4);
+    });
+    it("a Singly Linked List instance should have a get method ", () => {
+      expect(list.get).to.be.a("function");
+    });
+    it("get should return false if there isn't a node at index", () => {
+      expect(list.get(1)).to.equal(false);
+    });
+    it("get should return the node at a passed in index if there isn't a node at index", () => {
+      list.push(10);
+      expect(list.get(0)).to.be.a("object");
+      expect(list.get(0).val).to.equal(10);
+    });
+    it("a Singly Linked List instance should have an insert ", () => {
+      expect(list.insert).to.be.a("function");
+    });
+    it("insert should return false if there isn't a node at index", () => {
+      expect(list.get(1)).to.equal(false);
+    });
+    it("insert should increment the length property of the list", () => {
+      list.insert(0, 5);
+      expect(list.get(0, 5)).to.be.a("object");
+      expect(list.get(0, 5).val).to.eql(5);
+      expect(list.head.val).to.eql(5);
+      expect(list.tail.val).to.eql(5);
+      expect(list.length).to.eql(1);
+      list.insert(1, 10);
+      expect(list.tail.val).to.equal(10);
+    });
+    it("a Singly Linked List instance should have a remove method ", () => {
+      expect(list.remove).to.be.a("function");
+    });
+    it("remove method should return false if node to remove doesn't exist ", () => {
+      expect(list.remove(0)).to.equal(false);
+    });
+    it("remove method should invoke shift if index is 0 ", () => {
+      list.push(10);
+      expect(list.remove(0)).to.be.a("object");
+      expect(list.head).to.equal(null);
+      expect(list.tail).to.equal(null);
+      expect(list.length).to.equal(0);
+    });
+    it("remove method should invoke pop if index is equal to the last index of the list ", () => {
+      list.push(10);
+      list.push(20);
+      list.push(30);
+      expect(list.remove(list.length - 1)).to.be.a("object");
+      expect(list.head.val).to.equal(10);
+      expect(list.tail.val).to.equal(20);
+      expect(list.length).to.equal(2);
     });
   });
 
