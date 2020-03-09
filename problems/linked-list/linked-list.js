@@ -5,4 +5,11 @@ class Node {
   }
 }
 
-module.exports.Node = Node;
+class LinkedList {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+  }
+}
+
+module.exports = { Node: Node, LinkedList: LinkedList };

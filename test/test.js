@@ -12,7 +12,7 @@ let balancedBrackets = require("../problems/string/balanced-brackets");
 let fisherYates = require("../problems/algorithms/fisher-yates");
 let rotateArray = require("../problems/array/rotate-array");
 let twoSum = require("../problems/algorithms/two-sum");
-let LinkedList = require("../problems/linked-list/linked-list");
+let LinkedListConstructor = require("../problems/linked-list/linked-list");
 let longestPalindromeFuncs = require("../problems/string/longest-palindrome");
 let maxStackFunctions = require("../problems/stack/max-stack");
 let minStackFunctions = require("../problems/stack/min-stack");
@@ -265,10 +265,20 @@ describe("toy problems", () => {
     });
   });
 
-  describe("LinkedList", () => {
-    let Node = LinkedList.Node;
+  describe.only("LinkedList", () => {
+    let Node = LinkedListConstructor.Node;
+    let LinkedList = LinkedListConstructor.LinkedList;
+    let testNode = new Node(6);
     it("should have a class Node that insantiates a new node object", () => {
       expect(Node).to.be.a("function");
+    });
+    it("a new node should come with the passed in value as the val and a next property pointing to null", () => {
+      expect(testNode).to.be.an("object");
+      expect(testNode.val).to.equal(6);
+      expect(testNode.next).to.equal(null);
+    });
+    it("should have a Linked List constructor that is a function", () => {
+      expect(LinkedList).to.be.a("function");
     });
   });
 
