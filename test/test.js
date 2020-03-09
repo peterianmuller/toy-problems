@@ -278,8 +278,32 @@ describe("toy problems", () => {
       expect(testNode.val).to.equal(6);
       expect(testNode.next).to.equal(null);
     });
-    it("should have a Linked List constructor that is a function", () => {
-      expect(SinglySinglyLinkedList).to.be.a("function");
+    it("should have a Singly Linked List constructor that is a function", () => {
+      expect(SinglyLinkedList).to.be.a("function");
+    });
+    it("a Singly Linked List instance should have head, tail, and length properties", () => {
+      expect(list.head).to.equal(null);
+      expect(list.tail).to.equal(null);
+      expect(list.length).to.equal(0);
+    });
+    it("a Singly Linked List instance should have a push method that inserts a new node into the list", () => {
+      expect(list.push).to.be.a("function");
+    });
+    it("push should assign head and tail to a new for an empty list", () => {
+      expect(list.head).to.equal(null);
+      expect(list.tail).to.equal(null);
+      expect(list.length).to.equal(0);
+      list.push(10);
+      expect(list.head.val).to.equal(10);
+      expect(list.tail.val).to.equal(10);
+      expect(list.length).to.equal(1);
+    });
+    it("push should not affect head but update tail when list is not empty", () => {
+      list.push(20);
+      list.push(30);
+      expect(list.tail.val).to.equal(30);
+      expect(list.head.val).to.equal(10);
+      expect(list.length).to.equal(3);
     });
   });
 
