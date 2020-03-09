@@ -12,7 +12,7 @@ let balancedBrackets = require("../problems/string/balanced-brackets");
 let fisherYates = require("../problems/algorithms/fisher-yates");
 let rotateArray = require("../problems/array/rotate-array");
 let twoSum = require("../problems/algorithms/two-sum");
-let LinkedListConstructor = require("../problems/linked-list/linked-list");
+let SinglyLinkedListConstructor = require("../problems/linked-list/linked-list");
 let longestPalindromeFuncs = require("../problems/string/longest-palindrome");
 let maxStackFunctions = require("../problems/stack/max-stack");
 let minStackFunctions = require("../problems/stack/min-stack");
@@ -265,10 +265,11 @@ describe("toy problems", () => {
     });
   });
 
-  describe.only("LinkedList", () => {
-    let Node = LinkedListConstructor.Node;
-    let LinkedList = LinkedListConstructor.LinkedList;
+  describe.only("SinglyLinkedList", () => {
+    let Node = SinglyLinkedListConstructor.Node;
+    let SinglyLinkedList = SinglyLinkedListConstructor.SinglyLinkedList;
     let testNode = new Node(6);
+    let list = new SinglyLinkedList();
     it("should have a class Node that insantiates a new node object", () => {
       expect(Node).to.be.a("function");
     });
@@ -278,7 +279,7 @@ describe("toy problems", () => {
       expect(testNode.next).to.equal(null);
     });
     it("should have a Linked List constructor that is a function", () => {
-      expect(LinkedList).to.be.a("function");
+      expect(SinglySinglyLinkedList).to.be.a("function");
     });
   });
 
