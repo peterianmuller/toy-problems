@@ -122,6 +122,7 @@ class SinglyLinkedList {
     let tempNext = nodeBefore.next;
     nodeBefore.next = nodeToInsert;
     nodeToInsert.next = tempNext;
+    this.length++;
     return nodeToInsert;
   }
 
@@ -138,6 +139,40 @@ class SinglyLinkedList {
     if (index === this.length - 1) {
       return this.pop();
     }
+  }
+
+  set(index, val) {
+    // if index is less than zero or greater than or equal to legnth return false
+    // use get to get nodeAtIndex
+    // set val property of nodeAtIndex to passed in val
+    // return nodeAtIndex
+    if (index < 0 || index >= this.length) return false;
+    let nodeToUpdate = this.get(index);
+    nodeToUpdate.val = val;
+    return nodeToUpdate;
+  }
+  reverse() {
+    // if list has no nodes return list
+    // swap head and tail
+    // declare prev set to null
+    // declare next
+    // iterate from 0 up until this.length
+    // assign node.next to prev
+    // assign next to node.next
+    // assign prev to node
+    if (!this.length) return this;
+    let node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+    let prev = null;
+    let next;
+    for (let i = 0; i < this.length; i++) {
+      next = node.next;
+      node.next = prev;
+      prev = node;
+      node = next;
+    }
+    return this;
   }
 }
 

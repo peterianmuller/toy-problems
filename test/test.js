@@ -336,6 +336,7 @@ describe("toy problems", () => {
       list.push(1);
       list.push(2);
       expect(list.pop().val).to.equal(2);
+      expect(list.pop().val).to.equal(1);
     });
     it("a Singly Linked List instance should have a shift method ", () => {
       expect(list.shift).to.be.a("function");
@@ -423,6 +424,42 @@ describe("toy problems", () => {
       expect(list.head.val).to.equal(10);
       expect(list.tail.val).to.equal(20);
       expect(list.length).to.equal(2);
+    });
+    it("a Singly Linked List instance should have a set method ", () => {
+      expect(list.set).to.be.a("function");
+    });
+    it("set method should return false if node to set doesn't exist ", () => {
+      expect(list.set(0)).to.equal(false);
+    });
+    it("set method should update the value at the node at the passed in index false if node to set doesn't exist ", () => {
+      list.push(0);
+      list.push(10);
+      list.insert(1, 5);
+      expect(list.head.val).to.equal(0);
+      list.set(0, 20);
+      expect(list.head.val).to.equal(20);
+      list.set(2, 45);
+      expect(list.get(2)).to.be.a("object");
+      expect(list.get(2).val).to.equal(45);
+    });
+    it("a Singly Linked List instance should have a set reverse ", () => {
+      expect(list.reverse).to.be.a("function");
+    });
+    it("reverse method should return an empty list if list is empty ", () => {
+      expect(list.reverse()).to.be.a("object");
+    });
+    it("reverse method should swap head and tail references ", () => {
+      expect(list.reverse()).to.be.a("object");
+      list.push(5);
+      list.push(10);
+      list.push(15);
+      list.push(20);
+      expect(list.head.val).to.equal(5);
+      expect(list.tail.val).to.equal(20);
+      list.reverse();
+      expect(list.head.val).to.equal(20);
+      expect(list.tail.val).to.equal(5);
+      expect(list.get(1).val).to.equal(15);
     });
   });
 
