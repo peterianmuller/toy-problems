@@ -83,6 +83,19 @@ class DoublyLinkedList {
     this.length++;
     return this;
   }
+  get(index) {
+    // if index is less than 0 or is equal to or greater than this.length return false
+    // set currentNode to head
+    // iterate from 0 to index
+    // reassign currentNode to currentNode.next
+    // return currentNode
+    if (index < 0 || index >= this.length) return false;
+    let currentNode = this.head;
+    for (let i = 0; i < index; i++) {
+      currentNode = currentNode.next;
+    }
+    return currentNode;
+  }
 }
 
 module.exports = {

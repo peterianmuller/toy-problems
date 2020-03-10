@@ -605,6 +605,20 @@ describe("toy problems", () => {
       expect(list.tail.val).to.equal(10);
       expect(list.length).to.equal(2);
     });
+    it("should have a method get", () => {
+      expect(list.get).to.be.a("function");
+    });
+    it("get should return false if there is node at indx", () => {
+      expect(list.get(0)).to.equal(false);
+    });
+    it("get should return node at passed in index", () => {
+      list.push(10);
+      list.push(20);
+      expect(list.get(0)).to.be.a("object");
+      expect(list.get(0).val).to.equal(10);
+      expect(list.get(1).val).to.equal(20);
+      expect(list.get(2)).to.equal(false);
+    });
   });
 
   describe("MaxStack", () => {
