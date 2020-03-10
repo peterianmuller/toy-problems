@@ -660,6 +660,37 @@ describe("toy problems", () => {
       expect(list.length).to.equal(4);
       expect(list.head.next.val).to.equal(100);
     });
+    it("should have a method remove", () => {
+      expect(list.remove).to.be.a("function");
+    });
+    it("remove should return false if there is no node at the passed in index", () => {
+      expect(list.remove(0)).to.equal(false);
+    });
+    it("remove should invoke shift when index is 0 and the list is not empty", () => {
+      list.push(90);
+      expect(list.remove(0)).to.be.a("object");
+      expect(list.tail).to.equal(null);
+      expect(list.head).to.equal(null);
+      expect(list.length).to.equal(0);
+    });
+    it("remove should invoke pop when index is the position of the terminal index of the list", () => {
+      list.push(90);
+      list.push(45);
+      list.push(10);
+      expect(list.remove(2)).to.be.a("object");
+      expect(list.tail.val).to.equal(45);
+      expect(list.head.val).to.equal(90);
+      expect(list.length).to.equal(2);
+    });
+    it("remove should invoke pop when index is the position of the terminal index of the list", () => {
+      list.push(90);
+      list.push(45);
+      list.push(10);
+      expect(list.remove(1)).to.be.a("object");
+      expect(list.tail.val).to.equal(10);
+      expect(list.head.val).to.equal(90);
+      expect(list.length).to.equal(2);
+    });
   });
 
   describe("MaxStack", () => {

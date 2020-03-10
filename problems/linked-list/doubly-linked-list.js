@@ -36,6 +36,7 @@ class DoublyLinkedList {
     // if list is empty return false
     if (!this.length) return false;
     // if list has length of one reassign head and tail to null
+    let oldTail = this.tail;
     if (this.length === 1) {
       this.head = null;
       this.tail = null;
@@ -47,6 +48,7 @@ class DoublyLinkedList {
     // assign tail to current tail's previous property
     this.length--;
     // decement length by 1
+    return oldTail;
   }
 
   shift() {
@@ -56,6 +58,7 @@ class DoublyLinkedList {
     // reassign head to head.next
     // decrement length by 1
     if (this.length === 0) return false;
+    let oldHead = this.head;
     if (this.length === 1) {
       this.head = null;
       this.tail = null;
@@ -64,7 +67,7 @@ class DoublyLinkedList {
       this.head = this.head.next;
     }
     this.length--;
-    return this;
+    return oldHead;
   }
 
   unshift(val) {
@@ -122,6 +125,23 @@ class DoublyLinkedList {
     nodeBefore.next = nodeToInsert;
     this.length++;
     return this;
+  }
+  remove(index) {
+    // if index is less than 0 or equal to or greater than length return false
+    // if index is 0 invoke shift
+    // if index is last index invoke pop
+    // save reference to nodeBefore's next as removedNode
+    // get nodeBefore using get
+    // set nodeBefore's next next to nodeBefore
+    // return removedNode
+    if (index < 0 || index >= this.length) return false;
+    if (index === 0) return this.shift();
+    if (index === this.length - 1) return this.pop();
+    let nodeToDelete = this.get(index);
+    nodeToDelete.next.prev = nodeToDelete.prev;
+    nodeToDelete.prev.next = nodeToDelete.next;
+    this.length--;
+    return nodeToDelete;
   }
 }
 
