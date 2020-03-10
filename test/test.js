@@ -13,6 +13,7 @@ let fisherYates = require("../problems/algorithms/fisher-yates");
 let rotateArray = require("../problems/array/rotate-array");
 let twoSum = require("../problems/algorithms/two-sum");
 let SinglyLinkedListConstructor = require("../problems/linked-list/linked-list");
+let DoublyLinkedListConstructor = require("../problems/linked-list/doubly-linked-list");
 let longestPalindromeFuncs = require("../problems/string/longest-palindrome");
 let maxStackFunctions = require("../problems/stack/max-stack");
 let minStackFunctions = require("../problems/stack/min-stack");
@@ -460,6 +461,25 @@ describe("toy problems", () => {
       expect(list.head.val).to.equal(20);
       expect(list.tail.val).to.equal(5);
       expect(list.get(1).val).to.equal(15);
+    });
+  });
+
+  describe.only("DoublyLinkedList", () => {
+    let Node = DoublyLinkedListConstructor.Node;
+    let DoublyLinkedList = DoublyLinkedListConstructor.DoublyLinkedList;
+    let testNode = new Node(6);
+    let list;
+    beforeEach(function() {
+      list = new DoublyLinkedList();
+    });
+    it("should have a class Node that insantiates a new node object", () => {
+      expect(Node).to.be.a("function");
+    });
+    it("a new node should come with the passed in value as the val and a next property pointing to null", () => {
+      expect(testNode).to.be.an("object");
+      expect(testNode.val).to.equal(6);
+      expect(testNode.next).to.equal(null);
+      expect(testNode.prev).to.equal(null);
     });
   });
 
