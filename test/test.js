@@ -586,6 +586,25 @@ describe("toy problems", () => {
       expect(list.tail).to.equal(null);
       expect(list.length).to.equal(0);
     });
+    it("should have a method unshift", () => {
+      expect(list.unshift).to.be.a("function");
+    });
+    it("unshift should update head, tail, and length if list is empty", () => {
+      expect(list.head).to.equal(null);
+      expect(list.tail).to.equal(null);
+      expect(list.length).to.equal(0);
+      expect(list.unshift(5)).to.be.a("object");
+      expect(list.head.val).to.equal(5);
+      expect(list.tail.val).to.equal(5);
+      expect(list.length).to.equal(1);
+    });
+    it("unshift should update head, tail, and length if list is empty", () => {
+      list.unshift(10);
+      list.unshift(15);
+      expect(list.head.val).to.equal(15);
+      expect(list.tail.val).to.equal(10);
+      expect(list.length).to.equal(2);
+    });
   });
 
   describe("MaxStack", () => {

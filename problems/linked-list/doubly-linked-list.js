@@ -66,6 +66,23 @@ class DoublyLinkedList {
     this.length--;
     return this;
   }
+
+  unshift(val) {
+    // if length of list is 0 return push method with passed in val
+    // create variable newHead pointing to a new node with val passed in
+    // set the next prop on the newHead to the current head
+    // set the prev pointer on current head to newHead
+    // set head to newHead
+    // increment length
+    // return list
+    if (!this.length) return this.push(val);
+    let newHead = new Node(val);
+    newHead.next = this.head;
+    this.head.prev = newHead;
+    this.head = newHead;
+    this.length++;
+    return this;
+  }
 }
 
 module.exports = {
