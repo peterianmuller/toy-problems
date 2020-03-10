@@ -48,6 +48,24 @@ class DoublyLinkedList {
     this.length--;
     // decement length by 1
   }
+
+  shift() {
+    // if this.length is 0 return false
+    // if this.length is 1 reassign head and tail to null
+    // set head.next prev's pointer to null
+    // reassign head to head.next
+    // decrement length by 1
+    if (this.length === 0) return false;
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.head.next.prev = null;
+      this.head = this.head.next;
+    }
+    this.length--;
+    return this;
+  }
 }
 
 module.exports = {

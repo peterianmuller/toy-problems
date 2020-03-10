@@ -539,6 +539,53 @@ describe("toy problems", () => {
       expect(list.head).to.equal(null);
       expect(list.tail).to.equal(null);
     });
+    it("should have a method shift", () => {
+      expect(list.shift).to.be.a("function");
+    });
+    it("shift should return false if list is empty", () => {
+      expect(list.shift()).to.equal(false);
+    });
+    it("shift should reassign head and tail to null if list has one node", () => {
+      list.push(1);
+      expect(list.head.val).to.equal(1);
+      expect(list.tail.val).to.equal(1);
+      expect(list.shift()).to.be.a("object");
+    });
+    it("shift should reassign head and tail to null if list has one node", () => {
+      list.push(1);
+      expect(list.head.val).to.equal(1);
+      expect(list.tail.val).to.equal(1);
+      expect(list.head.prev).to.equal(null);
+      expect(list.tail.prev).to.equal(null);
+      expect(list.shift()).to.be.a("object");
+    });
+    it("shift should reassign head for a list of more than 1 node", () => {
+      list.push(1);
+      list.push("hello world");
+      expect(list.head.val).to.equal(1);
+      expect(list.tail.val).to.equal("hello world");
+      expect(list.head.prev).to.equal(null);
+      expect(list.tail.prev.val).to.equal(1);
+      list.shift();
+      expect(list.head.val).to.equal("hello world");
+      expect(list.tail.val).to.equal("hello world");
+      expect(list.head.prev).to.equal(null);
+      expect(list.tail.prev).to.equal(null);
+      expect(list.length).to.equal(1);
+    });
+    it("shift should reassign head, tail, and length if all noes are shited off", () => {
+      list.push(1);
+      list.push("hello world");
+      expect(list.head.val).to.equal(1);
+      expect(list.tail.val).to.equal("hello world");
+      expect(list.head.prev).to.equal(null);
+      expect(list.tail.prev.val).to.equal(1);
+      list.shift();
+      list.shift();
+      expect(list.head).to.equal(null);
+      expect(list.tail).to.equal(null);
+      expect(list.length).to.equal(0);
+    });
   });
 
   describe("MaxStack", () => {
