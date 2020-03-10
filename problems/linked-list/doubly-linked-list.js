@@ -31,6 +31,23 @@ class DoublyLinkedList {
     this.length++;
     return newTail;
   }
+
+  pop() {
+    // if list is empty return false
+    if (!this.length) return false;
+    // if list has length of one reassign head and tail to null
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      // save temporary variable to tail
+      this.tail = this.tail.prev;
+      this.tail.next = null;
+    }
+    // assign tail to current tail's previous property
+    this.length--;
+    // decement length by 1
+  }
 }
 
 module.exports = {

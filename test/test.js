@@ -502,6 +502,42 @@ describe("toy problems", () => {
       list.push(20);
       expect(list.head.val).to.equal(10);
       expect(list.tail.val).to.equal(20);
+      expect(list.tail.prev.val).to.equal(10);
+      expect(list.head.prev).to.equal(null);
+    });
+    it("should have a method pop", () => {
+      expect(list.pop).to.be.a("function");
+    });
+    it("should update head and tail if list has a length of 1", () => {
+      list.push(10);
+      expect(list.head.val).to.equal(10);
+      expect(list.tail.val).to.equal(10);
+      list.pop();
+      expect(list.head).to.equal(null);
+      expect(list.tail).to.equal(null);
+    });
+    it("should update tail if list has a length of more than 1", () => {
+      list.push(10);
+      list.push(20);
+      list.push(30);
+      expect(list.head.val).to.equal(10);
+      expect(list.head.prev).to.equal(null);
+      expect(list.tail.val).to.equal(30);
+      expect(list.tail.prev.val).to.equal(20);
+    });
+    it("should update head tail if list is popped until there is no length", () => {
+      list.push(10);
+      list.push(20);
+      list.push(30);
+      expect(list.head.val).to.equal(10);
+      expect(list.head.prev).to.equal(null);
+      expect(list.tail.val).to.equal(30);
+      expect(list.tail.prev.val).to.equal(20);
+      list.pop();
+      list.pop();
+      list.pop();
+      expect(list.head).to.equal(null);
+      expect(list.tail).to.equal(null);
     });
   });
 
