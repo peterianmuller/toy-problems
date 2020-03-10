@@ -96,6 +96,33 @@ class DoublyLinkedList {
     }
     return currentNode;
   }
+  set(index, val) {
+    // if index is less than zero or equal to or greater than length return false
+    // get node at index using get
+    // assign val at that node to passed in val
+    // return new node
+    if (index < 0 || index >= this.length) return false;
+    let nodeToUpdate = this.get(index);
+    nodeToUpdate.val = val;
+    return nodeToUpdate;
+  }
+  insert(index, val) {
+    // if index is less than zero or equal to or greater than length return false
+    // if index is 0 invoke unshift
+    // if index is this.length invoke push
+    // get node at index before using get
+    // assign val at that node to passed in val
+    // return new node
+    if (index < 0 || index > this.length) return false;
+    if (index === this.length) return this.push(val);
+    if (index === 0) return this.unshift(val);
+    let nodeToInsert = new Node(val);
+    let nodeBefore = this.get(index - 1);
+    nodeBefore.next.prev = nodeToInsert;
+    nodeBefore.next = nodeToInsert;
+    this.length++;
+    return this;
+  }
 }
 
 module.exports = {

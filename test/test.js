@@ -619,6 +619,47 @@ describe("toy problems", () => {
       expect(list.get(1).val).to.equal(20);
       expect(list.get(2)).to.equal(false);
     });
+    it("should have a method set", () => {
+      expect(list.set).to.be.a("function");
+    });
+    it("set should return false if there is no node at passed in inex", () => {
+      expect(list.get(1)).to.equal(false);
+    });
+    it("set should update val for node at index passed in", () => {
+      list.push(10);
+      list.push(20);
+      expect(list.set(1, 100).val).to.equal(100);
+      expect(list.set(0, -100).val).to.equal(-100);
+      expect(list.tail.val).to.equal(100);
+      expect(list.head.val).to.equal(-100);
+      expect(list.length).to.equal(2);
+    });
+    it("should have a method insert", () => {
+      expect(list.insert).to.be.a("function");
+    });
+    it("insert should invoke unshift if index iis 0", () => {
+      expect(list.insert(0, 10)).to.be.a("object");
+      expect(list.tail.val).to.equal(10);
+      expect(list.head.val).to.equal(10);
+      expect(list.length).to.equal(1);
+    });
+    it("insert should invoke push if index is equal to length", () => {
+      list.push(10);
+      expect(list.insert(1, 30)).to.be.a("object");
+      expect(list.tail.val).to.equal(30);
+      expect(list.head.val).to.equal(10);
+      expect(list.length).to.equal(2);
+    });
+    it("insert should update length is list is greater than 1 and index isn't at beginning or end", () => {
+      list.push(10);
+      list.push(20);
+      list.push(30);
+      expect(list.insert(1, 100)).to.be.a("object");
+      expect(list.tail.val).to.equal(30);
+      expect(list.head.val).to.equal(10);
+      expect(list.length).to.equal(4);
+      expect(list.head.next.val).to.equal(100);
+    });
   });
 
   describe("MaxStack", () => {
