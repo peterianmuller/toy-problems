@@ -481,6 +481,28 @@ describe("toy problems", () => {
       expect(testNode.next).to.equal(null);
       expect(testNode.prev).to.equal(null);
     });
+    it("a new node Doubly Linked List shouldcome with next, prev, and length properties", () => {
+      expect(list).to.be.an("object");
+      expect(list.length).to.equal(0);
+      expect(list.head).to.equal(null);
+      expect(list.tail).to.equal(null);
+    });
+    it("should have a method push that creates a new tail", () => {
+      expect(list.push).to.be.a("function");
+    });
+    it("should update head and tail if list is empty", () => {
+      expect(list.head).to.equal(null);
+      expect(list.tail).to.equal(null);
+      list.push(10);
+      expect(list.head.val).to.equal(10);
+      expect(list.tail.val).to.equal(10);
+    });
+    it("should update tail and length if list is not empty", () => {
+      list.push(10);
+      list.push(20);
+      expect(list.head.val).to.equal(10);
+      expect(list.tail.val).to.equal(20);
+    });
   });
 
   describe("MaxStack", () => {
