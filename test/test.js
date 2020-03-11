@@ -15,6 +15,8 @@ let twoSum = require("../problems/algorithms/two-sum");
 let SinglyLinkedListConstructor = require("../problems/linked-list/linked-list");
 let DoublyLinkedListConstructor = require("../problems/linked-list/doubly-linked-list");
 let longestPalindromeFuncs = require("../problems/string/longest-palindrome");
+let stackWithLL = require("../problems/stack/stack-ll");
+let queueWithLL = require("../problems/queue/queue-ll");
 let maxStackFunctions = require("../problems/stack/max-stack");
 let minStackFunctions = require("../problems/stack/min-stack");
 let QueueTwoStacksFunctions = require("../problems/stack/queue-2-stacks");
@@ -462,9 +464,15 @@ describe("toy problems", () => {
       expect(list.tail.val).to.equal(5);
       expect(list.get(1).val).to.equal(15);
     });
+    it.skip("sort method should sort the list ", () => {
+      list.push(500);
+      list.push(10);
+      list.push(-15);
+      list.push(20);
+    });
   });
 
-  describe.only("DoublyLinkedList", () => {
+  describe("DoublyLinkedList", () => {
     let Node = DoublyLinkedListConstructor.Node;
     let DoublyLinkedList = DoublyLinkedListConstructor.DoublyLinkedList;
     let testNode = new Node(6);
@@ -731,6 +739,99 @@ describe("toy problems", () => {
       expect(list.head.val).to.equal(40);
       expect(list.head.next.val).to.equal(30);
       expect(list.tail.val).to.equal(10);
+    });
+  });
+
+  describe.only("Queue with Linked List", () => {
+    const Node = queueWithLL.Node;
+    const Queue = queueWithLL.Queue;
+    let queue;
+    beforeEach(function() {
+      queue = new Queue();
+    });
+    it("should have a Node constructor", () => {
+      expect(Node).to.be.a("function");
+    });
+    it("should have a Stack constructor", () => {
+      expect(Queue).to.be.a("function");
+    });
+    it("Queue should have a enqueue method", () => {
+      expect(queue.enqueue).to.be.a("function");
+    });
+    it("Queue should have update both first and last nodes if queue is empty", () => {
+      expect(queue.first).to.equal(null);
+      expect(queue.last).to.equal(null);
+      expect(queue.size).to.equal(0);
+      queue.enqueue(10);
+      expect(queue.first.val).to.equal(10);
+      expect(queue.last.val).to.equal(10);
+      expect(queue.size).to.equal(1);
+    });
+    it("Queue should have update both last node if queue is has nodes", () => {
+      queue.enqueue(10);
+      expect(queue.first.val).to.equal(10);
+      expect(queue.last.val).to.equal(10);
+      expect(queue.size).to.equal(1);
+      queue.enqueue(20);
+      expect(queue.first.val).to.equal(10);
+      expect(queue.last.val).to.equal(20);
+      expect(queue.size).to.equal(2);
+    });
+    it("Queue should have a deque method", () => {
+      expect(queue.dequeue).to.be.a("function");
+    });
+    it("deque method should return false if stack is empty ", () => {
+      expect(queue.dequeue()).to.equal(false);
+    });
+    it("deque method should return the most recently added item ", () => {
+      queue.enqueue(10);
+      queue.enqueue(20);
+      queue.enqueue(30);
+      expect(queue.dequeue()).to.equal(2);
+      expect(queue.dequeue()).to.equal(1);
+      expect(queue.dequeue()).to.equal(0);
+      expect(queue.dequeue()).to.equal(false);
+    });
+  });
+
+  describe("Stack with Linked List", () => {
+    const Node = stackWithLL.Node;
+    const Stack = stackWithLL.Stack;
+    let stack;
+    beforeEach(function() {
+      stack = new Stack();
+    });
+    it("should have a Node constructor", () => {
+      expect(Node).to.be.a("function");
+    });
+    it("should have a Stack constructor", () => {
+      expect(Stack).to.be.a("function");
+    });
+    it("Stack should have a push method", () => {
+      expect(stack.push).to.be.a("function");
+    });
+    it("push method should add to the list and should return the size", () => {
+      expect(stack.size).to.equal(0);
+      stack.push(10);
+      expect(stack.size).to.equal(1);
+      expect(stack.push(20)).to.equal(2);
+    });
+    it("Stack should have a pop method", () => {
+      expect(stack.pop).to.be.a("function");
+    });
+    it("pop method should return false if stack is empty ", () => {
+      expect(stack.pop()).to.equal(false);
+    });
+    it("pop method should return the most recently added item ", () => {
+      stack.push(10);
+      stack.push(20);
+      stack.push(30);
+      expect(stack.pop()).to.equal(2);
+      expect(stack.first.val).to.equal(20);
+      expect(stack.pop()).to.equal(1);
+      expect(stack.first.val).to.equal(10);
+      expect(stack.pop()).to.equal(0);
+      expect(stack.first).to.equal(null);
     });
   });
 
