@@ -266,7 +266,7 @@ describe("toy problems", () => {
     });
   });
 
-  describe.only("SinglyLinkedList", () => {
+  describe("SinglyLinkedList", () => {
     let Node = SinglyLinkedListConstructor.Node;
     let SinglyLinkedList = SinglyLinkedListConstructor.SinglyLinkedList;
     let testNode = new Node(6);
@@ -464,7 +464,7 @@ describe("toy problems", () => {
     });
   });
 
-  describe.only("DoublyLinkedList", () => {
+  describe("DoublyLinkedList", () => {
     let Node = DoublyLinkedListConstructor.Node;
     let DoublyLinkedList = DoublyLinkedListConstructor.DoublyLinkedList;
     let testNode = new Node(6);
@@ -490,14 +490,14 @@ describe("toy problems", () => {
     it("should have a method push that creates a new tail", () => {
       expect(list.push).to.be.a("function");
     });
-    it("should update head and tail if list is empty", () => {
+    it("push should update head and tail if list is empty", () => {
       expect(list.head).to.equal(null);
       expect(list.tail).to.equal(null);
       list.push(10);
       expect(list.head.val).to.equal(10);
       expect(list.tail.val).to.equal(10);
     });
-    it("should update tail and length if list is not empty", () => {
+    it("push should update tail and length if list is not empty", () => {
       list.push(10);
       list.push(20);
       expect(list.head.val).to.equal(10);
@@ -512,7 +512,7 @@ describe("toy problems", () => {
       list.push(10);
       expect(list.head.val).to.equal(10);
       expect(list.tail.val).to.equal(10);
-      list.pop();
+      expect(list.pop().prev).to.equal(null);
       expect(list.head).to.equal(null);
       expect(list.tail).to.equal(null);
     });
@@ -570,7 +570,6 @@ describe("toy problems", () => {
       expect(list.head.val).to.equal("hello world");
       expect(list.tail.val).to.equal("hello world");
       expect(list.head.prev).to.equal(null);
-      expect(list.tail.prev).to.equal(null);
       expect(list.length).to.equal(1);
     });
     it("shift should reassign head, tail, and length if all noes are shited off", () => {
@@ -614,11 +613,24 @@ describe("toy problems", () => {
     it("get should return node at passed in index", () => {
       list.push(10);
       list.push(20);
+      list.push(30);
+      list.push(40);
       expect(list.get(0)).to.be.a("object");
       expect(list.get(0).val).to.equal(10);
       expect(list.get(1).val).to.equal(20);
-      expect(list.get(2)).to.equal(false);
+      expect(list.get(2).val).to.equal(30);
     });
+
+    it("get should start at tail if the index is closer to the end of the list", () => {
+      list.push(10);
+      list.push(20);
+      list.push(30);
+      list.push(40);
+      list.push(50);
+      list.push(60);
+      expect(list.get(4)).to.be.a("object");
+    });
+
     it("should have a method set", () => {
       expect(list.set).to.be.a("function");
     });

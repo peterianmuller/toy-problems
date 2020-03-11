@@ -44,6 +44,7 @@ class DoublyLinkedList {
       // save temporary variable to tail
       this.tail = this.tail.prev;
       this.tail.next = null;
+      oldTail.prev = null;
     }
     // assign tail to current tail's previous property
     this.length--;
@@ -57,15 +58,17 @@ class DoublyLinkedList {
     // set head.next prev's pointer to null
     // reassign head to head.next
     // decrement length by 1
+    // remember to sever bonds of arhcaic nodes
     if (this.length === 0) return false;
     let oldHead = this.head;
     if (this.length === 1) {
       this.head = null;
       this.tail = null;
     } else {
-      this.head.next.prev = null;
-      this.head = this.head.next;
+      this.head = oldHead.next;
+      this.head.prev = null;
     }
+    oldHead.next = null;
     this.length--;
     return oldHead;
   }
@@ -89,14 +92,27 @@ class DoublyLinkedList {
   get(index) {
     // if index is less than 0 or is equal to or greater than this.length return false
     // set currentNode to head
+    // check if index is closer to tail or head
+
     // iterate from 0 to index
     // reassign currentNode to currentNode.next
     // return currentNode
     if (index < 0 || index >= this.length) return false;
-    let currentNode = this.head;
-    for (let i = 0; i < index; i++) {
-      currentNode = currentNode.next;
+    if (index === 0) return this.head;
+    if (index === this.length - 1) return this.tail;
+    let start = index < this.length / 2 ? 0 : this.length - 1;
+    let currentNode = start ? this.tail : this.head;
+
+    if (start) {
+      for (let i = start; i > index; i--) {
+        currentNode = currentNode.prev;
+      }
+    } else {
+      for (let i = start; i < index; i++) {
+        currentNode = currentNode.next;
+      }
     }
+
     return currentNode;
   }
   set(index, val) {
@@ -140,6 +156,8 @@ class DoublyLinkedList {
     let nodeToDelete = this.get(index);
     nodeToDelete.next.prev = nodeToDelete.prev;
     nodeToDelete.prev.next = nodeToDelete.next;
+    nodeToDelete.prev = null;
+    nodeToDelete.next = null;
     this.length--;
     return nodeToDelete;
   }
