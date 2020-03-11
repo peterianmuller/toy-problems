@@ -464,7 +464,7 @@ describe("toy problems", () => {
     });
   });
 
-  describe("DoublyLinkedList", () => {
+  describe.only("DoublyLinkedList", () => {
     let Node = DoublyLinkedListConstructor.Node;
     let DoublyLinkedList = DoublyLinkedListConstructor.DoublyLinkedList;
     let testNode = new Node(6);
@@ -640,8 +640,8 @@ describe("toy problems", () => {
     it("set should update val for node at index passed in", () => {
       list.push(10);
       list.push(20);
-      expect(list.set(1, 100).val).to.equal(100);
-      expect(list.set(0, -100).val).to.equal(-100);
+      expect(list.set(1, 100));
+      expect(list.set(0, -100));
       expect(list.tail.val).to.equal(100);
       expect(list.head.val).to.equal(-100);
       expect(list.length).to.equal(2);
@@ -702,6 +702,35 @@ describe("toy problems", () => {
       expect(list.tail.val).to.equal(10);
       expect(list.head.val).to.equal(90);
       expect(list.length).to.equal(2);
+    });
+
+    it("should have a method reverse", () => {
+      expect(list.reverse).to.be.a("function");
+    });
+
+    it("reverse should return false if list is empty", () => {
+      expect(list.reverse()).to.equal(undefined);
+    });
+
+    it("reverse should swap head and tail", () => {
+      list.push(10);
+      list.reverse();
+      expect(list.head.val).to.equal(10);
+      expect(list.tail.val).to.equal(10);
+    });
+
+    it("reverse should swap head and tail and inner nodes", () => {
+      list.push(10);
+      list.push(20);
+      list.push(30);
+      list.push(40);
+      expect(list.head.val).to.equal(10);
+      expect(list.tail.val).to.equal(40);
+      expect(list.tail.prev.val).to.equal(30);
+      list.reverse();
+      expect(list.head.val).to.equal(40);
+      expect(list.head.next.val).to.equal(30);
+      expect(list.tail.val).to.equal(10);
     });
   });
 

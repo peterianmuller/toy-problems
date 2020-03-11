@@ -29,7 +29,7 @@ class DoublyLinkedList {
       this.tail = newTail;
     }
     this.length++;
-    return newTail;
+    return this;
   }
 
   pop() {
@@ -116,14 +116,16 @@ class DoublyLinkedList {
     return currentNode;
   }
   set(index, val) {
-    // if index is less than zero or equal to or greater than length return false
+    // don't need to do checking for bad indexes here b/c we do that in get
     // get node at index using get
     // assign val at that node to passed in val
     // return new node
-    if (index < 0 || index >= this.length) return false;
     let nodeToUpdate = this.get(index);
-    nodeToUpdate.val = val;
-    return nodeToUpdate;
+    if (nodeToUpdate) {
+      nodeToUpdate.val = val;
+      return true;
+    }
+    return false;
   }
   insert(index, val) {
     // if index is less than zero or equal to or greater than length return false
@@ -160,6 +162,37 @@ class DoublyLinkedList {
     nodeToDelete.next = null;
     this.length--;
     return nodeToDelete;
+  }
+
+  reverse() {
+    // if length is 0 return undefined
+    if (this.length === 0) return undefined;
+    // set reference to oldHead
+    let oldHead = this.head;
+    // swap head and tail
+    this.head = this.tail;
+    // start at oldHead
+    this.tail = oldHead;
+    // set prev to null
+    // declare next
+    let prev = null;
+    let next;
+    // iterate from 0 to this.length - 1
+    for (let i = 0; i < this.length; i++) {
+      next = oldHead.next;
+      oldHead.next = prev;
+      oldHead.prev = next;
+      prev = oldHead;
+      oldHead = next;
+    }
+    // set next to oldHead.next
+    // set next prop on oldHead to prev
+    // set prev prop on holdHead to next
+    // reassign prev to oldHead
+    // reassign oldHead to next
+    // decrement length
+    // return this
+    return this;
   }
 }
 
