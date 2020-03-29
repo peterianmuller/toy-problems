@@ -24,8 +24,9 @@ class Queue {
       this.first = newLast;
       this.last = newLast;
     } else {
-      let oldLast = this.last;
-      oldLast.next = newLast;
+      // let oldLast = this.last;
+      // oldLast.next = newLast;
+      this.last.next = newLast;
       this.last = newLast;
     }
 
@@ -43,7 +44,8 @@ class Queue {
     this.first = oldFirst.next;
     oldFirst.next = null;
     if (this.first === null) this.last = null;
-    return --this.size;
+    --this.size;
+    return oldFirst.val;
   }
 }
 

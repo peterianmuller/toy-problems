@@ -46,6 +46,7 @@ let minSubArrLength = require("../problems/array/min-subarray-length.js");
 let smallestIntNotInArr = require("../problems/array/smallest-int-not-in-arr.js");
 let sentenceReverse = require("../problems/array/sentence-reverse.js");
 let BstSmallerThanN = require("../problems/tree/largest-smaller-than-n-bst.js");
+let BinarySearchTree = require("../problems/tree/bst-class.js");
 
 describe("toy problems", () => {
   describe("fibonacci", () => {
@@ -464,12 +465,7 @@ describe("toy problems", () => {
       expect(list.tail.val).to.equal(5);
       expect(list.get(1).val).to.equal(15);
     });
-    it.skip("sort method should sort the list ", () => {
-      list.push(500);
-      list.push(10);
-      list.push(-15);
-      list.push(20);
-    });
+    it("sort method should sort the list ", () => {});
   });
 
   describe("DoublyLinkedList", () => {
@@ -742,7 +738,7 @@ describe("toy problems", () => {
     });
   });
 
-  describe.only("Queue with Linked List", () => {
+  describe("Queue with Linked List", () => {
     const Node = queueWithLL.Node;
     const Queue = queueWithLL.Queue;
     let queue;
@@ -1498,24 +1494,6 @@ describe("toy problems", () => {
       );
     });
   });
-
-  // describe("sentenceReverse", () => {
-  //   it("should be a function", () => {
-  //     expect(sentenceReverse).to.be.a("function");
-  //   });
-  //   it("should reverse the order of the words in the array", () => {
-  //     // prettier-ignore
-  //     let input =
-  //       [ 'p', 'e', 'r', 'f', 'e', 'c', 't', '  ',
-  //               'm', 'a', 'k', 'e', 's', '  ',
-  //               'p', 'r', 'a', 'c', 't', 'i', 'c', 'e' ];
-  //     // prettier-ignore
-  //     expect(input).to.eql(
-  //       [ 'p', 'r', 'a', 'c', 't', 'i', 'c', 'e', '  ',
-  //         'm', 'a', 'k', 'e', 's', '  ',
-  //         'p', 'e', 'r', 'f', 'e', 'c', 't' ]);
-  //   });
-  // });
   describe("BstSmallerThanN", () => {
     let bst = new BstSmallerThanN.BinarySearchTree();
     it("should come with a Node constructor", () => {
@@ -1546,5 +1524,25 @@ describe("toy problems", () => {
       bst.insert(24);
       expect(bst.findLargestSmallerKey(100)).to.eql(90);
     });
+  });
+});
+
+describe.only("bst-class", () => {
+  let Node = BinarySearchTree.TreeNode;
+  let BST = BinarySearchTree.bstConstructor;
+  let tree, testNode;
+  beforeEach(function() {
+    testNode = new Node(10);
+    tree = new BST();
+  });
+  it("should come with a Node and a BST constructor", () => {
+    expect(Node).to.be.a("function");
+    expect(BST).to.be.a("function");
+  });
+  it("Node and BST constructors should come with default values", () => {
+    expect(testNode.left).to.eql(null);
+    expect(testNode.right).to.eql(null);
+    expect(tree.root).to.eql(null);
+    expect(tree.size).to.eql(0);
   });
 });
