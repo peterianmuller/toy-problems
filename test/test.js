@@ -1577,4 +1577,12 @@ describe.only("Graph", () => {
     graph.addEdge(100, 90);
     expect(graph.storage[100]).to.eql([10]);
   });
+  it("should have a remove vertex method", () => {
+    expect(graph.removeVertex).to.be.a("function");
+    expect(graph.removeVertex(-6)).to.eql(undefined);
+    graph.addEdge(10, 100);
+    expect(graph.storage[10]).to.eql([100]);
+    graph.removeVertex(100);
+    expect(graph.storage[10]).to.eql([]);
+  });
 });
