@@ -1553,6 +1553,8 @@ describe.only("Graph", () => {
   let graph;
   beforeEach(function() {
     graph = new graphConstructor();
+    graph.addVertex(10);
+    graph.addVertex(100);
   });
   it("should come with a Graph constructor", () => {
     expect(graphConstructor).to.be.a("function");
@@ -1560,5 +1562,19 @@ describe.only("Graph", () => {
 
   it("Graph constructor should come with a storage property", () => {
     expect(graph.storage).to.be.a("object");
+  });
+
+  it("should have an add vertex method", () => {
+    expect(graph.addVertex).to.be.a("function");
+    expect(graph.storage[10]).to.eql([]);
+    expect(graph.storage[11]).to.eql(undefined);
+  });
+  it("should have an add edge method", () => {
+    expect(graph.addEdge).to.be.a("function");
+    expect(graph.storage[100]).to.eql([]);
+    graph.addEdge(100, 10);
+    expect(graph.storage[100]).to.eql([10]);
+    graph.addEdge(100, 90);
+    expect(graph.storage[100]).to.eql([10]);
   });
 });
