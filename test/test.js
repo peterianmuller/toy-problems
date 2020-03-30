@@ -41,12 +41,13 @@ let avoidObstacles = require("../problems/array/avoid-obstacles");
 let maxSubarraySum = require("../problems/array/max-subarray-sum");
 let isIsogram = require("../problems/string/isogram");
 let getShortestUniqueSubstring = require("../problems/array/get-shortest-unique-substring");
-let compareArrayOfNumsAndArrayOfSquares = require("../problems/array/compare-array-of-nums-and-array-of-squares.js");
-let minSubArrLength = require("../problems/array/min-subarray-length.js");
-let smallestIntNotInArr = require("../problems/array/smallest-int-not-in-arr.js");
+let compareArrayOfNumsAndArrayOfSquares = require("../problems/array/compare-array-of-nums-and-array-of-squares");
+let minSubArrLength = require("../problems/array/min-subarray-length");
+let smallestIntNotInArr = require("../problems/array/smallest-int-not-in-arr");
 let sentenceReverse = require("../problems/array/sentence-reverse.js");
-let BstSmallerThanN = require("../problems/tree/largest-smaller-than-n-bst.js");
-let BinarySearchTree = require("../problems/tree/bst-class.js");
+let BstSmallerThanN = require("../problems/tree/largest-smaller-than-n-bst");
+let BinarySearchTree = require("../problems/tree/bst-class");
+let Graph = require("../problems/graph/Graph");
 
 describe("toy problems", () => {
   describe("fibonacci", () => {
@@ -1527,7 +1528,7 @@ describe("toy problems", () => {
   });
 });
 
-describe.only("bst-class", () => {
+describe("bst-class", () => {
   let Node = BinarySearchTree.TreeNode;
   let BST = BinarySearchTree.bstConstructor;
   let tree, testNode;
@@ -1544,5 +1545,20 @@ describe.only("bst-class", () => {
     expect(testNode.right).to.eql(null);
     expect(tree.root).to.eql(null);
     expect(tree.size).to.eql(0);
+  });
+});
+
+describe.only("Graph", () => {
+  let graphConstructor = Graph;
+  let graph;
+  beforeEach(function() {
+    graph = new graphConstructor();
+  });
+  it("should come with a Graph constructor", () => {
+    expect(graphConstructor).to.be.a("function");
+  });
+
+  it("Graph constructor should come with a storage property", () => {
+    expect(graph.storage).to.be.a("object");
   });
 });
