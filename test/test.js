@@ -1584,5 +1584,29 @@ describe.only("Graph", () => {
     expect(graph.storage[10]).to.eql([100]);
     graph.removeVertex(100);
     expect(graph.storage[10]).to.eql([]);
+    graph.removeVertex(10);
+    expect(graph.storage).to.eql({});
+  });
+  it("should have a removeEdge method", () => {
+    graph.addVertex(50);
+    expect(graph.removeEdge).to.be.a("function");
+    expect(graph.removeEdge(-6, 100)).to.eql(undefined);
+    graph.addEdge(10, 100);
+    graph.addEdge(50, 100);
+    expect(graph.storage[50]).to.eql([100]);
+    graph.removeEdge(50, 100);
+    expect(graph.storage[50]).to.eql([]);
+  });
+  it("should have a isVertex method", () => {
+    expect(graph.isVertex).to.be.a("function");
+    expect(graph.isVertex(-6)).to.eql(false);
+    expect(graph.isVertex(10)).to.eql(true);
+  });
+  it("should have a neighbors method", () => {
+    expect(graph.neighbors).to.be.a("function");
+    expect(graph.neighbors(-6)).to.eql(null);
+    expect(graph.neighbors(10)).to.eql([]);
+    graph.addEdge(10, 100);
+    expect(graph.neighbors(10)).to.eql([100]);
   });
 });
