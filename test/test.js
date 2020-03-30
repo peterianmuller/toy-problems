@@ -1603,10 +1603,26 @@ describe.only("Graph", () => {
     expect(graph.isVertex(10)).to.eql(true);
   });
   it("should have a neighbors method", () => {
-    expect(graph.neighbors).to.be.a("function");
-    expect(graph.neighbors(-6)).to.eql(null);
-    expect(graph.neighbors(10)).to.eql([]);
+    expect(graph.getNeighbors).to.be.a("function");
+    expect(graph.getNeighbors(-6)).to.eql(null);
+    expect(graph.getNeighbors(10)).to.eql([]);
     graph.addEdge(10, 100);
-    expect(graph.neighbors(10)).to.eql([100]);
+    expect(graph.getNeighbors(10)).to.eql([100]);
+  });
+  it("should have a bfs method", () => {
+    expect(graph.bfs).to.be.a("function");
+    for (let i = 0; i < 5; i++) {
+      graph.addVertex(i);
+    }
+    for (let i = 0; i < 5; i++) {
+      if (i === 4) {
+        graph.addEdge(i, 0);
+      } else {
+        graph.addEdge(i, i + 1);
+      }
+    }
+    expect(graph.bfs(0)).to.eql([0, 1, 2, 3, 4]);
+    graph.addEdge(0, 3);
+    expect(graph.bfs(0)).to.eql([0, 1, 3, 2, 4]);
   });
 });

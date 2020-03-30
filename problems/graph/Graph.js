@@ -45,8 +45,40 @@ class Graph {
     return this.storage[id] ? true : false;
   }
 
-  neighbors(id) {
+  getNeighbors(id) {
     return this.storage[id] ? this.storage[id] : null;
+  }
+
+  bfs(start, arr = []) {
+    // declare queue set to array
+    // declare seen set to new set
+    // add first elment to queue
+    // while queue is not empty
+    // dequeue element and add it to seen
+    // iterate over neighbors
+    // if neghbor exists in seen do nothing
+    // otherwise add to seen and add to queue
+    // run callback on dequeued element
+    let queue = [];
+    let seen = new Set();
+    queue.push(start);
+    while (queue.length) {
+      let vertex = queue.shift();
+      seen.add(vertex);
+      console.log(vertex);
+      console.log(this.getNeighbors(vertex));
+      let neighbors = this.getNeighbors(vertex);
+      console.log("should be array one element", neighbors);
+      for (let i = 0; i < neighbors.length; i++) {
+        let neighbor = neighbors[i];
+        if (!seen.has(neighbor)) {
+          queue.push(neighbor);
+          seen.add(neighbor);
+        }
+      }
+      arr.push(vertex);
+    }
+    return arr;
   }
 }
 
